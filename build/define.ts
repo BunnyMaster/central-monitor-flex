@@ -1,6 +1,3 @@
 export const define = () => {
-
-    return {
-
-    }
-}
+	return {};
+};

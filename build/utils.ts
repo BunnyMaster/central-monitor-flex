@@ -1,6 +1,8 @@
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadEnv } from 'vite';
+import { visualizer } from 'rollup-plugin-visualizer';
+import viteCompression from 'vite-plugin-compression';
 
 export const root: string = process.cwd();
 
@@ -31,7 +33,20 @@ export const pathResolve = (dir = '.', metaUrl = import.meta.url) => {
  * @param prefix 需要过滤的前缀
  * @link 参考：https://cn.vite.dev/config/#using-environment-variables-in-config
  */
-export const wrapperEnv = (mode, prefix = '') => {
+export const wrapperEnv = (mode, prefix = ''): ViteEnv => {
 	const env = loadEnv(mode, root, prefix);
 	return env;
+};
+
+/* 打包分析 */
+export const report = () => {
+	const lifecycle = process.env.npm_lifecycle_event;
+	return lifecycle === 'report' ? visualizer({ open: true, brotliSize: true, filename: 'report.html' }) : (null as any);
+};
+
+/* 启用gzip压缩 */
+export const compressPack = mode => {
+	const { VITE_COMPRESSION } = wrapperEnv(mode);
+
+	return VITE_COMPRESSION == 'gzip' ? viteCompression({ threshold: 1024000 }) : null;
 };

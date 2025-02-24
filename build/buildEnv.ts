@@ -1,4 +1,4 @@
-import { BuildOptions } from 'vite';
+import type { BuildOptions } from 'vite';
 import { pathResolve } from './utils';
 
 export const buildEnv = (): BuildOptions => {
@@ -9,7 +9,7 @@ export const buildEnv = (): BuildOptions => {
 		outDir: 'docker/dist',
 		// 用于指定使用的代码压缩工具。在这里，minify 被设置为 'terser'，表示使用 Terser 进行代码压缩。默认值terser
 		// esbuild 打包更快，但是不能去除 console.log，terser打包慢，但能去除 console.log
-		minify: 'terser',
+		minify: 'terser', // "esbuild"
 		// 用于配置 Terser 的选项
 		terserOptions: {
 			// 用于配置压缩选项
@@ -43,7 +43,6 @@ export const buildEnv = (): BuildOptions => {
 					// 如果是包含在包中则打包成 vendor
 					if (id.includes('node_modules')) {
 						return `vendor`;
-						// return id.toString().split('node_modules/')[1].split('/')[1].toString();
 					}
 				},
 			},

@@ -9,14 +9,13 @@ import { exclude, include } from './build/optimize';
 
 // https://vite.dev/config/
 export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
-	// 加载前面带有 VITE 的环境变量
 	const env = wrapperEnv(mode, 'VITE');
 
 	return {
 		root,
 		base: env.VITE_PUBLIC_PATH,
 		define: define(),
-		plugins: plugins(),
+		plugins: plugins(mode),
 		resolve: resolve(),
 		esbuild: {
 			jsxFactory: 'h',
