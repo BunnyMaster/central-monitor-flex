@@ -1,5 +1,5 @@
 {
-  "name": "dashboard-template",
+  "name": "vehicle-monitor",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -12,6 +12,7 @@
     "lint": "pnpm lint:eslint && pnpm lint:prettier && pnpm lint:stylelint"
   },
   "dependencies": {
+    "@eslint/js": "^9.21.0",
     "@typescript-eslint/eslint-plugin": "^8.24.1",
     "@typescript-eslint/parser": "^8.24.1",
     "@unocss/preset-icons": "^66.0.0",
@@ -22,7 +23,7 @@
     "boxen": "^8.0.1",
     "dayjs": "^1.11.13",
     "echarts": "^5.5.1",
-    "eslint": "^9.9.1",
+    "eslint": "^9.21.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-define-config": "^2.1.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -33,6 +34,9 @@
     "nprogress": "^0.2.0",
     "pinia": "^2.3.1",
     "pinia-plugin-persistedstate": "^3.2.3",
+    "postcss": "^8.5.3",
+    "postcss-loader": "^8.1.1",
+    "postcss-px-to-viewport-8-plugin": "^1.2.5",
     "prettier": "^3.3.3",
     "rimraf": "^5.0.10",
     "rollup-plugin-visualizer": "^5.14.0",
@@ -48,6 +52,7 @@
     "vite-plugin-remove-console": "^2.2.0",
     "vite-plugin-vue-inspector": "^5.3.1",
     "vue": "^3.5.13",
+    "vue-eslint-parser": "^9.4.3",
     "vue-router": "^4.4.3",
     "vue-types": "^6.0.0"
   },

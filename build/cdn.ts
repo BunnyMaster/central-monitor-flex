@@ -1,5 +1,5 @@
-import { Plugin as importToCDN } from 'vite-plugin-cdn-import';
-import { wrapperEnv } from './utils';
+import { Plugin as importToCDN } from "vite-plugin-cdn-import";
+import { wrapperEnv } from "./utils";
 
 /**
  * @description 打包时采用`cdn`模式，仅限外网使用（默认不采用，如果需要采用cdn模式，请在 .env.production 文件，将 VITE_CDN 设置成true）
@@ -7,61 +7,61 @@ import { wrapperEnv } from './utils';
  * 注意：上面提到的仅限外网使用也不是完全肯定的，如果你们公司内网部署的有相关js、css文件，也可以将下面配置对应改一下，整一套内网版cdn
  */
 export const cdn = importToCDN({
-	//（prodUrl解释： name: 对应下面modules的name，version: 自动读取本地package.json中dependencies依赖中对应包的版本号，path: 对应下面modules的path，当然也可写完整路径，会替换prodUrl）
-	// prodUrl: 'https://cdn.bootcdn.net/ajax/libs/{name}/{version}/{path}',
-	prodUrl: 'https://unpkg.com/{name}@{version}/{path}',
-	modules: [
-		{
-			name: 'vue',
-			var: 'Vue',
-			path: 'dist/vue.global.prod.js',
-		},
-		{
-			name: 'vue-router',
-			var: 'VueRouter',
-			path: 'dist/vue-router.global.js',
-		},
-		// {
-		// 	name: 'vue-i18n',
-		// 	var: 'VueI18n',
-		// 	path: 'dist/vue-i18n.global.prod.js',
-		// },
-		// {
-		// 	name: 'vue-demi',
-		// 	var: 'VueDemi',
-		// 	path: 'lib/index.iife.js',
-		// },
-		{
-			name: 'pinia',
-			var: 'Pinia',
-			path: 'dist/pinia.iife.js',
-		},
-		// {
-		// 	name: 'element-plus',
-		// 	var: 'ElementPlus',
-		// 	path: 'dist/index.full.js',
-		// 	css: 'dist/index.css',
-		// },
-		{
-			name: 'axios',
-			var: 'axios',
-			path: 'dist/axios.min.js',
-		},
-		{
-			name: 'dayjs',
-			var: 'dayjs',
-			path: 'dayjs.min.js',
-		},
-		{
-			name: 'echarts',
-			var: 'echarts',
-			path: 'dist/echarts.min.js',
-		},
-	],
+  //（prodUrl解释： name: 对应下面modules的name，version: 自动读取本地package.json中dependencies依赖中对应包的版本号，path: 对应下面modules的path，当然也可写完整路径，会替换prodUrl）
+  // prodUrl: 'https://cdn.bootcdn.net/ajax/libs/{name}/{version}/{path}',
+  prodUrl: "https://unpkg.com/{name}@{version}/{path}",
+  modules: [
+    {
+      name: "vue",
+      var: "Vue",
+      path: "dist/vue.global.prod.js",
+    },
+    {
+      name: "vue-router",
+      var: "VueRouter",
+      path: "dist/vue-router.global.js",
+    },
+    // {
+    // 	name: 'vue-i18n',
+    // 	var: 'VueI18n',
+    // 	path: 'dist/vue-i18n.global.prod.js',
+    // },
+    // {
+    // 	name: 'vue-demi',
+    // 	var: 'VueDemi',
+    // 	path: 'lib/index.iife.js',
+    // },
+    {
+      name: "pinia",
+      var: "Pinia",
+      path: "dist/pinia.iife.js",
+    },
+    // {
+    // 	name: 'element-plus',
+    // 	var: 'ElementPlus',
+    // 	path: 'dist/index.full.js',
+    // 	css: 'dist/index.css',
+    // },
+    {
+      name: "axios",
+      var: "axios",
+      path: "dist/axios.min.js",
+    },
+    {
+      name: "dayjs",
+      var: "dayjs",
+      path: "dayjs.min.js",
+    },
+    {
+      name: "echarts",
+      var: "echarts",
+      path: "dist/echarts.min.js",
+    },
+  ],
 });
 
 /* 是否使用CDN加速 */
-export const useCDN = mode => {
-	const env = wrapperEnv(mode, 'VITE');
-	return env.VITE_CDN ? cdn : null;
+export const useCDN = (mode) => {
+  const env = wrapperEnv(mode, "VITE");
+  return env.VITE_CDN ? cdn : null;
 };
