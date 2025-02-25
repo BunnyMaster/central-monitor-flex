@@ -1,6 +1,6 @@
 declare global {
 	/* 环境便配置 */
-	interface ViteEnv {
+	declare interface ViteEnv {
 		VITE_APP_TITLE: string;
 		VITE_PORT: number;
 		VITE_PUBLIC_PATH: string;

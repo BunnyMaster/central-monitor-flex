@@ -62,7 +62,6 @@ export const cdn = importToCDN({
 
 /* 是否使用CDN加速 */
 export const useCDN = mode => {
-	const { VITE_CDN } = wrapperEnv(mode);
-
-	return VITE_CDN ? cdn : null;
+	const env = wrapperEnv(mode, 'VITE');
+	return env.VITE_CDN ? cdn : null;
 };

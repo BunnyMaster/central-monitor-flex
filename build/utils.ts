@@ -35,6 +35,18 @@ export const pathResolve = (dir = '.', metaUrl = import.meta.url) => {
  */
 export const wrapperEnv = (mode, prefix = ''): ViteEnv => {
 	const env = loadEnv(mode, root, prefix);
+
+	// 将变量转换指定类型
+	for (const envName of Object.keys(env)) {
+		let realName = env[envName].replace(/\\n/g, '\n');
+		realName = realName === 'true' ? true : realName === 'false' ? false : realName;
+
+		if (envName === 'VITE_PORT') {
+			realName = Number(realName);
+		}
+		env[envName] = realName;
+		process.env[envName] = realName;
+	}
 	return env;
 };
 

@@ -1,17 +1,21 @@
 {
   "name": "dashboard-template",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "report": "rimraf dist && vite build"
+    "report": "rimraf dist && vite build",
+    "lint:stylelint": "stylelint --cache --fix \"**/*.{html,vue,css,scss}\" --cache-location node_modules/.cache/stylelint/",
+    "lint": "pnpm lint:eslint && pnpm lint:prettier && pnpm lint:stylelint"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^8.24.1",
     "@typescript-eslint/parser": "^8.24.1",
+    "@unocss/preset-icons": "^66.0.0",
+    "@unocss/reset": "^66.0.0",
     "@vitejs/plugin-vue-jsx": "^4.1.1",
     "animate.css": "^4.1.1",
     "axios": "^1.7.9",
@@ -26,13 +30,20 @@
     "gradient-string": "^3.0.0",
     "js-cookie": "^3.0.5",
     "list": "^2.0.19",
+    "nprogress": "^0.2.0",
     "pinia": "^2.3.1",
     "pinia-plugin-persistedstate": "^3.2.3",
     "prettier": "^3.3.3",
     "rimraf": "^5.0.10",
     "rollup-plugin-visualizer": "^5.14.0",
     "sass": "^1.77.8",
+    "stylelint": "^16.14.1",
+    "stylelint-config-recess-order": "^6.0.0",
+    "stylelint-config-recommended-vue": "^1.6.0",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "stylelint-prettier": "^5.0.3",
     "terser": "^5.39.0",
+    "unocss": "^66.0.0",
     "vite-plugin-cdn-import": "^1.0.1",
     "vite-plugin-remove-console": "^2.2.0",
     "vite-plugin-vue-inspector": "^5.3.1",
@@ -41,6 +52,7 @@
     "vue-types": "^6.0.0"
   },
   "devDependencies": {
+    "@iconify/json": "^2.2.310",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
     "typescript": "~5.7.2",

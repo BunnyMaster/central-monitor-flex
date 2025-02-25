@@ -1,5 +1,9 @@
 import { createApp } from 'vue';
-import './style.css';
+import 'animate.css';
 import App from './App.vue';
+import plugins from '@/plugins';
+import '@unocss/reset/tailwind-compat.css';
+import 'uno.css';
+import 'virtual:unocss-devtools';
 
-createApp(App).mount('#app');
+createApp(App).use(plugins).mount('#app');
