@@ -9,4 +9,6 @@ import plugins from '@/plugins';
 
 import App from './App.vue';
 
-createApp(App).use(plugins).mount('#app');
+const app = createApp(App);
+
+app.use(plugins).mount('#app');

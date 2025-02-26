@@ -1,4 +1,14 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { onMounted, ref } from 'vue';
+
+import { renderEcharts } from '@/layout/components/AppMain/data';
+
+const weekDataChart = ref<HTMLDivElement>();
+
+onMounted(async () => {
+  renderEcharts(weekDataChart);
+});
+</script>
 
 <template>
   <div class="right ml-[20px]">
@@ -9,40 +19,53 @@
       </div>
 
       <!-- 汽车列表 -->
-      <ul class="car-list mt-[32px]">
-        <li class="flex-x-around w-[330px] h-[60px]">
-          <img alt="car-1" src="@/assets/images/layout/car/car-1.png" />
-          <p class="c-white">入卡口（西北门）</p>
-          <span class="dashed-circle c-[#66FFFF] border-b-[#66FFFF]">畅通</span>
+      <ul class="flex-x-around mt-[32px] w-[331px]">
+        <li class="detail-item flex-y-between">
+          <span class="bg-frame c-white">最高进园车流量</span>
+          <span class="bg-frame c-[#66FFFF]">897</span>
         </li>
-        <li class="flex-x-around w-[330px] h-[60px]">
-          <img alt="car-1" src="@/assets/images/layout/car/car-1.png" />
-          <p class="c-white">入卡口（东北门）</p>
-          <span class="dashed-circle c-[#66FFFF] border-b-[#66FFFF]">畅通</span>
-        </li>
-        <li class="flex-x-around w-[330px] h-[60px]">
-          <img alt="car-1" src="@/assets/images/layout/car/car-2.png" />
-          <p class="c-white">入卡口（东北门）</p>
-          <span class="dashed-circle c-[#FFBE44] border-b-[#FFBE44]">拥堵</span>
-        </li>
-        <li class="flex-x-around w-[330px] h-[60px]">
-          <img alt="car-1" src="@/assets/images/layout/car/car-1.png" />
-          <p class="c-white">入卡口（东南门）</p>
-          <span class="dashed-circle c-[#66FFFF] border-b-[#66FFFF]">畅通</span>
+        <li class="detail-item flex-y-between">
+          <span class="bg-frame c-white">最高进园车流量</span>
+          <span class="bg-frame c-[#66FFFF]">494</span>
         </li>
       </ul>
 
-      <!-- 建议 -->
-      <div class="suggest">
-        <h5>车流量建议</h5>
-        <p>
-          高峰时段大量车流量容易造成拥堵，主要由XXX企业、XXX企业的车辆构成，
-          <span class="c-warning-secondary">可建议XXX企业向后延迟15min错峰入园。</span>
-          高峰时段大量车流量容易造成拥堵， 主要由XXX企业、XXX企业的车辆构成
-        </p>
-      </div>
+      <!-- 七天数据 -->
+      <div ref="weekDataChart" class="week-data" />
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.detail-item {
+  width: 162px;
+  height: 111px;
+  text-align: center;
+
+  span:nth-child(1) {
+    width: 161px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    background: url('@/assets/images/bg/bg-frame-2.png') no-repeat center;
+    background-size: cover;
+  }
+
+  span:nth-child(2) {
+    width: 161px;
+    height: 66px;
+    line-height: 66px;
+    font-size: 34px;
+    background: url('@/assets/images/bg/bg-frame-3.png') no-repeat center;
+    background-size: cover;
+  }
+}
+
+.week-data {
+  margin: 71px 0 0 0;
+  width: 325px;
+  height: 205px;
+  transform: scale(1);
+  transform-origin: 0 0;
+}
+</style>

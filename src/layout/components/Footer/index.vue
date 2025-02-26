@@ -9,7 +9,7 @@
         class="rectangle w-[138px] h-[125px] flex-y-center bg-[#0E094D55]"
       >
         <img alt="车辆管理" src="@/assets/images/layout/footer-39.png" />
-        <span class="text-white font-100">车辆管理</span>
+        <span class="font-size-[15px] font-100 text-white">车辆管理</span>
       </li>
     </ul>
   </footer>

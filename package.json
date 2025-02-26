@@ -22,7 +22,7 @@
     "axios": "^1.7.9",
     "boxen": "^8.0.1",
     "dayjs": "^1.11.13",
-    "echarts": "^5.5.1",
+    "echarts": "^5.6.0",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-define-config": "^2.1.0",
@@ -50,6 +50,7 @@
     "vite-plugin-remove-console": "^2.2.0",
     "vite-plugin-vue-inspector": "^5.3.1",
     "vue": "^3.5.13",
+    "vue-echarts": "^7.0.3",
     "vue-eslint-parser": "^9.4.3",
     "vue-router": "^4.4.3",
     "vue-types": "^6.0.0"

@@ -11,11 +11,11 @@
 
     <div class="bar-op flex items-center h-[36px]">
       <ul class="float-left flex-x-around w-[148px]">
-        <li><img alt="icon-1" src="@/assets/images/layout/icon-1.png" /></li>
-        <li><img alt="icon-2" src="@/assets/images/layout/icon-2.png" /></li>
-        <li><img alt="icon-3" src="@/assets/images/layout/icon-3.png" /></li>
+        <li><img alt="icon-1" class="w-[36px]" src="@/assets/images/layout/icon-1.png" /></li>
+        <li><img alt="icon-2" class="w-[36px]" src="@/assets/images/layout/icon-2.png" /></li>
+        <li><img alt="icon-3" class="w-[36px]" src="@/assets/images/layout/icon-3.png" /></li>
       </ul>
-      <span class="float-left c-primary">王菠萝</span>
+      <span class="float-left font-size-[12px] c-primary">王菠萝</span>
     </div>
   </header>
 </template>
@@ -42,7 +42,7 @@ header {
   h2 {
     font-size: 24px;
     line-height: 45px;
-    color: var();
+    font-weight: lighter;
   }
 }
 
