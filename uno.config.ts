@@ -16,11 +16,13 @@ export default defineConfig({
     'flex-x-around': 'flex items-center justify-around',
     'flex-y-center': 'flex flex-col flex-wrap justify-center items-center',
     'flex-y-between': 'flex flex-col flex-wrap justify-between items-center',
+    'flex-y-around': 'flex flex-col flex-wrap justify-around items-center',
   },
   theme: {
     colors: {
       primary: '#027AFF',
       'primary-secondary': '#00FFFF',
+      info: '#7CC1FF',
       warning: '#FFBE44',
       'warning-secondary': '#FEDB65',
     },

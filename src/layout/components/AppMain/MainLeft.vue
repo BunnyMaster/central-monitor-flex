@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="left mr-[20px ]">
+  <div class="left mr-[20px]">
     <div class="pt-[55px] pl-[25px]" style="transform: rotateY(180deg)">
       <!-- 路况 -->
       <div class="road-condition w-[218px] h-[59px]">
@@ -13,27 +13,27 @@
         <li class="flex-x-around w-[330px] h-[60px]">
           <img alt="car-1" src="@/assets/images/layout/car/car-1.png" />
           <p class="c-white">入卡口（西北门）</p>
-          <span class="dashed-circle c-[#66FFFF] border-b-[#66FFFF]">畅通</span>
+          <span class="dashed-circle c-primary-secondary border-b-primary-secondary">畅通</span>
         </li>
         <li class="flex-x-around w-[330px] h-[60px]">
           <img alt="car-1" src="@/assets/images/layout/car/car-1.png" />
           <p class="c-white">入卡口（东北门）</p>
-          <span class="dashed-circle c-[#66FFFF] border-b-[#66FFFF]">畅通</span>
+          <span class="dashed-circle c-primary-secondary border-b-primary-secondary">畅通</span>
         </li>
         <li class="flex-x-around w-[330px] h-[60px]">
           <img alt="car-1" src="@/assets/images/layout/car/car-2.png" />
           <p class="c-white">入卡口（东北门）</p>
-          <span class="dashed-circle c-[#FFBE44] border-b-[#FFBE44]">拥堵</span>
+          <span class="dashed-circle c-warning border-b-warning">拥堵</span>
         </li>
         <li class="flex-x-around w-[330px] h-[60px]">
           <img alt="car-1" src="@/assets/images/layout/car/car-1.png" />
           <p class="c-white">入卡口（东南门）</p>
-          <span class="dashed-circle c-[#66FFFF] border-b-[#66FFFF]">畅通</span>
+          <span class="dashed-circle c-primary-secondary border-b-primary-secondary">畅通</span>
         </li>
       </ul>
 
       <!-- 建议 -->
-      <div class="suggest">
+      <div class="suggest c-white">
         <h5>车流量建议</h5>
         <p>
           高峰时段大量车流量容易造成拥堵，主要由XXX企业、XXX企业的车辆构成，
@@ -64,7 +64,6 @@
     padding: 15px 14px 17px 20px;
     width: 330px;
     height: 157px;
-    color: #fff;
     font-size: 14px;
     background: url('@/assets/images/bg/bg-suggest.png') no-repeat center;
     background-size: cover;

@@ -1,4 +1,7 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import MainCenterItem from '@/layout/components/AppMain/components/MainCenterItem.vue';
+import MainCenterPercent from '@/layout/components/AppMain/components/MainCenterPercent.vue';
+</script>
 
 <template>
   <div class="main-center flex-center">
@@ -9,10 +12,22 @@
 
       <!-- 中间布局 -->
       <div class="main-inner">
-        <div class="main-inner-1">智能管控</div>
-        <div class="main-inner-2">智能管控</div>
-        <div class="main-inner-3">智能管控</div>
-        <div class="main-inner-3">智能管控</div>
+        <div class="pos-relative">
+          <MainCenterItem :count="45" class="top-[37px] left-[40px] w-[175px]" door="西北门" />
+          <MainCenterPercent :percent="44" class="top-[73px] left-[193px]" />
+        </div>
+        <div class="pos-relative">
+          <MainCenterItem :count="67" class="top-[37px] left-[120px] w-[175px]" door="东北门" />
+          <MainCenterPercent :percent="25" class="top-[73px] right-[192px]" />
+        </div>
+        <div class="pos-relative">
+          <MainCenterItem :count="345" class="top-[45px] left-[34px] w-[175px]" door="西南门" />
+          <MainCenterPercent :percent="25" class="top-[40px] left-[193px]" />
+        </div>
+        <div class="pos-relative">
+          <MainCenterItem :count="145" class="top-[45px] left-[130px] w-[175px]" door="东南门" />
+          <MainCenterPercent :percent="44" class="top-[40px] left-[66px]" />
+        </div>
 
         <div class="main-inner-center">
           <div class="main-inner-middle flex-center">
@@ -30,50 +45,55 @@
   height: 650px;
   background: url('@/assets/images/bg/bg-middle.png') no-repeat center;
   background-size: cover;
+}
 
-  .main-center-title {
-    height: 61px;
-    background: url('@/assets/images/bg/bg-main-title.png');
+// 中间部分标题
+.main-center-title {
+  height: 61px;
+  background: url('@/assets/images/bg/bg-main-title.png') no-repeat center;
+  background-size: cover;
 
-    h1 {
-      font-size: 22px;
-      text-align: center;
-    }
-  }
-
-  // 中间部分四个部分
-  .main-inner {
-    margin: 28px 0 77px 0;
-    width: 666px;
-    position: relative;
-    height: 400px;
-    background: url('@/assets/images/bg/bg-main-1.png') no-repeat center;
-    background-size: cover;
+  h1 {
+    font-size: 22px;
+    text-align: center;
   }
 }
 
-// 中心智能管控
-.main-inner-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 138px;
-  height: 138px;
+// 中间部分四个部分
+.main-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  position: relative;
+  margin: 28px 0 77px 0;
+  width: 666px;
+  height: 400px;
+  background: url('@/assets/images/bg/bg-main-1.png') no-repeat center;
+  background-size: cover;
 
-  .main-inner-middle {
-    width: 100%;
-    height: 100%;
-    background: url('@/assets/images/bg/bg-main-center.png');
-    background-size: cover;
-    animation: rotate 30s linear infinite;
-  }
+  // 中心智能管控
+  .main-inner-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 138px;
+    height: 138px;
 
-  h1 {
-    width: 53px;
-    font-size: 19px;
-    text-align: center;
-    animation: rotate-reverse 30s linear infinite;
+    .main-inner-middle {
+      width: 100%;
+      height: 100%;
+      background: url('@/assets/images/bg/bg-main-center.png');
+      background-size: cover;
+      animation: rotate 30s linear infinite;
+    }
+
+    h1 {
+      width: 53px;
+      font-size: 19px;
+      text-align: center;
+      animation: rotate-reverse 30s linear infinite;
+    }
   }
 }
 </style>
