@@ -13,7 +13,10 @@ const option = ref<EChartsOption>({
   },
   tooltip: {},
   legend: {
-    data: ['出园', '入园'],
+    data: [
+      { name: '出园', icon: 'rect', itemStyle: { color: '#4182FF' } },
+      { name: '入园', icon: 'rect', itemStyle: { color: '#00FFFF' } },
+    ],
     icon: 'rect',
     right: 0,
     top: 0,
@@ -21,10 +24,6 @@ const option = ref<EChartsOption>({
     orient: 'horizontal',
     align: 'left',
     textStyle: { fontSize: 14, color: '#fff' },
-    data: [
-      { name: '出园', icon: 'rect', itemStyle: { color: '#4182FF' } },
-      { name: '入园', icon: 'rect', itemStyle: { color: '#00FFFF' } },
-    ],
   },
   xAxis: {
     type: 'category',
@@ -50,12 +49,6 @@ const option = ref<EChartsOption>({
       type: 'line',
       data: [3, 9, 2, 8, 3, 4, 8],
       smooth: true,
-      itemStyle: {
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-          { offset: 0, color: '#00FFFF' },
-          { offset: 1, color: 'rgba(0,255,255,0)' },
-        ]),
-      },
       symbol: 'circle',
       symbolSize: 10,
       areaStyle: {
