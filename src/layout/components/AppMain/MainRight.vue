@@ -5,7 +5,7 @@ import { renderEcharts } from '@/layout/components/AppMain/data';
 
 const weekDataChart = ref<HTMLDivElement>();
 
-onMounted(async () => {
+onMounted(() => {
   renderEcharts(weekDataChart);
 });
 </script>

@@ -1,8 +1,9 @@
 import 'echarts/lib/component/dataZoom';
 
 import type { EChartsOption } from 'echarts';
-import * as echarts from 'echarts';
 import { type Ref, ref } from 'vue';
+
+import echarts from '@/plugins/echarts';
 
 const option = ref<EChartsOption>({
   backgroundColor: 'transparent',
@@ -94,11 +95,8 @@ const option = ref<EChartsOption>({
 });
 
 export const renderEcharts = (element: Ref<HTMLDivElement>) => {
-  // 基于准备好的dom，初始化echarts实例
   const myChart = echarts.init(element.value, null, {
     renderer: 'svg',
   });
-
-  // 使用刚指定的配置项和数据显示图表。
   myChart.setOption(option.value);
 };

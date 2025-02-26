@@ -1,6 +1,7 @@
 import type { App } from 'vue';
 
 import { setupDirective } from '@/directive';
+import { useEcharts } from '@/plugins/echarts';
 import { setUpRouter } from '@/router';
 import { setupStore } from '@/store';
 
@@ -12,5 +13,7 @@ export default {
     setupStore(app);
     // 设置指令
     setupDirective(app);
+    // 按需引入echarts
+    useEcharts(app);
   },
 };
