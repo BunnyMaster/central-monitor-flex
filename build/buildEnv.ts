@@ -1,15 +1,16 @@
-import type { BuildOptions } from "vite";
-import { pathResolve } from "./utils";
+import type { BuildOptions } from 'vite';
+
+import { pathResolve } from './utils';
 
 export const buildEnv = (): BuildOptions => {
   return {
-    target: "es2015",
+    target: 'es2015',
     assetsInlineLimit: 20000,
     // 构建输出的目录，默认值为"dist"
-    outDir: "docker/dist",
+    outDir: 'docker/dist',
     // 用于指定使用的代码压缩工具。在这里，minify 被设置为 'terser'，表示使用 Terser 进行代码压缩。默认值terser
     // esbuild 打包更快，但是不能去除 console.log，terser打包慢，但能去除 console.log
-    minify: "terser", // "esbuild"
+    minify: 'terser', // "esbuild"
     // 用于配置 Terser 的选项
     terserOptions: {
       // 用于配置压缩选项
@@ -30,18 +31,18 @@ export const buildEnv = (): BuildOptions => {
     // 规定触发警告的 chunk 大小, 当某个代码分块的大小超过该限制时，Vite 会发出警告
     chunkSizeWarningLimit: 2000,
     rollupOptions: {
-      external: ["md-editor-v3", "echarts"],
+      external: ['md-editor-v3', 'echarts'],
       input: {
-        index: pathResolve("../index.html", import.meta.url),
+        index: pathResolve('../index.html', import.meta.url),
       },
       // 静态资源分类打包
       output: {
-        chunkFileNames: "static/js/[name]-[hash].js",
-        entryFileNames: "static/js/[name]-[hash].js",
-        assetFileNames: "static/[ext]/[name]-[hash].[ext]",
+        chunkFileNames: 'static/js/[name]-[hash].js',
+        entryFileNames: 'static/js/[name]-[hash].js',
+        assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
         manualChunks: (id) => {
           // 如果是包含在包中则打包成 vendor
-          if (id.includes("node_modules")) {
+          if (id.includes('node_modules')) {
             return `vendor`;
           }
         },

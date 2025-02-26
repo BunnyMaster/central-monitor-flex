@@ -8,8 +8,8 @@
         :key="index"
         class="rectangle w-[138px] h-[125px] flex-y-center bg-[#0E094D55]"
       >
-        <img alt="车辆管理" src="@/assets/images/footer-39.png" />
-        <span class="c-white font-100">车辆管理</span>
+        <img alt="车辆管理" src="@/assets/images/layout/footer-39.png" />
+        <span class="text-white font-100">车辆管理</span>
       </li>
     </ul>
   </footer>

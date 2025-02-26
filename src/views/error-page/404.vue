@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useRouter } from "vue-router";
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
 </script>
@@ -7,10 +7,10 @@ const router = useRouter();
 <template>
   <div class="page-container">
     <div class="pic-404">
-      <img alt="404" class="pic-404__parent" src="@/assets/images/404.png" />
-      <img alt="404" class="pic-404__child left" src="@/assets/images/404_cloud.png" />
-      <img alt="404" class="pic-404__child mid" src="@/assets/images/404_cloud.png" />
-      <img alt="404" class="pic-404__child right" src="@/assets/images/404_cloud.png" />
+      <img alt="404" class="pic-404__parent" src="../../assets/images/error/404.png" />
+      <img alt="404" class="pic-404__child left" src="../../assets/images/error/404_cloud.png" />
+      <img alt="404" class="pic-404__child mid" src="../../assets/images/error/404_cloud.png" />
+      <img alt="404" class="pic-404__child right" src="../../assets/images/error/404_cloud.png" />
     </div>
     <div class="bullshit">
       <div class="bullshit__oops">OOPS!</div>

@@ -1,5 +1,6 @@
-import { Plugin as importToCDN } from "vite-plugin-cdn-import";
-import { wrapperEnv } from "./utils";
+import { Plugin as importToCDN } from 'vite-plugin-cdn-import';
+
+import { wrapperEnv } from './utils';
 
 /**
  * @description 打包时采用`cdn`模式，仅限外网使用（默认不采用，如果需要采用cdn模式，请在 .env.production 文件，将 VITE_CDN 设置成true）
@@ -9,17 +10,17 @@ import { wrapperEnv } from "./utils";
 export const cdn = importToCDN({
   //（prodUrl解释： name: 对应下面modules的name，version: 自动读取本地package.json中dependencies依赖中对应包的版本号，path: 对应下面modules的path，当然也可写完整路径，会替换prodUrl）
   // prodUrl: 'https://cdn.bootcdn.net/ajax/libs/{name}/{version}/{path}',
-  prodUrl: "https://unpkg.com/{name}@{version}/{path}",
+  prodUrl: 'https://unpkg.com/{name}@{version}/{path}',
   modules: [
     {
-      name: "vue",
-      var: "Vue",
-      path: "dist/vue.global.prod.js",
+      name: 'vue',
+      var: 'Vue',
+      path: 'dist/vue.global.prod.js',
     },
     {
-      name: "vue-router",
-      var: "VueRouter",
-      path: "dist/vue-router.global.js",
+      name: 'vue-router',
+      var: 'VueRouter',
+      path: 'dist/vue-router.global.js',
     },
     // {
     // 	name: 'vue-i18n',
@@ -32,9 +33,9 @@ export const cdn = importToCDN({
     // 	path: 'lib/index.iife.js',
     // },
     {
-      name: "pinia",
-      var: "Pinia",
-      path: "dist/pinia.iife.js",
+      name: 'pinia',
+      var: 'Pinia',
+      path: 'dist/pinia.iife.js',
     },
     // {
     // 	name: 'element-plus',
@@ -43,25 +44,25 @@ export const cdn = importToCDN({
     // 	css: 'dist/index.css',
     // },
     {
-      name: "axios",
-      var: "axios",
-      path: "dist/axios.min.js",
+      name: 'axios',
+      var: 'axios',
+      path: 'dist/axios.min.js',
     },
     {
-      name: "dayjs",
-      var: "dayjs",
-      path: "dayjs.min.js",
+      name: 'dayjs',
+      var: 'dayjs',
+      path: 'dayjs.min.js',
     },
     {
-      name: "echarts",
-      var: "echarts",
-      path: "dist/echarts.min.js",
+      name: 'echarts',
+      var: 'echarts',
+      path: 'dist/echarts.min.js',
     },
   ],
 });
 
 /* 是否使用CDN加速 */
 export const useCDN = (mode) => {
-  const env = wrapperEnv(mode, "VITE");
+  const env = wrapperEnv(mode, 'VITE');
   return env.VITE_CDN ? cdn : null;
 };

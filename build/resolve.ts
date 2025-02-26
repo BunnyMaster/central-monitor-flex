@@ -1,10 +1,10 @@
-import { pathResolve } from "./utils";
+import { pathResolve } from './utils';
 
 export const resolve = () => {
   return {
     alias: {
-      "@": pathResolve("../src"),
-      "@build": pathResolve(),
+      '@': pathResolve('../src'),
+      '@build': pathResolve(),
     },
   };
 };

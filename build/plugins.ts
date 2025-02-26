@@ -1,14 +1,15 @@
-import vue from "@vitejs/plugin-vue";
-import type { PluginOption } from "vite";
-import vueJsx from "@vitejs/plugin-vue-jsx";
-import Inspector from "vite-plugin-vue-inspector";
-import { compressPack, report } from "./utils";
-import removeConsole from "vite-plugin-remove-console";
-import { useCDN } from "./cdn";
-import { viteConsoleLog } from "./info";
-import UnoCSS from "unocss/vite";
-import { presetIcons, presetUno } from "unocss";
-import UnoCssIcons from "@unocss/preset-icons";
+import UnoCssIcons from '@unocss/preset-icons';
+import vue from '@vitejs/plugin-vue';
+import vueJsx from '@vitejs/plugin-vue-jsx';
+import { presetIcons, presetUno } from 'unocss';
+import UnoCSS from 'unocss/vite';
+import type { PluginOption } from 'vite';
+import removeConsole from 'vite-plugin-remove-console';
+import Inspector from 'vite-plugin-vue-inspector';
+
+import { useCDN } from './cdn';
+import { viteConsoleLog } from './info';
+import { compressPack, report } from './utils';
 
 export const plugins = (mode): PluginOption[] => {
   return [
@@ -25,15 +26,14 @@ export const plugins = (mode): PluginOption[] => {
       presets: [
         presetIcons({
           extraProperties: {
-            display: "inline-block",
-            "vertical-align": "middle",
+            display: 'inline-block',
+            'vertical-align': 'middle',
           },
         }),
         UnoCssIcons({
-          // 其他选项
-          prefix: "i-",
+          prefix: 'i-',
           extraProperties: {
-            display: "inline-block",
+            display: 'inline-block',
           },
         }),
         presetUno(),

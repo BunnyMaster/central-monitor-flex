@@ -1,0 +1,29 @@
+.dashed-circle {
+  width: 46px; /* 圆圈的宽度 */
+  height: 46px; /* 圆圈的高度 */
+  line-height: 40px;
+  font-size: 16px;
+  text-align: center;
+  border: 2px dashed; /* 边框宽度、样式和颜色 */
+  border-radius: 50%; /* 将元素变成圆形 */
+}
+
+/* 旋转动画 */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 反向旋转动画 */
+@keyframes rotate-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}

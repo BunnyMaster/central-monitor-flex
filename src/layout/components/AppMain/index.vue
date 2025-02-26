@@ -1,38 +1,36 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import MainCenter from '@/layout/components/AppMain/MainCenter.vue';
+import MainLeft from '@/layout/components/AppMain/MainLeft.vue';
+import MainRight from '@/layout/components/AppMain/MainRight.vue';
+</script>
 
 <template>
   <main class="mt-[78px] mx-auto flex-center w-[1620px] h-[650px]">
-    <div class="left mr-[28px]">左边</div>
+    <MainLeft />
 
-    <div class="middle">中间</div>
+    <MainCenter />
 
-    <div class="right ml-[28px]">右边</div>
+    <MainRight />
   </main>
 </template>
 
 <style lang="scss" scoped>
-.layout-main {
-  margin: 0 auto;
-}
-
 .left,
 .right {
   width: 380px;
   height: 650px;
-  background: url("@/assets/images/bg-side.png") no-repeat center;
+  background: url('@/assets/images/bg/bg-side.png') no-repeat center;
   background-size: cover;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-}
 
-.left {
-  transform: rotateY(180deg);
-}
+  ::v-deep(.road-condition) {
+    background: url('@/assets/images/bg/bg-road-condition.png') no-repeat center;
+    background-size: cover;
 
-.middle {
-  width: 824px;
-  height: 650px;
-  background: url("@/assets/images/bg-middle.png") no-repeat center;
-  background-size: cover;
+    h1 {
+      font-size: 18px;
+    }
+  }
 }
 </style>
