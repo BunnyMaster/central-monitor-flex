@@ -14,7 +14,7 @@ onMounted(() => {
   <div class="right ml-[20px]">
     <div class="pt-[55px] pl-[25px]">
       <!-- 路况 -->
-      <div class="road-condition w-[218px] h-[59px]">
+      <div class="road-condition">
         <h1 class="c-white">近7天车流量概览</h1>
       </div>
 
@@ -22,16 +22,18 @@ onMounted(() => {
       <ul class="flex-x-around mt-[32px] w-[331px]">
         <li class="detail-item flex-y-between">
           <span class="bg-frame c-white">最高进园车流量</span>
-          <span class="bg-frame c-[#66FFFF]">897</span>
+          <span class="bg-frame c-primary-secondary">897</span>
         </li>
         <li class="detail-item flex-y-between">
           <span class="bg-frame c-white">最高进园车流量</span>
-          <span class="bg-frame c-[#66FFFF]">494</span>
+          <span class="bg-frame c-primary-secondary">494</span>
         </li>
       </ul>
 
       <!-- 七天数据 -->
-      <div ref="weekDataChart" class="week-data" />
+      <div class="w-[325px] h-[205px]">
+        <div ref="weekDataChart" class="week-data" />
+      </div>
     </div>
   </div>
 </template>
@@ -63,8 +65,8 @@ onMounted(() => {
 
 .week-data {
   margin: 71px 0 0 0;
-  width: 325px;
-  height: 205px;
+  width: 100%;
+  height: 100%;
   transform: scale(1);
   transform-origin: 0 0;
 }

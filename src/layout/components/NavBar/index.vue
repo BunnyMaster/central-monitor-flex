@@ -2,20 +2,20 @@
 
 <template>
   <header class="h-[105px]">
-    <div class="time ml-[41px] c-primary">2025年2月25日22:45:14</div>
+    <div class="time c-primary">2025年2月25日22:45:14</div>
 
     <div class="title">
-      <h1 class="c-white text-align-center">智慧智能监管中心</h1>
-      <h2 class="text-align-center c-primary-secondary">车辆监控中心</h2>
+      <h1 class="c-white">智慧智能监管中心</h1>
+      <h2 class="c-primary-secondary">车辆监控中心</h2>
     </div>
 
-    <div class="bar-op flex items-center h-[36px]">
-      <ul class="float-left flex-x-around w-[148px]">
-        <li><img alt="icon-1" class="w-[36px]" src="@/assets/images/layout/icon-1.png" /></li>
-        <li><img alt="icon-2" class="w-[36px]" src="@/assets/images/layout/icon-2.png" /></li>
-        <li><img alt="icon-3" class="w-[36px]" src="@/assets/images/layout/icon-3.png" /></li>
+    <div class="bar-op">
+      <ul class="flex-x-around">
+        <li><img alt="icon-1" src="@/assets/images/layout/icon-1.png" /></li>
+        <li><img alt="icon-2" src="@/assets/images/layout/icon-2.png" /></li>
+        <li><img alt="icon-3" src="@/assets/images/layout/icon-3.png" /></li>
       </ul>
-      <span class="float-left font-size-[12px] c-primary">王菠萝</span>
+      <span class="c-primary">王菠萝</span>
     </div>
   </header>
 </template>
@@ -29,11 +29,14 @@ header {
 
 .time {
   position: absolute;
+  margin: 0 0 0 41px;
   line-height: 60px;
   font-size: 14px;
 }
 
 .title {
+  text-align: center;
+
   h1 {
     font-size: 42px;
     line-height: 60px;
@@ -47,8 +50,25 @@ header {
 }
 
 .bar-op {
+  display: flex;
+  align-items: center;
   position: absolute;
   top: 11px;
   right: 20px;
+  height: 36px;
+
+  ul {
+    float: left;
+    width: 148px;
+
+    img {
+      width: 36px;
+    }
+  }
+
+  span {
+    float: left;
+    font-size: 12px;
+  }
 }
 </style>

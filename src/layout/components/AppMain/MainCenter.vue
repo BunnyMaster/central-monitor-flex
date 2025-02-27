@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import MainCenterItem from '@/layout/components/AppMain/components/MainCenterItem.vue';
-import MainCenterPercent from '@/layout/components/AppMain/components/MainCenterPercent.vue';
+import MainCenterItem from '@/components/Layout/MainCenterItem.vue';
+import MainCenterPercent from '@/components/Layout/MainCenterPercent.vue';
 </script>
 
 <template>
@@ -85,12 +85,12 @@ import MainCenterPercent from '@/layout/components/AppMain/components/MainCenter
       height: 100%;
       background: url('@/assets/images/bg/bg-main-center.png');
       background-size: cover;
+      font-size: 19px;
       animation: rotate 30s linear infinite;
     }
 
     h1 {
       width: 53px;
-      font-size: 19px;
       text-align: center;
       animation: rotate-reverse 30s linear infinite;
     }

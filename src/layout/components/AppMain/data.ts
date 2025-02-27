@@ -5,7 +5,8 @@ import { type Ref, ref } from 'vue';
 
 import echarts from '@/plugins/echarts';
 
-const option = ref<EChartsOption>({
+const option = ref<EChartsOption>();
+option.value = {
   backgroundColor: 'transparent',
   grid: { right: 10, left: 10, bottom: 20 },
   title: {
@@ -21,7 +22,7 @@ const option = ref<EChartsOption>({
     icon: 'rect',
     right: 0,
     top: 0,
-    itemGap: 34,
+    itemGap: 9,
     orient: 'horizontal',
     align: 'left',
     textStyle: { fontSize: 14, color: '#fff' },
@@ -92,11 +93,12 @@ const option = ref<EChartsOption>({
       lineStyle: { color: '#4182FF', width: 3 },
     },
   ],
-});
+};
 
 export const renderEcharts = (element: Ref<HTMLDivElement>) => {
   const myChart = echarts.init(element.value, null, {
     renderer: 'svg',
+    devicePixelRatio: window.devicePixelRatio,
   });
   myChart.setOption(option.value);
 };

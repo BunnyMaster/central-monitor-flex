@@ -3,10 +3,10 @@ defineProps({
   percent: Number,
 });
 
-import ArrowDown from '@/assets/images/layout/arrow/arrow-down.png';
-import ArrowUp from '@/assets/images/layout/arrow/arrow-up.png';
+import ArrowDown from '@/assets/images/arrow/arrow-down.png';
+import ArrowUp from '@/assets/images/arrow/arrow-up.png';
 
-const calPercentItem: Element = (percent: number) => {
+const calPercentItem = (percent: number): Element => {
   return percent > 25 ? (
     <div class="flex-center c-warning">
       <img alt="arrow" class="mt-[6px] w-[13px] h-[23px]" src={ArrowUp} />

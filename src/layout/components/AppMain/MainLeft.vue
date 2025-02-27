@@ -1,33 +1,33 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="left mr-[20px]">
+  <div class="left">
     <div class="pt-[55px] pl-[25px]" style="transform: rotateY(180deg)">
       <!-- 路况 -->
-      <div class="road-condition w-[218px] h-[59px]">
+      <div class="road-condition">
         <h1 class="c-white">实时道路情况</h1>
       </div>
 
       <!-- 汽车列表 -->
       <ul class="mt-[32px]">
-        <li class="car-item flex-x-around w-[330px] h-[60px]">
-          <img alt="car-1" class="w-[60px]" src="@/assets/images/layout/car/car-1.png" />
-          <p class="c-white font-size-[14px]">入卡口（西北门）</p>
+        <li class="car-item flex-x-around">
+          <img alt="car-1" src="@/assets/images/car/car-1.png" />
+          <p class="c-white">入卡口（西北门）</p>
           <span class="dashed-circle c-primary-secondary border-b-primary-secondary">畅通</span>
         </li>
-        <li class="car-item flex-x-around w-[330px] h-[60px]">
-          <img alt="car-1" class="w-[60px]" src="@/assets/images/layout/car/car-1.png" />
-          <p class="c-white font-size-[14px]">入卡口（东北门）</p>
+        <li class="car-item flex-x-around">
+          <img alt="car-1" src="@/assets/images/car/car-1.png" />
+          <p class="c-white">入卡口（东北门）</p>
           <span class="dashed-circle c-primary-secondary border-b-primary-secondary">畅通</span>
         </li>
-        <li class="car-item flex-x-around w-[330px] h-[60px]">
-          <img alt="car-1" class="w-[60px]" src="@/assets/images/layout/car/car-2.png" />
-          <p class="c-white font-size-[14px]">入卡口（东北门）</p>
+        <li class="car-item flex-x-around">
+          <img alt="car-1" src="@/assets/images/car/car-2.png" />
+          <p class="c-white">入卡口（东北门）</p>
           <span class="dashed-circle c-warning border-b-warning">拥堵</span>
         </li>
-        <li class="car-item flex-x-around w-[330px] h-[60px]">
-          <img alt="car-1" class="w-[60px]" src="@/assets/images/layout/car/car-1.png" />
-          <p class="c-white font-size-[14px]">入卡口（东南门）</p>
+        <li class="car-item flex-x-around">
+          <img alt="car-1" src="@/assets/images/car/car-1.png" />
+          <p class="c-white">入卡口（东南门）</p>
           <span class="dashed-circle c-primary-secondary border-b-primary-secondary">畅通</span>
         </li>
       </ul>
@@ -47,6 +47,7 @@
 
 <style lang="scss" scoped>
 .left {
+  margin: 0 20px 0 0;
   transform: rotateY(180deg);
 
   .car-item {
@@ -55,6 +56,14 @@
     margin: 0 0 9px 0;
     background: url('@/assets/images/bg/bg-frame.png') no-repeat center;
     background-size: cover;
+
+    img {
+      width: 60px;
+    }
+
+    p {
+      font-size: 14px;
+    }
   }
 
   .suggest {

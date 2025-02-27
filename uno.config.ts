@@ -26,6 +26,12 @@ export default defineConfig({
       warning: '#FFBE44',
       'warning-secondary': '#FEDB65',
     },
+    fontSizes: {
+      sm: 'font-size-[14px]',
+      base: 'font-size-[16px]',
+      lg: 'font-size-[18px]',
+      xl: 'font-size-[22px]',
+    },
   },
   presets: [
     presetUno(),

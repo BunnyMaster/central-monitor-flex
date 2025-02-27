@@ -5,15 +5,15 @@ import NavBar from '@/layout/components/NavBar/index.vue';
 </script>
 
 <template>
-  <div class="layout w-full h-full">
+  <div class="layout">
     <div class="arrow left-[38px]">
-      <img alt="左箭头" class="w-[65px]" src="@/assets/images/layout/arrow/arrow-left.png" />
+      <img alt="左箭头" src="@/assets/images/arrow/arrow-left.png" />
     </div>
     <NavBar />
     <AppMain />
     <Footer />
     <div class="arrow right-[38px]">
-      <img alt="左箭头" class="w-[65px]" src="@/assets/images/layout/arrow/arrow-right.png" />
+      <img alt="左箭头" src="@/assets/images/arrow/arrow-right.png" />
     </div>
   </div>
 </template>
@@ -31,5 +31,9 @@ import NavBar from '@/layout/components/NavBar/index.vue';
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+
+  img {
+    width: 65px;
+  }
 }
 </style>
