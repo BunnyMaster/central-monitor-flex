@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import AppMain from '@/views/smart-parking/components/parking-content/index.vue';
-import Footer from '@/views/smart-parking/components/parking-footer/index.vue';
-import NavBar from '@/views/smart-parking/components/parking-header/index.vue';
+import ParkingContent from '@/views/smart-parking/components/parking-content/index.vue';
+import ParkingFooter from '@/views/smart-parking/components/parking-footer/index.vue';
+import ParkingHeader from '@/views/smart-parking/components/parking-header/index.vue';
 </script>
 
 <template>
@@ -9,9 +9,9 @@ import NavBar from '@/views/smart-parking/components/parking-header/index.vue';
     <div class="arrow left-[38px]">
       <img alt="左箭头" src="@/assets/images/arrow/arrow-left.png" />
     </div>
-    <NavBar />
-    <AppMain />
-    <Footer />
+    <parking-header />
+    <parking-content />
+    <parking-footer />
     <div class="arrow right-[38px]">
       <img alt="左箭头" src="@/assets/images/arrow/arrow-right.png" />
     </div>

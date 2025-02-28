@@ -23,7 +23,7 @@
 <style lang="scss" scoped>
 header {
   position: relative;
-  background: url('@/assets/images/bg/bg-header.png') no-repeat center;
+  background: url('@/assets/images/header/bg-parking-header.png') no-repeat center;
   background-size: cover;
 }
 
