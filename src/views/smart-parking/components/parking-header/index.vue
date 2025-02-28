@@ -11,9 +11,9 @@
 
     <div class="bar-op">
       <ul class="flex-x-around">
-        <li><img alt="icon-1" src="../../../../assets/images/layout/icon-1.png" /></li>
-        <li><img alt="icon-2" src="../../../../assets/images/layout/icon-2.png" /></li>
-        <li><img alt="icon-3" src="../../../../assets/images/layout/icon-3.png" /></li>
+        <li><img alt="icon-1" src="@/assets/images/icon/icon-1.png" /></li>
+        <li><img alt="icon-2" src="@/assets/images/icon/icon-2.png" /></li>
+        <li><img alt="icon-3" src="@/assets/images/icon/icon-3.png" /></li>
       </ul>
       <span class="c-primary">王菠萝</span>
     </div>

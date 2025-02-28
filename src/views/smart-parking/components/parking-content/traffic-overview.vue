@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
 
-import { renderEcharts } from '@/views/smart-parking/components/main/data';
+import { renderEcharts } from '@/views/smart-parking/components/parking-content/data';
 
 const weekDataChart = ref<HTMLDivElement>();
 
@@ -11,7 +11,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="right ml-[20px]">
+  <div class="card-container ml-[20px]">
     <div class="pt-[55px] pl-[25px]">
       <!-- 路况 -->
       <div class="road-condition">

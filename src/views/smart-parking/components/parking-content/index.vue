@@ -1,20 +1,19 @@
 <script lang="ts" setup>
-import MainCenter from '@/views/smart-parking/components/main/main-center.vue';
-import RoadCondition from '@/views/smart-parking/components/main/road-condition.vue';
-import TrafficOverview from '@/views/smart-parking/components/main/traffic-overview.vue';
+import RoadCondition from '@/views/smart-parking/components/parking-content/road-condition.vue';
+import TrafficOverview from '@/views/smart-parking/components/parking-content/traffic-overview.vue';
+import TruckMonitor from '@/views/smart-parking/components/parking-content/truck-monitor.vue';
 </script>
 
 <template>
   <main class="mt-[78px] mx-auto flex-center w-[1620px] h-[650px]">
     <road-condition />
-    <main-center />
+    <truck-monitor />
     <traffic-overview />
   </main>
 </template>
 
 <style lang="scss" scoped>
-.left,
-.right {
+.card-container {
   width: 380px;
   height: 650px;
   background: url('@/assets/images/bg/bg-side.png') no-repeat center;
