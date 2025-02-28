@@ -22,6 +22,8 @@ import TruckMonitor from '@/views/smart-parking/components/parking-content/truck
   transform-style: preserve-3d;
 
   ::v-deep(.road-condition) {
+    width: 218px;
+    height: 59px;
     background: url('@/assets/images/bg/bg-road-condition.png') no-repeat center;
     background-size: cover;
 
