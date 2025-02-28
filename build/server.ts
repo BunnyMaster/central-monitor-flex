@@ -5,6 +5,7 @@ import { wrapperEnv } from './utils';
 /* 开发服务配置 */
 export const server = (mode) => {
   const { VITE_PORT, VITE_APP_URL, VITE_STRICT_PORT } = wrapperEnv(mode);
+
   const options: ServerOptions = {
     strictPort: VITE_STRICT_PORT,
     port: VITE_PORT,

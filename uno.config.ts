@@ -17,6 +17,7 @@ export default defineConfig({
     'flex-y-center': 'flex flex-col flex-wrap justify-center items-center',
     'flex-y-between': 'flex flex-col flex-wrap justify-between items-center',
     'flex-y-around': 'flex flex-col flex-wrap justify-around items-center',
+    'wh-full': 'w-full h-full',
   },
   theme: {
     colors: {

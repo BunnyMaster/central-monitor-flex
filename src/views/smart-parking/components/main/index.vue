@@ -1,16 +1,14 @@
 <script lang="ts" setup>
-import MainCenter from '@/layout/components/AppMain/MainCenter.vue';
-import MainLeft from '@/layout/components/AppMain/MainLeft.vue';
-import MainRight from '@/layout/components/AppMain/MainRight.vue';
+import MainCenter from '@/views/smart-parking/components/main/main-center.vue';
+import RoadCondition from '@/views/smart-parking/components/main/road-condition.vue';
+import TrafficOverview from '@/views/smart-parking/components/main/traffic-overview.vue';
 </script>
 
 <template>
   <main class="mt-[78px] mx-auto flex-center w-[1620px] h-[650px]">
-    <MainLeft />
-
-    <MainCenter />
-
-    <MainRight />
+    <road-condition />
+    <main-center />
+    <traffic-overview />
   </main>
 </template>
 

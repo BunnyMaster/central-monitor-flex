@@ -2,8 +2,6 @@ import axios, { type AxiosResponse, type InternalAxiosRequestConfig } from 'axio
 import qs from 'qs';
 
 import { TOKEN_KEY } from '@/enums/CacheEnum';
-import { ResultEnum } from '@/enums/ResultEnum';
-import { useUserStoreHook } from '@/store/modules/user';
 
 // 创建 axios 实例
 const service = axios.create({
@@ -36,33 +34,31 @@ service.interceptors.response.use(
     if (response.config.responseType === 'blob' || response.config.responseType === 'arraybuffer') {
       return response;
     }
+    // const { code, data, msg } = response.data;
+    // if (code === ResultEnum.SUCCESS) {
+    //   return data;
+    // }
 
-    const { code, data, msg } = response.data;
-    if (code === ResultEnum.SUCCESS) {
-      return data;
+    if (response.status === 200) {
+      return response.data;
     }
 
-    ElMessage.error(msg || '系统出错');
-    return Promise.reject(new Error(msg || 'Error'));
+    // ElMessage.error(msg || '系统出错');
+    return Promise.reject(msg || 'Error');
   },
   (error: any) => {
     // 异常处理
     if (error.response.data) {
-      const { code, msg } = error.response.data;
-      if (code === ResultEnum.TOKEN_INVALID) {
-        ElNotification({
-          title: '提示',
-          message: '您的会话已过期，请重新登录',
-          type: 'info',
-        });
-        useUserStoreHook()
-          .resetToken()
-          .then(() => {
-            location.reload();
-          });
-      } else {
-        ElMessage.error(msg || '系统出错');
-      }
+      // const { code, msg } = error.response.data;
+      // if (code === ResultEnum.TOKEN_INVALID) {
+      // ElNotification({
+      //   title: '提示',
+      //   message: '您的会话已过期，请重新登录',
+      //   type: 'info',
+      // });
+      // } else {
+      // ElMessage.error(msg || '系统出错');
+      // }
     }
     return Promise.reject(error.message);
   }
