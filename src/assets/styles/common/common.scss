@@ -1,3 +1,6 @@
 @use "src/element";
 
 
+body {
+  background: var(--background-color);
+}

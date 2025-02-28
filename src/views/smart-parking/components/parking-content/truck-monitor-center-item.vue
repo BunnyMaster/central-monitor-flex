@@ -15,7 +15,7 @@ defineProps({
       <img
         alt="arrow-item"
         class="float-left h-[16px]"
-        src="@/assets/images/arrow/arrow-item.png"
+        src="../../../../assets/images/arrow/arrow-item.png"
       />
     </div>
   </div>

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import MainCenterItem from '@/components/Layout/MainCenterItem.vue';
-import MainCenterPercent from '@/components/Layout/MainCenterPercent.vue';
+import TruckMonitorCenterItem from '@/views/smart-parking/components/parking-content/truck-monitor-center-item.vue';
+import TruckMonitorCenterPercent from '@/views/smart-parking/components/parking-content/truck-monitor-center-percent.vue';
 </script>
 
 <template>
@@ -13,20 +13,36 @@ import MainCenterPercent from '@/components/Layout/MainCenterPercent.vue';
       <!-- 中间布局 -->
       <div class="main-inner">
         <div class="pos-relative">
-          <MainCenterItem :count="45" class="top-[37px] left-[40px] w-[175px]" door="西北门" />
-          <MainCenterPercent :percent="44" class="top-[73px] left-[193px]" />
+          <truck-monitor-center-item
+            :count="45"
+            class="top-[37px] left-[40px] w-[175px]"
+            door="西北门"
+          />
+          <truck-monitor-center-percent :percent="44" class="top-[73px] left-[193px]" />
         </div>
         <div class="pos-relative">
-          <MainCenterItem :count="67" class="top-[37px] left-[120px] w-[175px]" door="东北门" />
-          <MainCenterPercent :percent="25" class="top-[73px] right-[192px]" />
+          <truck-monitor-center-item
+            :count="67"
+            class="top-[37px] left-[120px] w-[175px]"
+            door="东北门"
+          />
+          <truck-monitor-center-percent :percent="25" class="top-[73px] right-[192px]" />
         </div>
         <div class="pos-relative">
-          <MainCenterItem :count="345" class="top-[45px] left-[34px] w-[175px]" door="西南门" />
-          <MainCenterPercent :percent="25" class="top-[40px] left-[193px]" />
+          <truck-monitor-center-item
+            :count="345"
+            class="top-[45px] left-[34px] w-[175px]"
+            door="西南门"
+          />
+          <truck-monitor-center-percent :percent="25" class="top-[40px] left-[193px]" />
         </div>
         <div class="pos-relative">
-          <MainCenterItem :count="145" class="top-[45px] left-[130px] w-[175px]" door="东南门" />
-          <MainCenterPercent :percent="44" class="top-[40px] left-[66px]" />
+          <truck-monitor-center-item
+            :count="145"
+            class="top-[45px] left-[130px] w-[175px]"
+            door="东南门"
+          />
+          <truck-monitor-center-percent :percent="44" class="top-[40px] left-[66px]" />
         </div>
 
         <div class="main-inner-center">
