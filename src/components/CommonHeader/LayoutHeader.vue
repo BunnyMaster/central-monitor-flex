@@ -1,11 +1,16 @@
 <script lang="ts" setup>
-import BarOp from '@/components/Common/BarOp.vue';
+import { useRoute, useRouter } from 'vue-router';
+
+import BarOp from '@/components/CommonHeader/HeaderBarOp.vue';
+
+const router = useRouter();
+const route = useRoute();
 </script>
 
 <template>
   <header>
     <div class="title">
-      <h1 class="c-white">后台管理系统大标题</h1>
+      <h1 class="c-white">{{ route.meta.title }}</h1>
       <BarOp />
     </div>
   </header>

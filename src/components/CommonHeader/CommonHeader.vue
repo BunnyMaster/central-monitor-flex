@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useRouter } from 'vue-router';
 
-import BarOp from '@/components/Common/BarOp.vue';
+import BarOp from '@/components/CommonHeader/HeaderBarOp.vue';
 import { resetRouter } from '@/router';
 
 const router = useRouter();

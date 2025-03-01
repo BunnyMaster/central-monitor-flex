@@ -10,11 +10,11 @@ const routes: RouteRecordRaw[] = [...remaining, ...home, ...error];
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
-  scrollBehavior: () => ({ x: 0, y: 0 }),
+  scrollBehavior: () => ({ x: 0, y: 0, behavior: 'smooth' }),
 });
 
 /** 全局注册 router */
-export const setUpRouter = (app: App<Element>) => {
+export const setupRouter = (app: App<Element>) => {
   app.use(router);
 };
 
@@ -22,5 +22,11 @@ export const setUpRouter = (app: App<Element>) => {
 export const resetRouter = () => {
   router.replace({ path: '/' }).then();
 };
+
+// router.afterEach((to, from) => {
+//   const toDepth = to.path.split('/').length;
+//   const fromDepth = from.path.split('/').length;
+//   to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left';
+// });
 
 export default router;
