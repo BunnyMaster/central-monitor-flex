@@ -30,7 +30,6 @@ const router = useRouter();
 <style lang="scss" scoped>
 footer {
   margin: 190px 0 0 0;
-  z-index: 6;
 
   ul {
     width: 431px;
@@ -45,10 +44,18 @@ footer {
       width: 90px;
       height: 90px;
       color: #7cc1ff;
-      background: url('@/assets/images/bg/bg-main-2.png');
+      background: url('@/assets/images/bg/bg-main-2.png') no-repeat center;
+      background-size: cover;
+
+      img {
+        width: 26px;
+        height: 26px;
+      }
 
       span {
         margin: 4px 0 0 0;
+        font-size: 13px;
+        cursor: pointer;
       }
     }
   }

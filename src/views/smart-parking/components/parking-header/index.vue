@@ -2,13 +2,9 @@
 import { useRouter } from 'vue-router';
 
 import BarOp from '@/components/Common/BarOp.vue';
+import { resetRouter } from '@/router';
 
 const router = useRouter();
-
-/** 点击家目录 */
-const onHomeClick = () => {
-  router.push('/');
-};
 </script>
 
 <template>
@@ -22,7 +18,7 @@ const onHomeClick = () => {
         alt="icon-setting"
         class="ml-[-284px]"
         src="@/assets/images/icon/icon-home.png"
-        @click="onHomeClick"
+        @click="resetRouter()"
       />
       <img alt="icon-home" class="ml-[284px]" src="@/assets/images/icon/icon-setting.png" />
     </div>

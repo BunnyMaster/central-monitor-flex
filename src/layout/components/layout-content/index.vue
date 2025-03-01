@@ -3,10 +3,10 @@ import PageList from '@/layout/components/layout-content/page-list.vue';
 </script>
 
 <template>
-  <div class="flex-y-around">
+  <div class="flex-y-around welcome">
     <div class="mt-[158px]">
       <p class="c-white">
-        <img alt="" src="@/assets/images/icon/welcome.png" />
+        <img alt="welcome" src="@/assets/images/icon/welcome.png" />
         <i class="c-primary-secondary">xxxx</i>
         你好 欢迎使用xxxxxxxzz
       </p>
@@ -14,3 +14,16 @@ import PageList from '@/layout/components/layout-content/page-list.vue';
     <page-list />
   </div>
 </template>
+
+<style lang="scss  " scoped>
+.welcome {
+  p {
+    font-size: 16px;
+  }
+
+  img {
+    width: 239px;
+    height: 34px;
+  }
+}
+</style>

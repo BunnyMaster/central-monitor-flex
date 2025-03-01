@@ -14,7 +14,7 @@ module.exports = {
       customSyntax: 'postcss-html',
     },
     {
-      files: ['**/*.{css,scss}'],
+      files: ['**/*.{scss,css}'],
       customSyntax: 'postcss-scss',
     },
   ],

@@ -8,3 +8,13 @@
   border: 2px dashed; /* 边框宽度、样式和颜色 */
   border-radius: 50%; /* 将元素变成圆形 */
 }
+
+
+.hover {
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-hover);
+  }
+}

@@ -20,7 +20,7 @@ import BarOp from '@/components/Common/BarOp.vue';
 
   h1 {
     text-align: center;
-    line-height: 108px;
+    line-height: 100px;
     font-size: 42px;
   }
 }

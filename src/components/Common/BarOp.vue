@@ -7,7 +7,7 @@
       <li><img alt="icon-2" src="@/assets/images/icon/icon-2.png" /></li>
       <li><img alt="icon-3" src="@/assets/images/icon/icon-3.png" /></li>
     </ul>
-    <span class="c-primary">王菠萝</span>
+    <span class="hover c-primary">王菠萝</span>
   </div>
 </template>
 
@@ -32,6 +32,7 @@
   span {
     float: left;
     font-size: 12px;
+    cursor: pointer;
   }
 }
 </style>

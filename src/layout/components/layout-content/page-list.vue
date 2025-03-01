@@ -65,6 +65,11 @@ const router = useRouter();
       background: linear-gradient(to bottom, #0ad1d1c9, #10607cc9);
     }
 
+    img {
+      width: 108px;
+      height: 108px;
+    }
+
     span {
       position: relative;
       display: block;

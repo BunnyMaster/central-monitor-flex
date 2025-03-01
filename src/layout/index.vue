@@ -6,17 +6,19 @@ import LayoutHeader from '@/layout/components/layout-header/index.vue';
 
 <template>
   <div class="layout-container">
-    <div class="particle" />
-    <layout-header />
+    <div class="particle">
+      <layout-header />
 
-    <layout-content />
+      <layout-content />
 
-    <layout-footer />
+      <layout-footer />
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .layout-container {
+  position: relative;
   width: 100%;
   height: 100%;
   background: url('@/assets/images/bg/bg-layout.png') no-repeat center;

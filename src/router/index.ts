@@ -22,4 +22,5 @@ export const setUpRouter = (app: App<Element>) => {
 export const resetRouter = () => {
   router.replace({ path: '/' }).then();
 };
+
 export default router;
