@@ -5,7 +5,7 @@ import TruckMonitor from '@/views/smart-parking/components/parking-content/truck
 </script>
 
 <template>
-  <main class="mt-[78px] mx-auto flex-center w-[1620px] h-[650px]">
+  <main class="pt-[78px] mx-auto flex-center w-[1620px] h-[650px]">
     <road-condition />
     <truck-monitor />
     <traffic-overview />

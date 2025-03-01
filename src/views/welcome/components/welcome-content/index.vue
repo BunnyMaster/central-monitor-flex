@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import PageList from '@/views/home/layout-content/page-list.vue';
+import PageList from '@/views/welcome/components/welcome-content/page-list.vue';
 </script>
 
 <template>

@@ -5,8 +5,8 @@ const router = useRouter();
 
 const list = [
   { icon: 'material-symbols:home-and-garden', name: '园区', target: '/' },
-  { icon: 'ri:community-fill', name: '园区', target: '/' },
-  { icon: 'ri:community-fill', name: '园区', target: '/' },
+  { icon: 'fa:building', name: '园区', target: '/' },
+  { icon: 'fa-solid:chart-line', name: '经营', target: '/manage-forms' },
   { icon: 'ri:community-fill', name: '园区', target: '/' },
 ];
 </script>
@@ -14,7 +14,7 @@ const list = [
 <template>
   <footer class="flex-y-around">
     <ul class="flex-x-between">
-      <li v-for="(item, index) in list" :key="index">
+      <li v-for="(item, index) in list" :key="index" @click="router.push(item.target)">
         <i :class="`i-${item.icon}`" />
         <span class="hover">{{ item.name }}</span>
       </li>

@@ -9,7 +9,7 @@ const routes: RouteRecordRaw[] = [...remaining, ...error];
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
-  scrollBehavior: () => ({ x: 0, y: 0, behavior: 'smooth' }),
+  scrollBehavior: () => ({ top: 0, behavior: 'smooth' }),
 });
 
 /** 全局注册 router */

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import LayoutContent from '@/views/home/layout-content/index.vue';
-import LayoutFooter from '@/views/home/layout-footer/index.vue';
+import LayoutContent from '@/views/welcome/components/welcome-content/index.vue';
+import LayoutFooter from '@/views/welcome/components/welcome-footer/index.vue';
 </script>
 
 <template>

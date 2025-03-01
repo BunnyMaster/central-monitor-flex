@@ -27,4 +27,9 @@ const route = useRoute();
   background: url('@/assets/images/bg/bg-layout.png') no-repeat center;
   background-size: cover;
 }
+
+main {
+  width: 100%;
+  height: calc(100% - 108px);
+}
 </style>
