@@ -1,18 +1,21 @@
 <script lang="ts" setup>
+import { useRoute, useRouter } from 'vue-router';
+
+import CommonHeader from '@/components/CommonHeader/CommonHeader.vue';
 import LayoutHeader from '@/components/CommonHeader/LayoutHeader.vue';
-import LayoutContent from '@/layout/components/layout-content/index.vue';
-import LayoutFooter from '@/layout/components/layout-footer/index.vue';
+
+const router = useRouter();
+const route = useRoute();
 </script>
 
 <template>
   <div class="layout-container">
-    <div class="particle">
-      <layout-header />
+    <layout-header v-if="route.name === 'welcome'" />
+    <common-header v-else />
 
-      <layout-content />
-
-      <layout-footer />
-    </div>
+    <main>
+      <router-view />
+    </main>
   </div>
 </template>
 
@@ -23,14 +26,5 @@ import LayoutFooter from '@/layout/components/layout-footer/index.vue';
   height: 100%;
   background: url('@/assets/images/bg/bg-layout.png') no-repeat center;
   background-size: cover;
-
-  .particle {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: url('@/assets/images/bg/bg-particle.png') no-repeat center;
-    background-size: cover;
-  }
 }
 </style>

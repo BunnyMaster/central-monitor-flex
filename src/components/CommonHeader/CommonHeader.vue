@@ -1,19 +1,36 @@
 <script lang="ts" setup>
-import { useRouter } from 'vue-router';
+import { onMounted, ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 import BarOp from '@/components/CommonHeader/HeaderBarOp.vue';
+import dayjs from '@/plugins/dayjs';
 import { resetRouter } from '@/router';
 
 const router = useRouter();
+const route = useRoute();
+
+const time = ref('');
+
+/** 显示时间 */
+const displayTime = () => {
+  time.value = dayjs(new Date()).format('YYYY-MM-DD dddd HH:mm:ss');
+  setInterval(() => {
+    time.value = dayjs(new Date()).format('YYYY-MM-DD dddd HH:mm:ss');
+  }, 1000);
+};
+
+onMounted(() => {
+  displayTime();
+});
 </script>
 
 <template>
-  <header class="h-[105px]">
-    <div class="time c-primary">2025年2月25日22:45:14</div>
+  <header>
+    <div class="time c-primary">{{ time }}</div>
 
     <div class="title">
-      <h1 class="c-white">智慧智能监管中心</h1>
-      <h2 class="c-primary-secondary">车辆监控中心</h2>
+      <h1 class="c-white">{{ route.meta.title }}</h1>
+      <h2 class="c-primary-secondary">{{ route.meta.subtitle }}</h2>
       <img
         alt="icon-setting"
         class="ml-[-284px]"
@@ -30,6 +47,7 @@ const router = useRouter();
 <style lang="scss" scoped>
 header {
   position: relative;
+  height: 108px;
   background: url('@/assets/images/header/bg-parking-header.png') no-repeat center;
   background-size: cover;
 }

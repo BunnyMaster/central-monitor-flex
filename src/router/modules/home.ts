@@ -1,11 +1,10 @@
-import Layout from '@/layout/index.vue';
 import type { RouteConfigsTable } from '@/types/router/Route';
 
 const routes: RouteConfigsTable[] = [
   {
-    path: '/',
-    name: '/',
-    component: Layout,
+    path: '/welcome',
+    name: 'welcome',
+    component: () => import('@/views/home/index.vue'),
     meta: { transition: 'fade', title: '后台管理系统大标题' },
   },
   {

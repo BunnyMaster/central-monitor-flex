@@ -2,26 +2,21 @@
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
+
+const list = [
+  { icon: 'material-symbols:home-and-garden', name: '园区', target: '/' },
+  { icon: 'ri:community-fill', name: '园区', target: '/' },
+  { icon: 'ri:community-fill', name: '园区', target: '/' },
+  { icon: 'ri:community-fill', name: '园区', target: '/' },
+];
 </script>
 
 <template>
   <footer class="flex-y-around">
     <ul class="flex-x-between">
-      <li>
-        <img alt="" src="@/assets/images/icon/icon-4.png" />
-        <span>园区</span>
-      </li>
-      <li>
-        <img alt="" src="@/assets/images/icon/icon-5.png" />
-        <span>园区</span>
-      </li>
-      <li>
-        <img alt="" src="@/assets/images/icon/icon-6.png" />
-        <span>园区</span>
-      </li>
-      <li>
-        <img alt="" src="@/assets/images/icon/icon-7.png" />
-        <span>园区</span>
+      <li v-for="(item, index) in list" :key="index">
+        <i :class="`i-${item.icon}`" />
+        <span class="hover">{{ item.name }}</span>
       </li>
     </ul>
   </footer>
@@ -46,6 +41,12 @@ footer {
       color: #7cc1ff;
       background: url('@/assets/images/bg/bg-main-2.png') no-repeat center;
       background-size: cover;
+
+      i {
+        width: 26px;
+        height: 26px;
+        font-size: 26px;
+      }
 
       img {
         width: 26px;
