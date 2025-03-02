@@ -24,6 +24,7 @@ export default defineConfig({
       primary: '#027AFF',
       'primary-secondary': '#00FFFF',
       info: '#7CC1FF',
+      'info-secondary': '#707070',
       warning: '#FFBE44',
       'warning-secondary': '#FEDB65',
     },

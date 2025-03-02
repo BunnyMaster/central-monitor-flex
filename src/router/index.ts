@@ -9,7 +9,7 @@ const routes: RouteRecordRaw[] = [...remaining, ...error];
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
-  scrollBehavior: () => ({ top: 0, behavior: 'smooth' }),
+  scrollBehavior: () => ({ left: 0, top: 0, behavior: 'smooth' }),
 });
 
 /** 全局注册 router */
@@ -21,11 +21,5 @@ export const setupRouter = (app: App<Element>) => {
 export const resetRouter = () => {
   router.replace({ path: '/' }).then();
 };
-
-// router.afterEach((to, from) => {
-//   const toDepth = to.path.split('/').length;
-//   const fromDepth = from.path.split('/').length;
-//   to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left';
-// });
 
 export default router;

@@ -1,7 +1,7 @@
 import UnoCssIcons from '@unocss/preset-icons';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import { presetIcons, presetUno } from 'unocss';
+import { presetIcons } from 'unocss';
 import UnoCSS from 'unocss/vite';
 import type { PluginOption } from 'vite';
 import { vitePluginFakeServer } from 'vite-plugin-fake-server';
@@ -37,7 +37,6 @@ export const plugins = (mode): PluginOption[] => {
             display: 'inline-block',
           },
         }),
-        presetUno(),
       ],
     }),
     compressPack(mode),

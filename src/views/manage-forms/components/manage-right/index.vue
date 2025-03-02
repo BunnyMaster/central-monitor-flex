@@ -1,42 +1,40 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="manage-container flex-y-between">
-    <div class="money">
-      <h1>园区进出口金额</h1>
+  <div class="manage-forms-slide flex-y-between">
+    <div class="common-bg money">
+      <div class="title">
+        <h1>园区进出口额</h1>
+      </div>
     </div>
 
-    <div class="enterprise-info">
-      <h1>园区进出口金额</h1>
+    <div class="common-bg enterprise-info">
+      <div class="title">
+        <h1>园区进出口额</h1>
+      </div>
     </div>
 
-    <div class="plan">
-      <h1>园区进出口金额</h1>
+    <div class="common-bg plan">
+      <div class="title">
+        <h1>园区进出口额</h1>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.manage-container {
+.money {
+  width: 100%;
+  height: 246px;
+}
+
+.enterprise-info {
   width: 530px;
-  height: 100%;
+  height: 354px;
+}
 
-  .money {
-    width: 100%;
-    height: 246px;
-    background: mediumpurple;
-  }
-
-  .enterprise-info {
-    width: 530px;
-    height: 354px;
-    background: mediumpurple;
-  }
-
-  .plan {
-    width: 530px;
-    height: 294px;
-    background: mediumpurple;
-  }
+.plan {
+  width: 530px;
+  height: 294px;
 }
 </style>

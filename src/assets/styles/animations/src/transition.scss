@@ -53,14 +53,26 @@
   transition: var(--pure-transition-duration) all !important;
 }
 
-//.slide-enter-active,
-//.slide-leave-active {
-//  transition: opacity 0.3s,
-//  transform 0.3s;
-//}
-//
-//.slide-enter-from,
-//.slide-leave-to {
-//  opacity: 0;
-//  transform: translateX(-30%);
-//}
+.slide-left-enter-active,
+.slide-left-leave-active {
+  transition: opacity 0.3s,
+  transform 0.3s;
+}
+
+.slide-left-enter-from,
+.slide-left-leave-to {
+  opacity: 0;
+  transform: translateX(-30%);
+}
+
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: opacity 0.3s,
+  transform 0.3s;
+}
+
+.slide-right-enter-from,
+.slide-right-leave-to {
+  opacity: 0;
+  transform: translateX(30%);
+}

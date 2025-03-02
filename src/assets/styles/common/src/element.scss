@@ -18,3 +18,19 @@
     color: var(--color-hover);
   }
 }
+
+.thin-line {
+  position: relative;
+}
+
+.thin-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background-color: var(--color-primary-secondary);
+  transform: scaleX(0.8);
+  transform-origin: 0 0;
+}

@@ -1,3 +1,4 @@
+import Layout from '@/layout/index.vue';
 import type { RouteConfigsTable } from '@/types/router/Route';
 
 const routes: RouteConfigsTable[] = [
@@ -7,6 +8,14 @@ const routes: RouteConfigsTable[] = [
     component: () => import('@/views/welcome/index.vue'),
     meta: { transition: 'fade', title: '后台管理系统大标题' },
   },
+
+  {
+    path: '/manage-forms',
+    name: 'manageForms',
+    component: () => import('@/views/manage-forms/index.vue'),
+    meta: { title: '智慧经营监管中心', subtitle: '园区经营可视化' },
+  },
+
   {
     path: '/smart-parking',
     name: 'smartParking',
@@ -14,10 +23,15 @@ const routes: RouteConfigsTable[] = [
     meta: { title: '智慧智能监管中心', subtitle: '车辆监控中心' },
   },
   {
-    path: '/manage-forms',
-    name: 'manageForms',
-    component: () => import('@/views/manage-forms/index.vue'),
-    meta: { title: '智慧经营监管中心', subtitle: '园区经营可视化' },
+    path: '/redirect',
+    component: Layout,
+    meta: { hidden: true },
+    children: [
+      {
+        path: '/redirect/:path(.*)',
+        component: () => import('@/views/redirect/index.vue'),
+      },
+    ],
   },
 ];
 

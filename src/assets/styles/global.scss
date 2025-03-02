@@ -1,10 +1,12 @@
 @use "animations/animations";
 @use "common/common";
+@use "views/views";
 
 :root {
   --colot-primary: #027AFF;
   --color-primary-secondary: #00FFFF;
   --color-info: #7CC1FF;
+  --color-info-secondary: #707070;
   --color-hover: #1C8ADF;
   --color-warning: #FFBE44;
   --color-warning-secondary: #FEDB65;
