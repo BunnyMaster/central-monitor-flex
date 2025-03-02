@@ -20,7 +20,7 @@ const route = useRoute();
 .title {
   width: 100%;
   height: 108px;
-  background: url('@/assets/images/header/bg-layout-header.png') no-repeat center;
+  background: url('@/assets/images/common/header/bg-layout-header.png') no-repeat center;
   background-size: cover;
 
   h1 {

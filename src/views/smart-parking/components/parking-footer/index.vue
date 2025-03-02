@@ -4,7 +4,7 @@
   <footer>
     <ul class="flex-x-around">
       <li v-for="index in new Array(5)" :key="index" class="rectangle flex-y-center">
-        <img alt="车辆管理" src="@/assets/images/car/car-39.png" />
+        <img alt="车辆管理" src="@/assets/images/smart-parking/car/car-39.png" />
         <span class="text-white hover">车辆管理</span>
       </li>
     </ul>

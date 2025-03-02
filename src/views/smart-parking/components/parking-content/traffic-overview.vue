@@ -49,7 +49,7 @@ onMounted(() => {
     height: 40px;
     line-height: 40px;
     font-size: 16px;
-    background: url('@/assets/images/bg/bg-frame-2.png') no-repeat center;
+    background: url('@/assets/images/smart-parking/bg/bg-frame-2.png') no-repeat center;
     background-size: cover;
   }
 
@@ -58,7 +58,7 @@ onMounted(() => {
     height: 66px;
     line-height: 66px;
     font-size: 34px;
-    background: url('@/assets/images/bg/bg-frame-3.png') no-repeat center;
+    background: url('@/assets/images/smart-parking/bg/bg-frame-3.png') no-repeat center;
     background-size: cover;
   }
 }

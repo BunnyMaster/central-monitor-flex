@@ -34,10 +34,10 @@ onMounted(() => {
       <img
         alt="icon-setting"
         class="ml-[-284px]"
-        src="@/assets/images/icon/icon-home.png"
+        src="@/assets/images/common/icon/icon-home.png"
         @click="resetRouter()"
       />
-      <img alt="icon-home" class="ml-[284px]" src="@/assets/images/icon/icon-setting.png" />
+      <img alt="icon-home" class="ml-[284px]" src="@/assets/images/common/icon/icon-setting.png" />
     </div>
 
     <BarOp />
@@ -48,7 +48,7 @@ onMounted(() => {
 header {
   position: relative;
   height: 108px;
-  background: url('@/assets/images/header/bg-parking-header.png') no-repeat center;
+  background: url('@/assets/images/common/header/bg-parking-header.png') no-repeat center;
   background-size: cover;
 }
 

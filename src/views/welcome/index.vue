@@ -15,7 +15,7 @@ import LayoutFooter from '@/views/welcome/components/welcome-footer/index.vue';
 .particle {
   width: 100%;
   height: 100%;
-  background: url('@/assets/images/bg/bg-particle.png') no-repeat center;
+  background: url('@/assets/images/welcome/bg/bg-particle.png') no-repeat center;
   background-size: cover;
 }
 </style>

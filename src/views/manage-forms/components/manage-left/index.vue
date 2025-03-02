@@ -125,7 +125,7 @@ const displayContent = () => {
       margin: 0 3.5px;
       width: 49px;
       height: 69px;
-      background: url('@/assets/images/bg/bg-count.png') no-repeat;
+      background: url('@/assets/images/manage-forms/bg/bg-count.png') no-repeat;
       background-size: cover;
     }
   }
@@ -164,7 +164,7 @@ const displayContent = () => {
       margin: 15px 0 0 0;
       width: 242px;
       height: 124px;
-      background: url('@/assets/images/manage-forms/frame-1.png') no-repeat center;
+      background: url('@/assets/images/manage-forms/bg/frame-1.png') no-repeat center;
       background-size: cover;
 
       h1 {

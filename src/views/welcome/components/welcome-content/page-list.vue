@@ -7,23 +7,23 @@ const router = useRouter();
 <template>
   <ul class="page-list flex-x-between">
     <li class="flex-y-center" @click="router.push('/smart-parking')">
-      <img alt="car" src="@/assets/images/icon/smart/car.png" />
+      <img alt="car" src="@/assets/images/welcome/icon/center/car.png" />
       <span>智慧停车</span>
     </li>
     <li class="flex-y-center">
-      <img alt="distribution" src="@/assets/images/icon/smart/distribution.png" />
+      <img alt="distribution" src="@/assets/images/welcome/icon/center/distribution.png" />
       <span>智慧配送</span>
     </li>
     <li class="flex-y-center">
-      <img alt="muck" src="@/assets/images/icon/smart/muck.png" />
+      <img alt="muck" src="@/assets/images/welcome/icon/center/muck.png" />
       <span>智慧渣土</span>
     </li>
     <li class="flex-y-center">
-      <img alt="clean-city" src="@/assets/images/icon/smart/clean-city.png" />
+      <img alt="clean-city" src="@/assets/images/welcome/icon/center/clean-city.png" />
       <span>智慧洁城</span>
     </li>
     <li class="flex-y-center">
-      <img alt="lamp" src="@/assets/images/icon/smart/lamp.png" />
+      <img alt="lamp" src="@/assets/images/welcome/icon/center/lamp.png" />
       <span>智慧路灯</span>
     </li>
   </ul>

@@ -59,14 +59,14 @@ import TruckMonitorCenterPercent from '@/views/smart-parking/components/parking-
 .main-center {
   width: 824px;
   height: 650px;
-  background: url('@/assets/images/bg/bg-middle.png') no-repeat center;
+  background: url('@/assets/images/smart-parking/bg/bg-middle.png') no-repeat center;
   background-size: cover;
 }
 
 // 中间部分标题
 .main-center-title {
   height: 61px;
-  background: url('@/assets/images/bg/bg-main-title.png') no-repeat center;
+  background: url('@/assets/images/smart-parking/bg/bg-main-title.png') no-repeat center;
   background-size: cover;
 
   h1 {
@@ -84,7 +84,7 @@ import TruckMonitorCenterPercent from '@/views/smart-parking/components/parking-
   margin: 28px 0 77px 0;
   width: 666px;
   height: 400px;
-  background: url('@/assets/images/bg/bg-main-1.png') no-repeat center;
+  background: url('@/assets/images/smart-parking/bg/bg-main-1.png') no-repeat center;
   background-size: cover;
 
   // 中心智能管控
@@ -99,7 +99,7 @@ import TruckMonitorCenterPercent from '@/views/smart-parking/components/parking-
     .main-inner-middle {
       width: 100%;
       height: 100%;
-      background: url('@/assets/images/bg/bg-main-center.png');
+      background: url('@/assets/images/smart-parking/bg/bg-main-center.png');
       background-size: cover;
       font-size: 19px;
       animation: rotate 30s linear infinite;

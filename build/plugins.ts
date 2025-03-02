@@ -26,15 +26,17 @@ export const plugins = (mode): PluginOption[] => {
       inspector: true, // 控制台是否打印 UnoCSS inspector
       presets: [
         presetIcons({
+          prefix: '',
           extraProperties: {
             display: 'inline-block',
             'vertical-align': 'middle',
           },
         }),
         UnoCssIcons({
-          prefix: 'i-',
+          prefix: '',
           extraProperties: {
             display: 'inline-block',
+            'vertical-align': 'middle',
           },
         }),
       ],

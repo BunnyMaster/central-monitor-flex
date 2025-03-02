@@ -6,13 +6,12 @@ import ParkingFooter from '@/views/smart-parking/components/parking-footer/index
 <template>
   <div class="layout">
     <div class="arrow left-[38px]">
-      <img alt="左箭头" src="@/assets/images/arrow/arrow-left.png" />
+      <img alt="左箭头" src="@/assets/images/smart-parking/arrow/arrow-left.png" />
     </div>
-    <!--<common-header />-->
     <parking-content />
     <parking-footer />
     <div class="arrow right-[38px]">
-      <img alt="左箭头" src="@/assets/images/arrow/arrow-right.png" />
+      <img alt="左箭头" src="@/assets/images/smart-parking/arrow/arrow-right.png" />
     </div>
   </div>
 </template>

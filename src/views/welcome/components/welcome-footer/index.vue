@@ -1,21 +1,22 @@
 <script lang="ts" setup>
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-const list = [
-  { icon: 'material-symbols:home-and-garden', name: '园区', target: '/' },
-  { icon: 'fa:building', name: '园区', target: '/' },
-  { icon: 'fa-solid:chart-line', name: '经营', target: '/manage-forms' },
-  { icon: 'ri:community-fill', name: '园区', target: '/' },
-];
+const list = ref([
+  { icon: 'i-material-symbols:home-and-garden', name: '园区', target: '/' },
+  { icon: 'i-fa:building', name: '园区', target: '/' },
+  { icon: 'i-fa-solid:chart-line', name: '经营', target: '/manage-forms' },
+  { icon: 'i-ri:community-fill', name: '园区', target: '/' },
+]);
 </script>
 
 <template>
   <footer class="flex-y-around">
     <ul class="flex-x-between">
       <li v-for="(item, index) in list" :key="index" @click="router.push(item.target)">
-        <i :class="`i-${item.icon}`" />
+        <i :class="`${item.icon}`" />
         <span class="hover">{{ item.name }}</span>
       </li>
     </ul>
@@ -39,7 +40,7 @@ footer {
       width: 90px;
       height: 90px;
       color: #7cc1ff;
-      background: url('@/assets/images/bg/bg-main-2.png') no-repeat center;
+      background: url('@/assets/images/common/bg/bg-main-2.png') no-repeat center;
       background-size: cover;
 
       i {
