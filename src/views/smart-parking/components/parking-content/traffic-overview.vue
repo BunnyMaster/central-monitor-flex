@@ -11,10 +11,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="card-container ml-[20px]">
+  <div class="smart-parking-common-card-container ml-[20px]">
     <div class="pt-[55px] pl-[25px]">
       <!-- 路况 -->
-      <div class="road-condition">
+      <div class="smart-parking-common-title">
         <h1 class="c-white">近7天车流量概览</h1>
       </div>
 

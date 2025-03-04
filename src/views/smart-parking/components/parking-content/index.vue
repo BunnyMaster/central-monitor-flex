@@ -11,25 +11,3 @@ import TruckMonitor from '@/views/smart-parking/components/parking-content/truck
     <traffic-overview />
   </main>
 </template>
-
-<style lang="scss" scoped>
-.card-container {
-  width: 380px;
-  height: 650px;
-  background: url('@/assets/images/smart-parking/bg/bg-side.png') no-repeat center;
-  background-size: cover;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-
-  ::v-deep(.road-condition) {
-    width: 218px;
-    height: 59px;
-    background: url('@/assets/images/smart-parking/bg/bg-road-condition.png') no-repeat center;
-    background-size: cover;
-
-    h1 {
-      font-size: 18px;
-    }
-  }
-}
-</style>

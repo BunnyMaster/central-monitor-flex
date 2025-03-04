@@ -1,10 +1,10 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="card-container">
+  <div class="smart-parking-common-card-container">
     <div class="pt-[55px] pl-[25px]" style="transform: rotateY(180deg)">
       <!-- 路况 -->
-      <div class="road-condition">
+      <div class="smart-parking-common-title">
         <h1 class="c-white">实时道路情况</h1>
       </div>
 
@@ -46,7 +46,7 @@
 </template>
 
 <style lang="scss" scoped>
-.card-container {
+.smart-parking-common-card-container {
   margin: 0 20px 0 0;
   transform: rotateY(180deg);
 
