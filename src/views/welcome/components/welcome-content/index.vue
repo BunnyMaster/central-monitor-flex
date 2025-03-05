@@ -3,7 +3,7 @@ import PageList from '@/views/welcome/components/welcome-content/page-list.vue';
 </script>
 
 <template>
-  <div class="flex-y-around welcome">
+  <div class="welcome flex-y-around">
     <div class="mt-[158px]">
       <p class="c-white">
         <img alt="welcome" src="@/assets/images/welcome/icon/welcome.png" />

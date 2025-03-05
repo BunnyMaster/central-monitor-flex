@@ -17,9 +17,9 @@ const routes: RouteConfigsTable[] = [
   },
 
   {
-    path: '/smart-parking',
+    path: '/smart-park',
     name: 'smartParking',
-    component: () => import('@/views/smart-parking/index.vue'),
+    component: () => import('@/views/smart-park/index.vue'),
     meta: { title: '智慧智能监管中心', subtitle: '车辆监控中心' },
   },
   {

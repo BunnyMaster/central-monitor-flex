@@ -6,7 +6,7 @@ const router = useRouter();
 
 <template>
   <ul class="page-list flex-x-between">
-    <li class="flex-y-center" @click="router.push('/smart-parking')">
+    <li class="flex-y-center" @click="router.push('/smart-park')">
       <img alt="car" src="@/assets/images/welcome/icon/center/car.png" />
       <span>智慧停车</span>
     </li>

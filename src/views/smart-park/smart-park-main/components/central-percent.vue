@@ -3,8 +3,8 @@ defineProps({
   percent: Number,
 });
 
-import ArrowDown from '@/assets/images/smart-parking/arrow/arrow-down.png';
-import ArrowUp from '@/assets/images/smart-parking/arrow/arrow-up.png';
+import ArrowDown from '@/assets/images/smart-park/arrow/arrow-down.png';
+import ArrowUp from '@/assets/images/smart-park/arrow/arrow-up.png';
 
 const calPercentItem = (percent: number): Element => {
   return percent > 25 ? (
@@ -22,7 +22,7 @@ const calPercentItem = (percent: number): Element => {
 </script>
 
 <template>
-  <div class="main-center-percent">
+  <div class="smart-park__main-percent-item">
     <div class="flex-y-around mt-[16px] mr-[13px] mb-[20px] ml-[13px]">
       <component :is="calPercentItem(percent)" />
       <span class="font-size-[15px] text-center c-info">环比</span>
@@ -31,7 +31,7 @@ const calPercentItem = (percent: number): Element => {
 </template>
 
 <style lang="scss" scoped>
-.main-center-percent {
+.smart-park__main-percent-item {
   position: absolute;
   width: 86px;
   height: 86px;
