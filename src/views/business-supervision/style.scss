@@ -40,7 +40,7 @@
       height: 42px;
       font-size: 22px;
       color: #fff;
-      background: url('@/assets/images/business-supervision/bg/bg-frame-4.png') no-repeat;
+      background: url('@/assets/images/business-supervision/bg/sidebar/bg-frame-4.png') no-repeat;
       background-size: cover;
     }
 
@@ -49,4 +49,12 @@
       color: var(--color-info-secondary);
     }
   }
+
+  &__content {
+    width: 759px;
+    height: 100%;
+  }
 }
+
+
+

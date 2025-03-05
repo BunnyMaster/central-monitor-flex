@@ -41,11 +41,11 @@ defineProps<{
     justify-content: center;
     width: 74px;
     height: 46px;
-    background: url('@/assets/images/business-supervision/bg/device-carriage.png') no-repeat center;
+    background: url('@/assets/images/business-supervision/bg/sidebar/device-carriage.png') no-repeat
+      center;
     background-size: cover;
 
     i {
-      //color: #ff7e5f;
       font-size: 26px;
     }
   }
