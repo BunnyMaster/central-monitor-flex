@@ -10,22 +10,22 @@
 
       <!-- 汽车列表 -->
       <ul class="mt-[32px]">
-        <li class="smart-park__sidebar--left-item flex-x-around">
+        <li class="smart-park__sidebar--left-item">
           <img alt="car-1" src="@/assets/images/smart-park/car/car-1.png" />
           <p>入卡口（西北门）</p>
           <span class="dashed-circle c-primary-secondary border-b-primary-secondary">畅通</span>
         </li>
-        <li class="smart-park__sidebar--left-item flex-x-around">
+        <li class="smart-park__sidebar--left-item">
           <img alt="car-1" src="@/assets/images/smart-park/car/car-1.png" />
           <p>入卡口（东北门）</p>
           <span class="dashed-circle c-primary-secondary border-b-primary-secondary">畅通</span>
         </li>
-        <li class="smart-park__sidebar--left-item flex-x-around">
+        <li class="smart-park__sidebar--left-item">
           <img alt="car-1" src="@/assets/images/smart-park/car/car-2.png" />
           <p>入卡口（东北门）</p>
           <span class="dashed-circle c-warning border-b-warning">拥堵</span>
         </li>
-        <li class="smart-park__sidebar--left-item flex-x-around">
+        <li class="smart-park__sidebar--left-item">
           <img alt="car-1" src="@/assets/images/smart-park/car/car-1.png" />
           <p>入卡口（东南门）</p>
           <span class="dashed-circle c-primary-secondary border-b-primary-secondary">畅通</span>
@@ -51,6 +51,9 @@
   transform: rotateY(180deg);
 
   &-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     width: 330px;
     height: 61px;
     margin: 0 0 9px 0;

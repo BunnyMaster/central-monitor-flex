@@ -2,12 +2,12 @@
 
 <template>
   <div class="bar-op">
-    <ul class="flex-x-around">
+    <ul>
       <li><img alt="icon-1" src="@/assets/images/common/icon/icon-1.png" /></li>
       <li><img alt="icon-2" src="@/assets/images/common/icon/icon-2.png" /></li>
       <li><img alt="icon-3" src="@/assets/images/common/icon/icon-3.png" /></li>
     </ul>
-    <span class="hover c-primary">王菠萝</span>
+    <span class="hover">王菠萝</span>
   </div>
 </template>
 
@@ -21,6 +21,9 @@
   height: 36px;
 
   ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     float: left;
     width: 148px;
 
@@ -30,6 +33,7 @@
   }
 
   span {
+    color: var(--color-primary);
     float: left;
     font-size: 12px;
     cursor: pointer;

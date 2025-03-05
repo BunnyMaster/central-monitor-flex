@@ -26,11 +26,11 @@ onMounted(() => {
 
 <template>
   <header>
-    <div class="time c-primary">{{ time }}</div>
+    <div class="header-time c-primary">{{ time }}</div>
 
-    <div class="title">
-      <h1 class="c-white">{{ route.meta.title }}</h1>
-      <h2 class="c-primary-secondary">{{ route.meta.subtitle }}</h2>
+    <div class="header-title">
+      <h1>{{ route.meta.title }}</h1>
+      <h2>{{ route.meta.subtitle }}</h2>
       <img
         alt="icon-setting"
         class="ml-[-284px]"
@@ -52,14 +52,14 @@ header {
   background-size: cover;
 }
 
-.time {
+.header-time {
   position: absolute;
   margin: 0 0 0 41px;
   line-height: 60px;
   font-size: 14px;
 }
 
-.title {
+.header-title {
   position: relative;
   text-align: center;
 
@@ -76,11 +76,13 @@ header {
   }
 
   h1 {
+    color: #fff;
     font-size: 42px;
     line-height: 60px;
   }
 
   h2 {
+    color: var(--color-primary-secondary);
     font-size: 24px;
     line-height: 45px;
     font-weight: lighter;

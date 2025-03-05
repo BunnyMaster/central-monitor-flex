@@ -53,7 +53,7 @@ const displayContent = () => {
     margin: 0 3.5px;
     width: 49px;
     height: 69px;
-    background: url('@/assets/images/manage-forms/bg/bg-count.png') no-repeat;
+    background: url('@/assets/images/business-supervision/bg/bg-count.png') no-repeat;
     background-size: cover;
   }
 }

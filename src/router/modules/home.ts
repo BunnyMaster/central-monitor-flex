@@ -10,9 +10,9 @@ const routes: RouteConfigsTable[] = [
   },
 
   {
-    path: '/manage-forms',
+    path: '/business-supervision',
     name: 'manageForms',
-    component: () => import('@/views/manage-forms/index.vue'),
+    component: () => import('@/views/business-supervision/index.vue'),
     meta: { title: '智慧经营监管中心', subtitle: '园区经营可视化' },
   },
 

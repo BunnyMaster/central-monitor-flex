@@ -1,21 +1,15 @@
 <script lang="ts" setup>
-import LayoutContent from '@/views/welcome/components/welcome-content/index.vue';
-import LayoutFooter from '@/views/welcome/components/welcome-footer/index.vue';
+import WelcomeContent from '@/views/welcome/welcome-content/index.vue';
+import WelcomeFooter from '@/views/welcome/welcome-footer.vue';
 </script>
 
 <template>
-  <div class="particle">
-    <layout-content />
-
-    <layout-footer />
+  <div class="welcome">
+    <welcome-content />
+    <welcome-footer />
   </div>
 </template>
 
-<style lang="scss" scoped>
-.particle {
-  width: 100%;
-  height: 100%;
-  background: url('@/assets/images/welcome/bg/bg-particle.png') no-repeat center;
-  background-size: cover;
-}
+<style>
+@import 'style.scss';
 </style>

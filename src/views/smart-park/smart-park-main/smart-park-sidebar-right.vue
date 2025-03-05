@@ -20,11 +20,11 @@ onMounted(() => {
 
       <!-- 汽车列表 -->
       <ul class="flex-x-around mt-[32px] w-[331px]">
-        <li class="smart-park__sidebar-flow-item flex-y-between">
+        <li class="smart-park__sidebar-flow-item">
           <span>最高进园车流量</span>
           <span>897</span>
         </li>
-        <li class="smart-park__sidebar-flow-item flex-y-between">
+        <li class="smart-park__sidebar-flow-item">
           <span>最高进园车流量</span>
           <span>494</span>
         </li>
@@ -32,7 +32,7 @@ onMounted(() => {
 
       <!-- 七天数据 -->
       <div class="w-[325px] h-[205px]">
-        <div ref="weekDataChart" class="smart-park__sidebar-week-data" />
+        <div ref="weekDataChart" class="smart-park__sidebar-charts" />
       </div>
     </div>
   </div>
@@ -40,6 +40,9 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .smart-park__sidebar-flow-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 162px;
   height: 111px;
   text-align: center;
@@ -65,11 +68,9 @@ onMounted(() => {
   }
 }
 
-.smart-park__sidebar-week-data {
+.smart-park__sidebar-charts {
   margin: 71px 0 0 0;
   width: 100%;
   height: 100%;
-  transform: scale(1);
-  transform-origin: 0 0;
 }
 </style>

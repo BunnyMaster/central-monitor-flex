@@ -4,7 +4,7 @@ import CentralPercent from '@/views/smart-park/smart-park-main/components/centra
 </script>
 
 <template>
-  <div class="smart-park__center flex-center">
+  <div class="smart-park__center">
     <div class="h-[570px] flex-y-between">
       <div class="smart-park__center-title">
         <h1>卡口车辆监控</h1>
@@ -41,6 +41,9 @@ import CentralPercent from '@/views/smart-park/smart-park-main/components/centra
 
 <style lang="scss" scoped>
 .smart-park__center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 824px;
   height: 650px;
   background: url('@/assets/images/smart-park/bg/bg-middle.png') no-repeat center;

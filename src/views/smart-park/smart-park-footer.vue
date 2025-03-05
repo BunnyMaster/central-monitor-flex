@@ -2,12 +2,8 @@
 
 <template>
   <footer>
-    <ul class="flex-x-around">
-      <li
-        v-for="index in new Array(5)"
-        :key="index"
-        class="smart-park__footer--nav-item flex-y-center"
-      >
+    <ul class="smart-park__footer-nav">
+      <li v-for="index in new Array(5)" :key="index" class="smart-park__footer-item">
         <img alt="车辆管理" src="@/assets/images/smart-park/car/car-39.png" />
         <span class="text-white hover">车辆管理</span>
       </li>
@@ -22,20 +18,30 @@ footer {
   height: 125px;
 }
 
-.smart-park__footer--nav-item {
-  width: 138px;
-  height: 125px;
-  background: rgba(16, 11, 87, 0.55);
-  border-radius: 10px;
+.smart-park__footer-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
-  img {
-    width: 67px;
-    height: 67px;
-  }
+  li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 138px;
+    height: 125px;
+    background: rgba(16, 11, 87, 0.55);
+    border-radius: 10px;
 
-  span {
-    font-size: 15px;
-    font-weight: lighter;
+    img {
+      width: 67px;
+      height: 67px;
+    }
+
+    span {
+      font-size: 15px;
+      font-weight: lighter;
+    }
   }
 }
 </style>

@@ -9,21 +9,22 @@ const route = useRoute();
 
 <template>
   <header>
-    <div class="title">
-      <h1 class="c-white">{{ route.meta.title }}</h1>
+    <div class="header-title">
+      <h1>{{ route.meta.title }}</h1>
       <BarOp />
     </div>
   </header>
 </template>
 
 <style lang="scss" scoped>
-.title {
+.header-title {
   width: 100%;
   height: 108px;
   background: url('@/assets/images/common/header/bg-layout-header.png') no-repeat center;
   background-size: cover;
 
   h1 {
+    color: #fff;
     text-align: center;
     line-height: 100px;
     font-size: 42px;

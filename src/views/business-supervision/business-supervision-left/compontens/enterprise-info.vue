@@ -54,12 +54,11 @@ ul {
   height: 100%;
 
   li {
-    //margin: 15px 0 0 0;
     padding: 9px 16px 0 19px;
     margin: 15px 0 0 0;
     width: 242px;
     height: 124px;
-    background: url('@/assets/images/manage-forms/bg/frame-1.png') no-repeat center;
+    background: url('@/assets/images/business-supervision/bg/frame-1.png') no-repeat center;
     background-size: cover;
 
     h1 {
