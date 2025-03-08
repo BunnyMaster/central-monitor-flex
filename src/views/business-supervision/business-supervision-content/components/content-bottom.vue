@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue';
 
 import TimeSelect from '@/components/TimeSelect/index.vue';
 import { TimeSelectType } from '@/components/TimeSelect/type';
-import { renderEcharts } from '@/views/business-supervision/business-supervision-left/charts/sideBottom';
+import { renderEcharts } from '@/views/business-supervision/business-supervision-content/charts/contentBottom';
 
 const chartYear = ref();
 

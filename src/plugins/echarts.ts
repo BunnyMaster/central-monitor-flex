@@ -1,4 +1,4 @@
-import { BarChart, LineChart, PieChart } from 'echarts/charts';
+import { BarChart, LineChart, PictorialBarChart, PieChart } from 'echarts/charts';
 import {
   DataZoomComponent,
   GraphicComponent,
@@ -15,7 +15,6 @@ import { CanvasRenderer, SVGRenderer } from 'echarts/renderers';
 import type { App } from 'vue';
 
 const { use } = echarts;
-
 use([
   PieChart,
   BarChart,
@@ -31,6 +30,7 @@ use([
   TooltipComponent,
   DataZoomComponent,
   VisualMapComponent,
+  PictorialBarChart,
 ]);
 
 /**
