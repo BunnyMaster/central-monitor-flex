@@ -6,13 +6,13 @@ const devices = ref<any>([
     { color: '#ff7e5f', title: 738, description: '设备总数1' },
     { color: '#ff7e5f', title: 738, description: '设备总数' },
     { color: '#fff', title: 738, description: '设备总数' },
-    { color: '#ff7e5f', title: 738, description: '设备总数' },
+    { color: '#08D9F1', title: 738, description: '设备总数' },
   ],
   [
-    { color: '#2a65ea', title: '7.3k㎡', description: '设备总数' },
+    { color: '#ff7e5f', title: '7.3k㎡', description: '设备总数' },
     { color: '#2a65ea', title: 738, description: '设备总数' },
     { color: '#fff', title: 738, description: '设备总数' },
-    { color: '#2a65ea', title: 738, description: '设备总数' },
+    { color: '#08D9F1', title: 738, description: '设备总数' },
   ],
 ]);
 </script>
@@ -28,13 +28,12 @@ const devices = ref<any>([
     <ul v-for="(parent, pIndex) in devices" :key="pIndex" class="flex-x-around mt-[12px]">
       <li v-for="(item, index) in parent" :key="index">
         <div class="manage-device">
-          <h1>{{ item.title.toString() }}</h1>
+          <h1 :style="{ color: item.color }">{{ item.title.toString() }}</h1>
           <p>{{ item.description }}</p>
           <div class="device-carriage">
             <i :style="{ color: item.color }" class="i-mdi:electricity" />
           </div>
         </div>
-        <!--<manage-device :color="item.color" :description="item.description" :title="item.title" />-->
       </li>
     </ul>
   </div>

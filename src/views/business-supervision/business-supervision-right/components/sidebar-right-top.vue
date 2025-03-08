@@ -37,7 +37,7 @@ const timeList = ref<TimeSelectType[]>([
           <h1>$ 1.62</h1>
           <img
             alt=""
-            src="../../../../assets/images/business-supervision/bg/sidebar/bg-middle-coordinate.png"
+            src="@/assets/images/business-supervision/bg/sidebar/bg-middle-coordinate.png"
           />
           <p>批准规划面积验收率</p>
         </li>
@@ -45,7 +45,7 @@ const timeList = ref<TimeSelectType[]>([
           <h1>$ 1.62</h1>
           <img
             alt=""
-            src="../../../../assets/images/business-supervision/bg/sidebar/bg-middle-coordinate.png"
+            src="@/assets/images/business-supervision/bg/sidebar/bg-middle-coordinate.png"
           />
           <p>批准规划面积验收率</p>
         </li>
@@ -53,7 +53,7 @@ const timeList = ref<TimeSelectType[]>([
           <h1>$ 1.62</h1>
           <img
             alt=""
-            src="../../../../assets/images/business-supervision/bg/sidebar/bg-middle-coordinate.png"
+            src="@/assets/images/business-supervision/bg/sidebar/bg-middle-coordinate.png"
           />
           <p>批准规划面积验收率</p>
         </li>
@@ -119,6 +119,7 @@ const timeList = ref<TimeSelectType[]>([
         margin: 9px 0 0 0;
         width: 44px;
         height: 50px;
+        animation: bounce 4s ease-in-out infinite;
       }
 
       p {

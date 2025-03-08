@@ -1,5 +1,6 @@
 import 'echarts/lib/component/dataZoom';
 
+import { useDebounceFn, useEventListener } from '@vueuse/core';
 import type { EChartsOption } from 'echarts';
 import { type Ref, ref } from 'vue';
 
@@ -17,10 +18,15 @@ option.value = {
       avoidLabelOverlap: false,
       label: { show: false, position: false },
       labelLine: { show: false },
+      emphasis: {
+        disabled: true, // 禁用 emphasis 状态
+        scale: false, // 禁用放大效果
+        scaleSize: 0, // 将放大尺寸设置为 0
+      },
       data: [
         {
           value: 1048,
-          name: '国营企业',
+          name: '国营',
           itemStyle: {
             color: new echarts.graphic.LinearGradient(0, 0, 1, 1, [
               { offset: 0, color: '#0DBBB3' },
@@ -30,7 +36,7 @@ option.value = {
         },
         {
           value: 735,
-          name: '私营企业',
+          name: '私营',
           itemStyle: {
             color: new echarts.graphic.LinearGradient(0, 0, 1, 1, [
               { offset: 0, color: '#DEA60F' },
@@ -41,16 +47,21 @@ option.value = {
       ],
     },
     {
-      name: '企业1',
+      name: '企业',
       type: 'pie',
       radius: ['54%', '74%'],
       avoidLabelOverlap: false,
       label: { show: false, position: false },
       labelLine: { show: false },
+      emphasis: {
+        disabled: true, // 禁用 emphasis 状态
+        scale: false, // 禁用放大效果
+        scaleSize: 0, // 将放大尺寸设置为 0
+      },
       data: [
         {
           value: 1048,
-          name: '国营企业',
+          name: '国营',
           itemStyle: {
             color: new echarts.graphic.LinearGradient(0, 0, 1, 1, [
               { offset: 0, color: '#0DBBB37f' },
@@ -60,7 +71,7 @@ option.value = {
         },
         {
           value: 735,
-          name: '私营企业',
+          name: '私营',
           itemStyle: {
             color: new echarts.graphic.LinearGradient(0, 0, 1, 1, [
               { offset: 0, color: '#DEA60F7F' },
@@ -78,5 +89,11 @@ export const renderEcharts = (element: Ref<HTMLDivElement>) => {
     renderer: 'svg',
     devicePixelRatio: window.devicePixelRatio,
   });
+
+  const debouncedFn = useDebounceFn(() => {
+    myChart.resize();
+  }, 1000);
+  useEventListener(window, 'resize', debouncedFn);
+
   myChart.setOption(option.value);
 };

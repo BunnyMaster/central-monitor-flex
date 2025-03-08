@@ -18,6 +18,7 @@
     "@unocss/preset-icons": "^66.0.0",
     "@unocss/reset": "^66.0.0",
     "@vitejs/plugin-vue-jsx": "^4.1.1",
+    "@vueuse/core": "^12.8.2",
     "animate.css": "^4.1.1",
     "autofit.js": "^3.2.4",
     "axios": "^1.7.9",

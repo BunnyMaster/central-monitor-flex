@@ -5,7 +5,7 @@
     <li>
       <img
         alt="bg-middle-1"
-        src="../../../../assets/images/business-supervision/bg/content/bg-middle-1.png"
+        src="@/assets/images/business-supervision/bg/content/bg-middle-1.png"
       />
       <h2>员工</h2>
       <div class="business-supervision__middle-detail">
@@ -16,7 +16,7 @@
     <li>
       <img
         alt="bg-middle-2"
-        src="../../../../assets/images/business-supervision/bg/content/bg-middle-2.png"
+        src="@/assets/images/business-supervision/bg/content/bg-middle-2.png"
       />
       <h2>智慧大楼</h2>
       <div class="business-supervision__middle-detail">
@@ -27,7 +27,7 @@
     <li>
       <img
         alt="bg-middle-3"
-        src="../../../../assets/images/business-supervision/bg/content/bg-middle-3.png"
+        src="@/assets/images/business-supervision/bg/content/bg-middle-3.png"
       />
       <h2>智慧设备</h2>
       <div class="business-supervision__middle-detail">
@@ -38,7 +38,7 @@
     <li>
       <img
         alt="bg-middle-3"
-        src="../../../../assets/images/business-supervision/bg/content/bg-middle-3.png"
+        src="@/assets/images/business-supervision/bg/content/bg-middle-3.png"
       />
       <h2>数据报表</h2>
       <div class="business-supervision__middle-detail">
@@ -70,6 +70,7 @@
       width: 162px;
       height: 183px;
       object-fit: cover;
+      animation: shakeY 4s ease-in-out infinite;
     }
 
     h2 {

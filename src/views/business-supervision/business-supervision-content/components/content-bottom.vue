@@ -1,14 +1,21 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 import TimeSelect from '@/components/TimeSelect/index.vue';
 import { TimeSelectType } from '@/components/TimeSelect/type';
+import { renderEcharts } from '@/views/business-supervision/business-supervision-left/charts/sideBottom';
+
+const chartYear = ref();
 
 const timeList = ref<TimeSelectType[]>([
   { label: '2020.09', value: '2021' },
   { label: '2020.09', value: '2021' },
   { label: '2020.09', value: '2021' },
 ]);
+
+onMounted(() => {
+  renderEcharts(chartYear);
+});
 </script>
 
 <template>
@@ -21,6 +28,8 @@ const timeList = ref<TimeSelectType[]>([
         </div>
         <TimeSelect :time-list="timeList" />
       </div>
+
+      <div ref="chartYear" class="business-supervision__bottom-chart" />
     </div>
   </div>
 </template>
@@ -53,6 +62,11 @@ const timeList = ref<TimeSelectType[]>([
       margin: 14px 0 0 4px;
       font-size: 12px;
     }
+  }
+
+  &-chart {
+    width: 100%;
+    height: 197px;
   }
 }
 </style>

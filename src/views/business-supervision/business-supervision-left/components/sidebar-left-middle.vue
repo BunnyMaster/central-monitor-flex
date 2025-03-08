@@ -32,7 +32,7 @@ onMounted(() => {
           </div>
           <div ref="chartPie" class="business-supervision__sidebar-card-chart-pie" />
         </div>
-        <div class="business-supervision__sidebar-enterprise-type">
+        <div class="business-supervision__sidebar-card-enterprise-type">
           <span class="mr-[13px]">
             <i class="bg-primary-secondary" />
             国营企业 345
@@ -91,6 +91,7 @@ onMounted(() => {
   }
 
   &-enterprise-type {
+    margin: 4px 0 0 0;
     width: 100%;
 
     span {

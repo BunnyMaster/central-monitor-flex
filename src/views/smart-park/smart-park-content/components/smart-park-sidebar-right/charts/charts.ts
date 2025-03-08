@@ -1,5 +1,6 @@
 import 'echarts/lib/component/dataZoom';
 
+import { useDebounceFn, useEventListener } from '@vueuse/core';
 import type { EChartsOption } from 'echarts';
 import { type Ref, ref } from 'vue';
 
@@ -100,5 +101,11 @@ export const renderEcharts = (element: Ref<HTMLDivElement>) => {
     renderer: 'svg',
     devicePixelRatio: window.devicePixelRatio,
   });
+
+  const debouncedFn = useDebounceFn(() => {
+    myChart.resize();
+  }, 1000);
+  useEventListener(window, 'resize', debouncedFn);
+
   myChart.setOption(option.value);
 };
