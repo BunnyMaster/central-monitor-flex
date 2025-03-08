@@ -32,6 +32,7 @@ const list = [
   },
 ];
 
+// 动态顶部元素
 const contentEl = () => {
   return (
     <>
@@ -52,7 +53,7 @@ const contentEl = () => {
             alt="card-1"
             src={
               new URL(
-                `../../../assets/images/business-supervision/bg/content/bg-card-${index + 1}.png`,
+                `../../../../assets/images/business-supervision/bg/content/bg-card-${index + 1}.png`,
                 import.meta.url
               ).href
             }

@@ -4,7 +4,7 @@
   <footer>
     <ul class="smart-park__footer-nav">
       <li v-for="index in new Array(5)" :key="index" class="smart-park__footer-item">
-        <img alt="车辆管理" src="@/assets/images/smart-park/car/car-39.png" />
+        <img alt="车辆管理" src="../../../assets/images/smart-park/car/car-39.png" />
         <span class="text-white hover">车辆管理</span>
       </li>
     </ul>

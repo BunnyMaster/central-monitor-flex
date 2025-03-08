@@ -5,38 +5,46 @@
     <li>
       <img
         alt="bg-middle-1"
-        src="@/assets/images/business-supervision/bg/content/bg-middle-1.png"
+        src="../../../../assets/images/business-supervision/bg/content/bg-middle-1.png"
       />
       <h2>员工</h2>
-      <strong>365</strong>
-      <span>相关员工</span>
+      <div class="business-supervision__middle-detail">
+        <strong>365</strong>
+        <span>相关员工</span>
+      </div>
     </li>
     <li>
       <img
         alt="bg-middle-2"
-        src="@/assets/images/business-supervision/bg/content/bg-middle-2.png"
+        src="../../../../assets/images/business-supervision/bg/content/bg-middle-2.png"
       />
       <h2>智慧大楼</h2>
-      <strong>365</strong>
-      <span>区域面积/㎡</span>
+      <div class="business-supervision__middle-detail">
+        <strong>365</strong>
+        <span>区域面积/㎡</span>
+      </div>
     </li>
     <li>
       <img
         alt="bg-middle-3"
-        src="@/assets/images/business-supervision/bg/content/bg-middle-3.png"
+        src="../../../../assets/images/business-supervision/bg/content/bg-middle-3.png"
       />
       <h2>智慧设备</h2>
-      <strong>1123</strong>
-      <span>设备总数</span>
+      <div class="business-supervision__middle-detail">
+        <strong>1123</strong>
+        <span>设备总数</span>
+      </div>
     </li>
     <li>
       <img
         alt="bg-middle-3"
-        src="@/assets/images/business-supervision/bg/content/bg-middle-3.png"
+        src="../../../../assets/images/business-supervision/bg/content/bg-middle-3.png"
       />
       <h2>数据报表</h2>
-      <strong>287</strong>
-      <span>报表下载总数</span>
+      <div class="business-supervision__middle-detail">
+        <strong>287</strong>
+        <span>报表下载总数</span>
+      </div>
     </li>
   </ul>
 </template>
@@ -76,6 +84,18 @@
         center;
       background-size: cover;
     }
+  }
+
+  &-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 99px;
+    background: url('@/assets/images/business-supervision/bg/content/bg-middle-detail.png')
+      no-repeat center;
+    background-size: cover;
 
     strong {
       font-size: 32px;

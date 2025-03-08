@@ -1,36 +1,36 @@
 <script lang="ts" setup>
-import CentralItem from '@/views/smart-park/smart-park-main/components/central-item.vue';
-import CentralPercent from '@/views/smart-park/smart-park-main/components/central-percent.vue';
+import ContentItem from '@/views/smart-park/smart-park-content/components/smart-park-content/components/content-item.vue';
+import ContentPercent from '@/views/smart-park/smart-park-content/components/smart-park-content/components/content-percent.vue';
 </script>
 
 <template>
-  <div class="smart-park__center">
+  <div class="smart-park-central">
     <div class="h-[570px] flex-y-between">
-      <div class="smart-park__center-title">
+      <div class="smart-park-central-title">
         <h1>卡口车辆监控</h1>
       </div>
 
       <!-- 中间布局 -->
-      <div class="smart-park__center-inner">
+      <div class="smart-park-central-inner">
         <div class="pos-relative">
-          <central-item :count="45" class="top-[37px] left-[40px] w-[175px]" door="西北门" />
-          <central-percent :percent="44" class="top-[73px] left-[193px]" />
+          <content-item :count="45" class="top-[37px] left-[40px] w-[175px]" door="西北门" />
+          <content-percent :percent="44" class="top-[73px] left-[193px]" />
         </div>
         <div class="pos-relative">
-          <central-item :count="67" class="top-[37px] left-[120px] w-[175px]" door="东北门" />
-          <central-percent :percent="25" class="top-[73px] right-[192px]" />
+          <content-item :count="67" class="top-[37px] left-[120px] w-[175px]" door="东北门" />
+          <content-percent :percent="25" class="top-[73px] right-[192px]" />
         </div>
         <div class="pos-relative">
-          <central-item :count="345" class="top-[45px] left-[34px] w-[175px]" door="西南门" />
-          <central-percent :percent="25" class="top-[40px] left-[193px]" />
+          <content-item :count="345" class="top-[45px] left-[34px] w-[175px]" door="西南门" />
+          <content-percent :percent="25" class="top-[40px] left-[193px]" />
         </div>
         <div class="pos-relative">
-          <central-item :count="145" class="top-[45px] left-[130px] w-[175px]" door="东南门" />
-          <central-percent :percent="44" class="top-[40px] left-[66px]" />
+          <content-item :count="145" class="top-[45px] left-[130px] w-[175px]" door="东南门" />
+          <content-percent :percent="44" class="top-[40px] left-[66px]" />
         </div>
 
-        <div class="smart-park__center-content">
-          <div class="smart-park__center-content-headline flex-center">
+        <div class="smart-park-central-content">
+          <div class="smart-park-central-content-headline flex-center">
             <h1>智能管控</h1>
           </div>
         </div>
@@ -40,7 +40,7 @@ import CentralPercent from '@/views/smart-park/smart-park-main/components/centra
 </template>
 
 <style lang="scss" scoped>
-.smart-park__center {
+.smart-park-central {
   display: flex;
   justify-content: center;
   align-items: center;

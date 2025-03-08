@@ -14,10 +14,10 @@ const timeList = ref<TimeSelectType[]>([
 <template>
   <div class="business-supervision__bottom">
     <div class="business-supervision__bottom-inner">
-      <div class="flex-x-between">
+      <div class="business-supervision__bottom-title">
         <div class="flex-x-between">
-          <h1 class="font-size-[22px]">年度税收概览</h1>
-          <span class="font-size-[12px]">单位/万元</span>
+          <h1>年度税收概览</h1>
+          <span class="business-supervision__bottom-title-unit">单位/万元</span>
         </div>
         <TimeSelect :time-list="timeList" />
       </div>
@@ -36,6 +36,23 @@ const timeList = ref<TimeSelectType[]>([
   &-inner {
     padding: 20px;
     color: #fff;
+  }
+
+  &-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+
+    h1 {
+      font-size: 22px;
+    }
+
+    &-unit {
+      display: inline-block;
+      margin: 14px 0 0 4px;
+      font-size: 12px;
+    }
   }
 }
 </style>

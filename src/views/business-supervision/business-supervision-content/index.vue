@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import ContentBottom from '@/views/business-supervision/business-supervision-content/content-bottom.vue';
-import ContentMiddle from '@/views/business-supervision/business-supervision-content/content-middle.vue';
-import ContentTop from '@/views/business-supervision/business-supervision-content/content-top.vue';
+import ContentBottom from '@/views/business-supervision/business-supervision-content/components/content-bottom.vue';
+import ContentMiddle from '@/views/business-supervision/business-supervision-content/components/content-middle.vue';
+import ContentTop from '@/views/business-supervision/business-supervision-content/components/content-top.vue';
 </script>
 
 <template>
