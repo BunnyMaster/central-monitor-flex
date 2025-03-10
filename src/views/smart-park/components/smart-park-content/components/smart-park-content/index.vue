@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import ContentItem from '@/views/smart-park/smart-park-content/components/smart-park-content/components/content-item.vue';
-import ContentPercent from '@/views/smart-park/smart-park-content/components/smart-park-content/components/content-percent.vue';
+import ContentItem from '@/views/smart-park/components/smart-park-content/components/smart-park-content/components/content-item.vue';
+import ContentPercent from '@/views/smart-park/components/smart-park-content/components/smart-park-content/components/content-percent.vue';
 </script>
 
 <template>

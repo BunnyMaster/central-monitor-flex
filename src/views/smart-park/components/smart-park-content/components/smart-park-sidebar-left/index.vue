@@ -11,22 +11,22 @@
       <!-- 汽车列表 -->
       <ul class="mt-[32px]">
         <li class="smart-park__sidebar--left-item">
-          <img alt="car-1" src="../../../../../assets/images/smart-park/car/car-1.png" />
+          <img alt="car-1" src="../../../../../../assets/images/smart-park/car/car-1.png" />
           <p>入卡口（西北门）</p>
           <span class="dashed-circle c-primary-secondary border-b-primary-secondary">畅通</span>
         </li>
         <li class="smart-park__sidebar--left-item">
-          <img alt="car-1" src="../../../../../assets/images/smart-park/car/car-1.png" />
+          <img alt="car-1" src="../../../../../../assets/images/smart-park/car/car-1.png" />
           <p>入卡口（东北门）</p>
           <span class="dashed-circle c-primary-secondary border-b-primary-secondary">畅通</span>
         </li>
         <li class="smart-park__sidebar--left-item">
-          <img alt="car-1" src="../../../../../assets/images/smart-park/car/car-2.png" />
+          <img alt="car-1" src="../../../../../../assets/images/smart-park/car/car-2.png" />
           <p>入卡口（东北门）</p>
           <span class="dashed-circle c-warning border-b-warning">拥堵</span>
         </li>
         <li class="smart-park__sidebar--left-item">
-          <img alt="car-1" src="../../../../../assets/images/smart-park/car/car-1.png" />
+          <img alt="car-1" src="../../../../../../assets/images/smart-park/car/car-1.png" />
           <p>入卡口（东南门）</p>
           <span class="dashed-circle c-primary-secondary border-b-primary-secondary">畅通</span>
         </li>

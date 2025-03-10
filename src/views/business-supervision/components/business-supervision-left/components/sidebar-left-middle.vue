@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
 
-import { renderEcharts } from '@/views/business-supervision/business-supervision-left/charts/sidebarMiddle';
+import { renderEcharts } from '@/views/business-supervision/components/business-supervision-left/charts/sidebarMiddle';
 
 const chartPie = ref<HTMLDivElement>();
 

@@ -4,7 +4,7 @@ import { onMounted, ref } from 'vue';
 import TimeSelect from '@/components/TimeSelect/index.vue';
 import { TimeSelectType } from '@/components/TimeSelect/type';
 import formatter from '@/utils/digte-formatter';
-import { renderEcharts } from '@/views/business-supervision/business-supervision-left/charts/sidebarTop';
+import { renderEcharts } from '@/views/business-supervision/components/business-supervision-left/charts/sidebarTop';
 
 const chartProgress = ref<HTMLDivElement>();
 const money = ref('1386114');

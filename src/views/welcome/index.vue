@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import WelcomeContent from '@/views/welcome/welcome-content/index.vue';
-import WelcomeFooter from '@/views/welcome/welcome-footer.vue';
+import WelcomeContent from '@/views/welcome/components/welcome-content/index.vue';
+import WelcomeFooter from '@/views/welcome/components/welcome-footer.vue';
 </script>
 
 <template>

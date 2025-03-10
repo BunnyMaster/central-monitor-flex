@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import SmartPartContent from '@/views/smart-park/smart-park-content/index.vue';
-import SmartPartFooter from '@/views/smart-park/smart-park-footer/index.vue';
+import SmartPartContent from '@/views/smart-park/components/smart-park-content/index.vue';
+import SmartPartFooter from '@/views/smart-park/components/smart-park-footer/index.vue';
 </script>
 
 <template>
