@@ -1,32 +1,19 @@
 <script lang="tsx" setup>
 import { onMounted, ref } from 'vue';
 
+import { displayContent } from '@/components/CommonItem/DigitalNumber';
 import TimeSelect from '@/components/TimeSelect/index.vue';
 import { TimeSelectType } from '@/components/TimeSelect/type';
-import formatter from '@/utils/digte-formatter';
 import { renderEcharts } from '@/views/business-supervision/components/business-supervision-left/charts/sidebarTop';
 
 const chartProgress = ref<HTMLDivElement>();
-const money = ref('1386114');
+const money = '1386114';
 
 const timeList = ref<TimeSelectType[]>([
   { label: '2020.09', value: '2021' },
   { label: '2020.09', value: '2021' },
   { label: '2020.09', value: '2021' },
 ]);
-
-/** 显示金额 */
-const displayContent = () => {
-  formatter(money);
-  return (
-    <>
-      <span>¥</span>
-      {money.value.split('').map((item, index) => (
-        <span key={index}>{item}</span>
-      ))}
-    </>
-  );
-};
 
 onMounted(() => {
   renderEcharts(chartProgress);
@@ -46,7 +33,7 @@ onMounted(() => {
     </div>
 
     <div class="business-supervision__sidebar-money-digit">
-      <component :is="displayContent()" />
+      <component :is="displayContent(money)" />
     </div>
 
     <div>
