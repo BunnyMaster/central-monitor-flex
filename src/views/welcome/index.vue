@@ -10,6 +10,6 @@ import WelcomeFooter from '@/views/welcome/components/welcome-footer.vue';
   </div>
 </template>
 
-<style>
-@import 'style.scss';
+<style lang="scss">
+@use 'style.scss';
 </style>

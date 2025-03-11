@@ -7,26 +7,23 @@ const router = useRouter();
 <template>
   <ul class="welcome__content-list">
     <li @click="router.push('/smart-park')">
-      <img alt="car" src="../../../../assets/images/welcome/icon/center/car.png" />
+      <img alt="car" src="@/assets/images/welcome/icon/center/car.png" />
       <span>智慧停车</span>
     </li>
     <li>
-      <img
-        alt="distribution"
-        src="../../../../assets/images/welcome/icon/center/distribution.png"
-      />
+      <img alt="distribution" src="@/assets/images/welcome/icon/center/distribution.png" />
       <span>智慧配送</span>
     </li>
     <li>
-      <img alt="muck" src="../../../../assets/images/welcome/icon/center/muck.png" />
+      <img alt="muck" src="@/assets/images/welcome/icon/center/muck.png" />
       <span>智慧渣土</span>
     </li>
     <li>
-      <img alt="clean-city" src="../../../../assets/images/welcome/icon/center/clean-city.png" />
+      <img alt="clean-city" src="@/assets/images/welcome/icon/center/clean-city.png" />
       <span>智慧洁城</span>
     </li>
     <li>
-      <img alt="lamp" src="../../../../assets/images/welcome/icon/center/lamp.png" />
+      <img alt="lamp" src="@/assets/images/welcome/icon/center/lamp.png" />
       <span>智慧路灯</span>
     </li>
   </ul>

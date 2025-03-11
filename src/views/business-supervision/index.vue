@@ -12,6 +12,6 @@ import BusinessSupervisionRight from '@/views/business-supervision/components/bu
   </div>
 </template>
 
-<style>
-@import 'style.scss';
+<style lang="scss">
+@use 'style.scss';
 </style>

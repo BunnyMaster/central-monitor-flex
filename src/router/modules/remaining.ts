@@ -9,7 +9,20 @@ const routes: RouteRecordRaw[] = [
     name: 'layout',
     component: Layout,
     redirect: 'welcome',
-    children: [...home],
+    children: [
+      ...home,
+      {
+        path: '/redirect',
+        component: Layout,
+        meta: { hidden: true },
+        children: [
+          {
+            path: '/:path(.*)',
+            component: () => import('@/views/redirect/index.vue'),
+          },
+        ],
+      },
+    ],
   },
   {
     path: '/redirect',

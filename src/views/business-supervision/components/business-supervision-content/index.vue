@@ -11,5 +11,3 @@ import ContentTop from '@/views/business-supervision/components/business-supervi
     <content-bottom />
   </div>
 </template>
-
-<style lang="scss" scoped></style>

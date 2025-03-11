@@ -1,6 +1,6 @@
 @use "@/assets/styles/common/src/sidebar" as  *;
 
-.business-supervision {
+.big-data {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,8 +11,7 @@
   @include sidebar-1();
 
   &__content {
-    width: 759px;
+    width: 748px;
     height: 100%;
   }
 }
-

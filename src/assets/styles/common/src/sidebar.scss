@@ -1,0 +1,45 @@
+@mixin sidebar-1() {
+  &__sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 530px;
+    height: 100%;
+    color: #fff;
+
+    &-item {
+      padding: 9px 15px;
+      width: 100%;
+      background: rgba(14, 95, 255, 0.2);
+    }
+
+    &-tag {
+      float: left;
+      margin: 0 7px 0 0;
+      width: 62px;
+      height: 26px;
+      line-height: 26px;
+      font-size: 14px;
+      text-align: center;
+      background: rgba(24, 69, 135, 0.55);
+      color: #fff;
+      cursor: default;
+    }
+
+    &-title {
+      width: 172px;
+      height: 42px;
+      font-size: 22px;
+      color: #fff;
+      background: url('@/assets/images/business-supervision/bg/sidebar/bg-frame-4.png') no-repeat;
+      background-size: cover;
+    }
+
+    &-title-describe {
+      font-size: 12px;
+      color: var(--color-info-secondary-1);
+    }
+  }
+}

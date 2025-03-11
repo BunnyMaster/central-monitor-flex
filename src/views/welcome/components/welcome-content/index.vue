@@ -3,10 +3,10 @@ import ContentList from '@/views/welcome/components/welcome-content/content-list
 </script>
 
 <template>
-  <div class="welcome__content flex-y-around">
+  <div class="flex-y-around">
     <div class="mt-[158px]">
       <p>
-        <img alt="welcome-bg" src="../../../../assets/images/welcome/icon/welcome.png" />
+        <img alt="welcome-bg" src="@/assets/images/welcome/icon/welcome.png" />
         <i>xxxx</i>
         你好 欢迎使用xxxxxxxzz
       </p>

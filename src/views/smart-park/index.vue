@@ -19,6 +19,6 @@ import SmartPartFooter from '@/views/smart-park/components/smart-park-footer/ind
   </div>
 </template>
 
-<style>
-@import 'style.scss';
+<style lang="scss">
+@use 'style.scss';
 </style>
