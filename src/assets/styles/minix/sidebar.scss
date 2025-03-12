@@ -1,11 +1,11 @@
-@mixin sidebar-1() {
+@mixin view-style-default($sidebar-width,$content-width) {
   &__sidebar {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 530px;
+    width: $sidebar-width;
     height: 100%;
     color: #fff;
 
@@ -41,5 +41,10 @@
       font-size: 12px;
       color: var(--color-info-secondary-1);
     }
+  }
+
+  &__content {
+    width: $content-width;
+    height: 100%;
   }
 }

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
 
-import { renderEcharts } from '@/views/smart-park/components/smart-park-content/components/smart-park-sidebar-right/charts/charts';
+import { renderEcharts } from '@/views/smart-park/charts/right-sidebar';
 
 const weekDataChart = ref<HTMLDivElement>();
 

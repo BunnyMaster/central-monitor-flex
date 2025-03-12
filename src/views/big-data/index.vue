@@ -13,5 +13,14 @@ import BigDataRight from '@/views/big-data/components/big-data-right/index.vue';
 </template>
 
 <style lang="scss">
-@use 'style';
+.big-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 19px 25px;
+  width: 100%;
+  height: 100%;
+
+  @include view-style-default(530px, 748px);
+}
 </style>

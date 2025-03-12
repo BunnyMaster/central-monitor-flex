@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
 
-import BottomChart from '@/views/business-supervision/components/business-supervision-right/chart/bottom-chart.vue';
+import BottomChart from '@/views/business-supervision/charts/right-bottom-chart.vue';
 
 const charData1 = ref(Math.round(Math.random() * 100));
 const charData2 = ref(Math.round(Math.random() * 100));
@@ -98,6 +98,10 @@ onMounted(() => {
 
     &-change {
       display: flex;
+
+      p {
+        font-size: 13px;
+      }
 
       span {
         display: inline-block;

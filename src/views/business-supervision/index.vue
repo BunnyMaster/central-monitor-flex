@@ -13,5 +13,14 @@ import BusinessSupervisionRight from '@/views/business-supervision/components/bu
 </template>
 
 <style lang="scss">
-@use 'style.scss';
+.business-supervision {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 19px 25px;
+  width: 100%;
+  height: 100%;
+
+  @include view-style-default(530px, 759px);
+}
 </style>

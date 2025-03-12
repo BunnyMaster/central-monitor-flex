@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-import TimeSelect from '@/components/TimeSelect/index.vue';
-import { TimeSelectType } from '@/components/TimeSelect/type';
+import TimeSelect from '@/components/PanelItem/TimeSelect/index.vue';
+import { TimeSelectType } from '@/components/PanelItem/TimeSelect/type';
 
 const timeList = ref<TimeSelectType[]>([
   { label: '2020.09', value: '2021' },
@@ -22,9 +22,10 @@ const timeList = ref<TimeSelectType[]>([
         <TimeSelect :time-list="timeList" />
       </div>
     </div>
-    <ul>
-      <li>
-        <div class="big-data__left-main-title">
+
+    <ul class="big-data__body">
+      <li class="big-data__body-item">
+        <div class="big-data__body-title">
           <h1>进出口总值</h1>
           <span>
             总值增幅
@@ -37,22 +38,29 @@ const timeList = ref<TimeSelectType[]>([
 </template>
 
 <style lang="scss" scoped>
-ul {
+.big-data__body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  height: 100%;
 
-  li {
+  &-item {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin: 18px 15px;
     width: 100%;
   }
 
-  .big-data__left-main-title {
+  &-title {
     display: flex;
     justify-content: space-between;
     width: 100%;
+
+    em {
+      font-style: normal;
+    }
   }
 }
 </style>

@@ -7,10 +7,16 @@ export const css = (mode): CSSOptions => {
   const plugins: Plugin[] = [usePostCssPxToViewport8plugin(mode)];
 
   return {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@/assets/styles/minix/sidebar" as  *;`,
+        api: 'modern-compiler',
+      },
+    },
     postcss: {
       plugins: plugins.filter(Boolean),
     },
-  };
+  } as CSSOptions;
 };
 
 /** 是否启用px转换vw插件 */

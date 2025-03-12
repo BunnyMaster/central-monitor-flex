@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { TimeSelectType } from '@/components/TimeSelect/type';
+import { TimeSelectType } from '@/components/PanelItem/TimeSelect/type';
 
 defineProps({
   timeList: Array<TimeSelectType>,

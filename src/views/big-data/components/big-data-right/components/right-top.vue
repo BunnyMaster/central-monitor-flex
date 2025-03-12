@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-import TimeSelect from '@/components/TimeSelect/index.vue';
-import { TimeSelectType } from '@/components/TimeSelect/type';
+import TimeSelect from '@/components/PanelItem/TimeSelect/index.vue';
+import { TimeSelectType } from '@/components/PanelItem/TimeSelect/type';
 
 const timeList = ref<TimeSelectType[]>([
   { label: '2020.09', value: '2021' },
