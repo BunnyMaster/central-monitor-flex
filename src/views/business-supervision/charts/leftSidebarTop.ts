@@ -19,7 +19,7 @@ option.value = {
     {
       name: '进口额',
       type: 'bar',
-      barMaxWidth: 23,
+      barMaxWidth: 24,
       barGap: '-100%',
       itemStyle: {
         color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [

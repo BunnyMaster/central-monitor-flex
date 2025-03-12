@@ -17,7 +17,7 @@ import BigDataRight from '@/views/big-data/components/big-data-right/index.vue';
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 19px 25px;
+  padding: 0 25px;
   width: 100%;
   height: 100%;
 

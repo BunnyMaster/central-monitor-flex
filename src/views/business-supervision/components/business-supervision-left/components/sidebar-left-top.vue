@@ -32,14 +32,14 @@ onMounted(() => {
       </div>
     </div>
 
-    <div class="business-supervision__sidebar-money-digit">
+    <div class="money-digit">
       <component :is="displayContent(money)" />
     </div>
 
     <div>
       <div ref="chartProgress" class="business-supervision__sidebar-progress" />
 
-      <ul class="business-supervision__sidebar-value flex-x-between">
+      <ul class="business-supervision__sidebar-value">
         <li>
           进口额
           <i>¥1551154545</i>
@@ -55,32 +55,25 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-.business-supervision__sidebar {
-  &-money-digit {
-    display: flex;
-    justify-content: end;
-    margin: 26px 0 0 0;
-    color: var(--color-primary-secondary);
-    font-size: 45px;
-    text-align: center;
+.money-digit {
+  margin: 26px 0 0 0;
 
-    span {
-      float: left;
-      margin: 0 3.5px;
-      width: 49px;
-      height: 69px;
-      background: url('@/assets/images/business-supervision/bg/sidebar/bg-count.png') no-repeat;
-      background-size: cover;
-    }
+  span {
+    height: 69px;
   }
+}
 
+.business-supervision__sidebar {
   &-progress {
     margin: 21px 0 0 0;
     width: 495px;
-    height: 23px;
+    height: 24px;
   }
 
   &-value {
+    display: flex;
+    justify-content: space-between;
+    margin: 9px 0 0 0;
     font-size: 18px;
 
     i {

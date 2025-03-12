@@ -1,0 +1,16 @@
+.money-digit {
+  display: flex;
+  justify-content: end;
+  color: var(--color-primary-secondary);
+  font-size: 45px;
+  text-align: center;
+
+  span {
+    float: left;
+    margin: 0 3.5px;
+    width: 49px;
+    height: 62px;
+    background: url('@/assets/images/common/bg/bg-count.png') no-repeat;
+    background-size: cover;
+  }
+}
