@@ -57,7 +57,7 @@
   margin: 30px 0 0 0;
   width: 761px;
   height: 407px;
-  background: url('@/assets/images/business-supervision/bg/content/bg-middle.png ') no-repeat center;
+  background: url('@/assets/images/business-supervision/bg/content/bg-middle.png') no-repeat center;
   background-size: cover;
 
   li {

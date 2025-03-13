@@ -17,8 +17,7 @@ const boxenOptions: BoxenOptions = {
 /* 输出日志信息 */
 const printLogMessage = (VITE_PORT: number) => {
   return gradientString('cyan', 'magenta').multiline(
-    `保存成功！服务器重新启动...
-项目访问地址如下：
+    `欢迎使用此项目，项目访问地址如下：
 http://localhost:${VITE_PORT}`
   );
 };

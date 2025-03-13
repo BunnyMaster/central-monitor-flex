@@ -1,50 +1,49 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "useDefineForClassFields": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
-    "noLib": false,
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "lib": [
-      "esnext",
-      "dom"
-    ],
-    "baseUrl": ".",
-    "allowJs": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": false,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "strictFunctionTypes": false,
     "skipLibCheck": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "preserve",
-    "jsxFactory": "h",
-    "jsxImportSource": "vue",
-    "jsxFragmentFactory": "Fragment",
+    "sourceMap": true,
+    "baseUrl": ".",
+    "allowJs": false,
+    "resolveJsonModule": true,
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
     "paths": {
       "@/*": [
         "src/*"
       ]
+      //      "@build/*": [
+      //        "build/*"
+      //      ]
     },
     "types": [
-      "vite/client",
-      "unplugin-icons/types/vue",
-      "element-plus/global"
+      "node",
+      "vite/client"
     ]
   },
-  "files": [],
   "include": [
     "mock/*.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "src/types/*.d.ts",
-    "vite.config.ts"
+    "vite.config.ts",
+    "src/**/*.d.ts"
   ],
   "exclude": [
     "dist",
-    "**/*.js",
     "node_modules"
   ]
 }

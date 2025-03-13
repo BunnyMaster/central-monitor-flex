@@ -1,26 +1,26 @@
+import type { AcceptedPlugin } from 'postcss';
 import postCssPxToViewport8plugin from 'postcss-px-to-viewport-8-plugin';
-import type { CSSOptions, Plugin } from 'vite';
+import type { CSSOptions } from 'vite';
 
 import { wrapperEnv } from './utils';
 
-export const css = (mode): CSSOptions => {
-  const plugins: Plugin[] = [usePostCssPxToViewport8plugin(mode)];
+export const css = (mode: string): CSSOptions => {
+  const plugins: AcceptedPlugin[] = [usePostCssPxToViewport8plugin(mode)];
 
   return {
     preprocessorOptions: {
       scss: {
         additionalData: `@use "@/assets/styles/minix/sidebar" as  *;`,
-        api: 'modern-compiler',
       },
     },
     postcss: {
       plugins: plugins.filter(Boolean),
     },
-  } as CSSOptions;
+  };
 };
 
 /** 是否启用px转换vw插件 */
-const usePostCssPxToViewport8plugin = (mode): Plugin => {
+const usePostCssPxToViewport8plugin = (mode: string): AcceptedPlugin => {
   const { VITE_POST_CSS_PX_TO_VIEWPORT8_PLUGIN } = wrapperEnv(mode, 'VITE');
 
   const cssPxToVw = postCssPxToViewport8plugin({

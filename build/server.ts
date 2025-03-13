@@ -3,7 +3,7 @@ import type { ServerOptions } from 'vite';
 import { wrapperEnv } from './utils';
 
 /* 开发服务配置 */
-export const server = (mode) => {
+export const server = (mode: string) => {
   const { VITE_PORT, VITE_APP_URL, VITE_STRICT_PORT } = wrapperEnv(mode);
 
   const options: ServerOptions = {

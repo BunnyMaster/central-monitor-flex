@@ -4,15 +4,16 @@ import type { RouteComponent } from 'vue-router';
  * @description 完整子路由的`meta`配置表
  */
 interface CustomizeRouteMeta {
-  title: string;
-  subtitle: string;
-  transition: string;
+  title?: string;
+  subtitle?: string;
+  transition?: string;
+  hidden?: boolean;
 }
 
 /**
  * @description 整体路由配置表（包括完整子路由）
  */
-interface RouteConfigsTable {
+export interface RouteConfigsTable {
   /** 路由地址 `必填` */
   path: string;
   /** 路由名字（保持唯一）`可选` */
@@ -25,5 +26,3 @@ interface RouteConfigsTable {
   /** 子路由配置项 */
   children?: Array<RouteConfigsTable>;
 }
-
-export { RouteConfigsTable };

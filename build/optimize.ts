@@ -9,6 +9,6 @@ const include = ['vue', 'vue-router', 'dayjs', 'axios', 'pinia', 'vue-types', 'j
 /**
  * 在预构建中强制排除的依赖项
  */
-const exclude = [];
+const exclude: string[] = [];
 
 export { include, exclude };

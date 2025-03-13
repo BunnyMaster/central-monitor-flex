@@ -34,18 +34,20 @@ export const pathResolve = (dir = '.', metaUrl = import.meta.url) => {
  * @param prefix 需要过滤的前缀
  * @link 参考：https://cn.vite.dev/config/#using-environment-variables-in-config
  */
-export const wrapperEnv = (mode, prefix: string = ''): ViteEnv => {
-  const env = loadEnv(mode, root, prefix);
+// @ts-ignore
+export const wrapperEnv = (mode: string, prefix: string = ''): ViteEnv => {
+  const env: any = loadEnv(mode, root, prefix);
 
   // 将变量转换指定类型
   for (const envName of Object.keys(env)) {
-    let realName = env[envName].replace(/\\n/g, '\n');
+    let realName: string | boolean | number = env[envName].replace(/\\n/g, '\n');
     realName = realName === 'true' ? true : realName === 'false' ? false : realName;
 
     if (envName === 'VITE_PORT') {
       realName = Number(realName);
     }
     env[envName] = realName;
+    // @ts-ignore
     process.env[envName] = realName;
   }
   return env;
@@ -60,7 +62,7 @@ export const report = () => {
 };
 
 /* 启用gzip压缩 */
-export const compressPack = (mode) => {
+export const compressPack = (mode: string) => {
   const { VITE_COMPRESSION } = wrapperEnv(mode);
 
   return VITE_COMPRESSION == 'gzip' ? viteCompression({ threshold: 1024000 }) : null;

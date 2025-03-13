@@ -4,7 +4,7 @@ export const resolve = () => {
   return {
     alias: {
       '@': pathResolve('../src'),
-      '@build': pathResolve(),
+      // '@build': pathResolve(),
     },
   };
 };

@@ -3,7 +3,7 @@ import { defineFakeRoute } from 'vite-plugin-fake-server/client';
 export default defineFakeRoute([
   {
     url: '/mock/users',
-    methods: 'get',
+    method: 'GET',
     response: () => ({
       code: 200,
       data: {

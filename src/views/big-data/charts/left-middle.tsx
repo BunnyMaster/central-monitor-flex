@@ -98,10 +98,11 @@ export const ChartProgress = defineComponent({
       );
     });
 
-    return () => <div ref={chart} class="progress"></div>;
+    return () => <div ref={chart} className="progress"></div>;
   },
 });
 
+/** 更新图标数据 */
 const updateChart = (myChart: Ref<EChartsType | undefined>, props: any) => {
   myChart.value?.setOption({
     series: [

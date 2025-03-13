@@ -1,11 +1,13 @@
-import { useEventListener } from '@vueuse/core';
+import { useDebounceFn, useEventListener } from '@vueuse/core';
 import type { EChartsType } from 'echarts';
 
 /** 通用重置图表样式 */
 export const debounceChart = (myChart: EChartsType | undefined) => {
-  useEventListener(window, 'resize', () => {
+  const debounceFn = useDebounceFn(() => {
     myChart!.resize();
-  });
+  }, 500);
+
+  useEventListener(window, 'resize', debounceFn);
 };
 
 /** 数字格式化 */

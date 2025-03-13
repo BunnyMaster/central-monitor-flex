@@ -45,7 +45,7 @@ option.value = {
 };
 
 export const renderEcharts = (element: Ref<HTMLDivElement>) => {
-  const myChart = echarts.init(element.value, null, {
+  const myChart: any = echarts.init(element.value, null, {
     renderer: 'svg',
     devicePixelRatio: window.devicePixelRatio,
   });

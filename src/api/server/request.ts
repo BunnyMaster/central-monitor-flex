@@ -44,7 +44,7 @@ service.interceptors.response.use(
     }
 
     // ElMessage.error(msg || '系统出错');
-    return Promise.reject(msg || 'Error');
+    return Promise.reject(response.data.message || 'Error');
   },
   (error: any) => {
     // 异常处理

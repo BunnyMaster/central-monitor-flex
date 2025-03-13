@@ -10,7 +10,7 @@ const useAppStore = defineStore('appStore', {
   },
   getters: {},
   actions: {
-    setBackground(background) {
+    setBackground(background: string) {
       if (isCSSColor(background)) {
         this.background = background;
       } else if (isPath(background)) {

@@ -83,7 +83,7 @@ export default defineFlatConfig([
     rules: {
       ...pluginTypeScript.configs.strict.rules,
       '@typescript-eslint/ban-types': 'off',
-      '@typescript-eslint/no-redeclare': 'error',
+      '@typescript-eslint/no-redeclare': 'off',
       '@typescript-eslint/ban-ts-comment': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/prefer-as-const': 'warn',

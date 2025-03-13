@@ -1,5 +1,5 @@
 /** 判断是否是CSS颜色 */
-function isCSSColor(str) {
+function isCSSColor(str: string) {
   // 匹配十六进制颜色（如 #fff, #ffffff）
   const hexColor = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
 
@@ -16,7 +16,7 @@ function isCSSColor(str) {
 }
 
 /** 判断是否是相对路径或绝对路径 */
-function isPath(str) {
+function isPath(str: string) {
   // 匹配相对路径（如 ./path, ../path, path/to/file）
   const relativePath = /^\.{0,2}\/[^\/].*$/;
 

@@ -5,7 +5,7 @@ import error from '@/router/modules/error';
 import remaining from '@/router/modules/remaining';
 
 // 静态路由
-const routes: RouteRecordRaw[] = [...remaining, ...error];
+const routes: RouteRecordRaw[] = [...remaining, ...error] as RouteRecordRaw[];
 const router = createRouter({
   history: createWebHashHistory(),
   routes,

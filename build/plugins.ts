@@ -6,13 +6,14 @@ import UnoCSS from 'unocss/vite';
 import type { PluginOption } from 'vite';
 import { vitePluginFakeServer } from 'vite-plugin-fake-server';
 import removeConsole from 'vite-plugin-remove-console';
+import { createStyleImportPlugin } from 'vite-plugin-style-import';
 import Inspector from 'vite-plugin-vue-inspector';
 
 import { useCDN } from './cdn';
 import { viteConsoleLog } from './info';
 import { compressPack, report, wrapperEnv } from './utils';
 
-export const plugins = (mode): PluginOption[] => {
+export const plugins = (mode: string): PluginOption[] => {
   return [
     vue(),
     vueJsx(),
@@ -41,13 +42,21 @@ export const plugins = (mode): PluginOption[] => {
         }),
       ],
     }),
+    createStyleImportPlugin({
+      libs: [
+        {
+          libraryName: 'vite-plugin-style-import',
+          resolveStyle: (name) => `@/assets/${name}`,
+        },
+      ],
+    }),
     compressPack(mode),
     useMock(mode),
   ];
 };
 
 /** MOCK 服务 */
-const useMock = (mode) => {
+const useMock = (mode: string) => {
   const { VITE_MOCK_DEV_SERVER } = wrapperEnv(mode);
 
   return VITE_MOCK_DEV_SERVER

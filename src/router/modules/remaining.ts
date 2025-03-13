@@ -2,8 +2,9 @@ import type { RouteRecordRaw } from 'vue-router';
 
 import Layout from '@/layout/index.vue';
 import home from '@/router/modules/home';
+import type { RouteConfigsTable } from '@/types/router/Route';
 
-const routes: RouteRecordRaw[] = [
+const routes: RouteRecordRaw[] | RouteConfigsTable[] = [
   {
     path: '/',
     name: 'layout',

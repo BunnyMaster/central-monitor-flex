@@ -10,7 +10,8 @@ import { server } from './build/server';
 import { root, wrapperEnv } from './build/utils';
 
 // https://vite.dev/config/
-export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
+// export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
+export default defineConfig(({ mode }) => {
   const env = wrapperEnv(mode, 'VITE');
 
   return {
