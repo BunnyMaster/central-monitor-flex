@@ -1,4 +1,4 @@
-import { BarChart, LineChart, PictorialBarChart, PieChart } from 'echarts/charts';
+import { BarChart, GaugeChart, LineChart, PictorialBarChart, PieChart } from 'echarts/charts';
 import {
   DataZoomComponent,
   GraphicComponent,
@@ -31,6 +31,7 @@ use([
   DataZoomComponent,
   VisualMapComponent,
   PictorialBarChart,
+  GaugeChart,
 ]);
 
 /**

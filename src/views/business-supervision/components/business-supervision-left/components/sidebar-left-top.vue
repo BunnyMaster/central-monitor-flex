@@ -23,9 +23,7 @@ onMounted(() => {
 <template>
   <div class="business-supervision__sidebar-item h-[246px]">
     <div class="flex-x-between">
-      <div class="business-supervision__sidebar-title">
-        <h1>园区进出口额</h1>
-      </div>
+      <h1 class="business-supervision__sidebar-title">园区进出口额</h1>
       <div>
         <span class="business-supervision__sidebar-tag">总数据</span>
         <TimeSelect :time-list="timeList" />

@@ -20,6 +20,7 @@
     "forceConsistentCasingInFileNames": true,
     "jsx": "preserve",
     "jsxFactory": "h",
+    "jsxImportSource": "vue",
     "jsxFragmentFactory": "Fragment",
     "paths": {
       "@/*": [

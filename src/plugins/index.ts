@@ -16,6 +16,7 @@ export default {
     setupDirective(app);
     // 根据需求引入echarts
     useEcharts(app);
+    // 使用autoFit，在环境配置文件中设置
     autoFit();
   },
 };

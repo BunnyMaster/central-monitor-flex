@@ -1,7 +1,16 @@
 <script lang="ts" setup>
+import { onBeforeMount } from 'vue';
+
+import { useAppStore } from '@/store/app';
 import BigDataContent from '@/views/big-data/components/big-data-content/index.vue';
 import BigDataLeft from '@/views/big-data/components/big-data-left/index.vue';
 import BigDataRight from '@/views/big-data/components/big-data-right/index.vue';
+
+const appStore = useAppStore();
+
+onBeforeMount(async () => {
+  appStore.setBackground('#04072F');
+});
 </script>
 
 <template>
@@ -17,7 +26,7 @@ import BigDataRight from '@/views/big-data/components/big-data-right/index.vue';
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 25px;
+  padding: 0 25px 14px 25px;
   width: 100%;
   height: 100%;
 

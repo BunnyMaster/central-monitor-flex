@@ -1,15 +1,22 @@
 <script lang="ts" setup>
+import { onBeforeMount } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 import CommonHeader from '@/components/CommonHeader/CommonHeader.vue';
 import LayoutHeader from '@/components/CommonHeader/LayoutHeader.vue';
+import { useAppStore } from '@/store/app';
 
 const router = useRouter();
 const route = useRoute();
+const appStore = useAppStore();
+
+onBeforeMount(() => {
+  appStore.setBackground('../assets/images/common/bg/bg-layout.png');
+});
 </script>
 
 <template>
-  <div class="layout-container">
+  <div :style="{ background: appStore.background }" class="layout-container">
     <layout-header v-if="route.name === 'welcome'" />
     <common-header v-else />
 
@@ -24,8 +31,9 @@ const route = useRoute();
   position: relative;
   width: 100%;
   height: 100%;
-  background: url('@/assets/images/common/bg/bg-layout.png') no-repeat center;
-  background-size: cover;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
 }
 
 main {

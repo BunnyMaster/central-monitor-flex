@@ -1,12 +1,11 @@
 import 'echarts/lib/component/dataZoom';
 
-import type { EChartsOption } from 'echarts';
 import { type Ref, ref } from 'vue';
 
 import echarts from '@/plugins/echarts';
 import { debounceChart } from '@/utils/chart';
 
-const option = ref<EChartsOption>();
+const option = ref();
 option.value = {
   tooltip: { trigger: 'item' },
   grid: { top: 0, left: 0, right: 0, bottom: 0, containLabel: false },
@@ -85,7 +84,7 @@ option.value = {
 };
 
 export const renderEcharts = (element: Ref<HTMLDivElement>) => {
-  const myChart = echarts.init(element.value, null, {
+  const myChart: any = echarts.init(element.value, null, {
     renderer: 'svg',
     devicePixelRatio: window.devicePixelRatio,
   });

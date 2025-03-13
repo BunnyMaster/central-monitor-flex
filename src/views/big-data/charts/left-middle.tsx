@@ -1,0 +1,120 @@
+import 'echarts/lib/component/dataZoom';
+
+import type { EChartsOption, EChartsType } from 'echarts';
+import { defineComponent, onMounted, type Ref, ref, watch } from 'vue';
+
+import echarts from '@/plugins/echarts';
+import { debounceChart } from '@/utils/chart';
+
+const itemStyles = [
+  {
+    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+      { offset: 0, color: '#00CCD2' },
+      { offset: 1, color: '#00A2FF' },
+    ]),
+  },
+  {
+    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+      { offset: 0, color: '#CBB668' },
+      { offset: 1, color: '#FABC00' },
+    ]),
+  },
+];
+
+const option: Ref<EChartsOption | undefined> = ref<EChartsOption>();
+option.value = {
+  grid: { top: '9%', right: '0%', left: '0%', bottom: '0%', containLabel: false },
+  series: [
+    {
+      type: 'gauge',
+      title: { fontSize: 14, color: '#fff', offsetCenter: ['0%', '14%'] },
+      startAngle: 90,
+      endAngle: -270,
+      pointer: { show: false },
+      progress: { show: true, overlap: false, roundCap: false, clip: false },
+      axisLine: { lineStyle: { width: 14 } },
+      splitLine: { show: false, distance: 0, length: 10 },
+      axisTick: { show: false },
+      axisLabel: { show: false, distance: 50 },
+      // data: [
+      //   {
+      //     value: 80,
+      //     name: '环比变化',
+      //     detail: { valueAnimation: true, offsetCenter: ['0%', '-20%'] },
+      //     itemStyle: {
+      //       color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+      //         { offset: 0, color: '#00CCD2' },
+      //         { offset: 1, color: '#00A2FF' },
+      //       ]),
+      //     },
+      //   },
+      // ],
+      detail: {
+        width: 10,
+        height: 50,
+        fontSize: 14,
+        fontWeight: 0,
+        color: '#fff',
+        formatter: '+{value}%',
+      },
+    },
+  ],
+};
+
+/** 绘制图表 */
+export const renderEcharts: any = (
+  myChart: Ref<EChartsType | undefined>,
+  element: Ref<HTMLDivElement | undefined>
+) => {
+  myChart.value = echarts.init(element.value, null, {
+    renderer: 'svg',
+    devicePixelRatio: window.devicePixelRatio,
+  }) as any;
+
+  debounceChart(myChart.value);
+
+  myChart.value!.setOption(option.value!);
+};
+
+/* 封装组件 */
+export const ChartProgress = defineComponent({
+  props: {
+    percent: {
+      type: Number,
+    },
+  },
+  setup(props) {
+    const chart = ref<HTMLDivElement>();
+    const myChart = ref<EChartsType>();
+
+    onMounted(() => {
+      renderEcharts(myChart, chart);
+      updateChart(myChart, props);
+      watch(
+        () => props.percent,
+        () => {
+          updateChart(myChart, props);
+        }
+      );
+    });
+
+    return () => <div ref={chart} class="progress"></div>;
+  },
+});
+
+const updateChart = (myChart: Ref<EChartsType | undefined>, props: any) => {
+  myChart.value?.setOption({
+    series: [
+      {
+        data: [
+          {
+            name: '环比变化',
+            value: props.percent,
+            detail: { valueAnimation: true, offsetCenter: ['0%', '-20%'] },
+            itemStyle: props.percent >= 20 ? itemStyles[0] : itemStyles[1],
+          },
+        ],
+      },
+    ],
+  });
+};

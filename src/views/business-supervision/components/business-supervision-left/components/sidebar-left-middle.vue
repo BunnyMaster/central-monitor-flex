@@ -13,9 +13,7 @@ onMounted(() => {
 <template>
   <div class="business-supervision__sidebar-item h-[354px]">
     <div class="flex-x-between">
-      <div class="business-supervision__sidebar-title">
-        <h1>企业信息</h1>
-      </div>
+      <h1 class="business-supervision__sidebar-title">企业信息</h1>
       <span class="business-supervision__sidebar-title-describe">截止时间至2021.12.30</span>
     </div>
 

@@ -12,7 +12,7 @@ const timeList = ref<TimeSelectType[]>([
 </script>
 
 <template>
-  <div class="big-data__sidebar-item h-[200px]">
+  <div class="big-data__sidebar-item">
     <div class="flex-x-between">
       <div class="big-data__sidebar-title">
         <h1>规模效益</h1>
@@ -25,4 +25,8 @@ const timeList = ref<TimeSelectType[]>([
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.big-data__sidebar-item {
+  height: 274px;
+}
+</style>

@@ -20,9 +20,7 @@ const devices = ref<any>([
 <template>
   <div class="business-supervision__sidebar-item h-[294px]">
     <div class="flex-x-between">
-      <div class="business-supervision__sidebar-title">
-        <h1>地理规划</h1>
-      </div>
+      <h1 class="business-supervision__sidebar-title">地理规划</h1>
       <span class="business-supervision__sidebar-title-describe">截止时间至2021.12.30</span>
     </div>
     <ul v-for="(parent, pIndex) in devices" :key="pIndex" class="flex-x-around mt-[12px]">

@@ -1,7 +1,7 @@
-import formatter from '@/utils/digte-formatter';
+import { formatter } from '@/utils/chart';
 
 /** 显示金额 */
-export const displayContent = (money) => {
+export const displayContent = (money: any) => {
   const moneyString: string = formatter(money);
   const moneyStringList = moneyString
     .split(/(\d,)/g)

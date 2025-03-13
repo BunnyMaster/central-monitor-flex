@@ -53,10 +53,10 @@ option.value = {
           { offset: 1, color: '#00A2FF' },
         ]),
       },
-      emphasis: {
-        shadowBlur: 10, // 取消阴影模糊
-        shadowColor: '#000', // 取消阴影颜色
-      },
+      // emphasis: {
+      //   shadowBlur: 10, // 取消阴影模糊
+      //   shadowColor: '#000', // 取消阴影颜色
+      // },
       label: { show: true, position: 'top', color: '#fff', fontSize: 14 },
       data: [10, 52, 200, 334, 390, 330, 220, 500, 482, 499, 999, 444],
     },
@@ -64,7 +64,7 @@ option.value = {
 };
 
 export const renderEcharts = (element: Ref<HTMLDivElement>) => {
-  const myChart = echarts.init(element.value, null, {
+  const myChart: any = echarts.init(element.value, null, {
     renderer: 'svg',
     devicePixelRatio: window.devicePixelRatio,
   });

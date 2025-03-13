@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 import { user } from '@/api/test';
 
 /** 用户信息 */
-export const useUserStore = defineStore('userStore', {
+const useUserStore = defineStore('userStore', {
   state() {
     return {
       userinfo: {},
@@ -19,3 +19,5 @@ export const useUserStore = defineStore('userStore', {
     },
   },
 });
+
+export { useUserStore };

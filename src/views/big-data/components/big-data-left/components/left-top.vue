@@ -15,10 +15,7 @@ const timeList = ref<TimeSelectType[]>([
 <template>
   <div class="big-data__sidebar-item">
     <div class="flex-x-between">
-      <div class="big-data__sidebar-title">
-        <h1>规模效益</h1>
-      </div>
-
+      <h1 class="big-data__sidebar-title">规模效益</h1>
       <TimeSelect :time-list="timeList" />
     </div>
 
@@ -64,19 +61,20 @@ const timeList = ref<TimeSelectType[]>([
 ul {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 100%;
-  height: 100%;
+  height: 198px;
 
   li {
     display: flex;
     flex-direction: column;
-    margin: 18px 0 0 0;
+    margin: 9px 0 0 0;
     width: 100%;
   }
 }
 
 .big-data__sidebar-item {
-  height: 296px;
+  height: 274px;
 
   &-body-title {
     display: flex;
