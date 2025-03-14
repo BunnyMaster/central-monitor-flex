@@ -1,9 +1,10 @@
 <script lang="tsx" setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 
 import { formatter } from '@/utils/chart';
 import { ChartProgress } from '@/views/big-data/charts/left-middle';
 
+const timer = ref(null);
 const randomNumber = (range: number = 100) => {
   return parseInt((Math.random() * range).toFixed(0));
 };
@@ -34,14 +35,19 @@ const renderItem = () => {
 };
 
 onMounted(() => {
-  setInterval(() => {
+  timer.value = setInterval(() => {
     list.value = [
       { title: '经营总收入', amount: randomNumber(9999999), percent: randomNumber() },
       { title: '经营总收入', amount: randomNumber(9999999), percent: randomNumber() },
       { title: '经营总收入', amount: randomNumber(9999999), percent: randomNumber() },
       { title: '经营总收入', amount: randomNumber(9999999), percent: randomNumber() },
     ];
-  }, 2000);
+  }, 1000);
+});
+
+onUnmounted(() => {
+  clearInterval(timer.value);
+  timer.value = null;
 });
 </script>
 

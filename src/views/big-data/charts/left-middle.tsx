@@ -44,6 +44,12 @@ option.value = {
         color: '#fff',
         formatter: '+{value}%',
       },
+      data: [
+        {
+          name: '环比变化',
+          detail: { valueAnimation: true, offsetCenter: ['0%', '-20%'] },
+        },
+      ],
     },
   ],
 };
@@ -73,7 +79,9 @@ export const ChartProgress = defineComponent({
 
     onMounted(() => {
       renderEcharts(myChart, chart);
+
       updateChart(myChart, props);
+
       watch(
         () => props.percent,
         () => {
@@ -88,18 +96,9 @@ export const ChartProgress = defineComponent({
 
 /** 更新图标数据 */
 const updateChart = (myChart: Ref<EChartsType | undefined>, props: any) => {
-  myChart.value?.setOption({
-    series: [
-      {
-        data: [
-          {
-            name: '环比变化',
-            value: props.percent,
-            detail: { valueAnimation: true, offsetCenter: ['0%', '-20%'] },
-            itemStyle: props.percent >= 20 ? itemStyles[0] : itemStyles[1],
-          },
-        ],
-      },
-    ],
-  });
+  const series = myChart.value.getOption().series;
+  series[0].data[0].value = props.percent;
+  series[0].data[0].itemStyle = props.percent >= 20 ? itemStyles[0] : itemStyles[1];
+
+  myChart.value?.setOption({ series });
 };

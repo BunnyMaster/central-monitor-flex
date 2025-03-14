@@ -1,12 +1,13 @@
 import 'echarts/lib/component/dataZoom';
 
-import { type Ref, ref } from 'vue';
+import type { Ref } from 'vue';
 
 import echarts from '@/plugins/echarts';
 import { debounceChart } from '@/utils/chart';
 
-const option = ref<any>();
-option.value = {
+let myChart = null;
+
+const option = {
   backgroundColor: 'transparent',
   grid: { right: 10, left: 10, bottom: 20 },
   title: {
@@ -40,9 +41,7 @@ option.value = {
         type: 'solid', // 'solid' ||'dashed'||'dotted'
       },
     },
-    splitArea: {
-      show: false,
-    },
+    splitArea: { show: false },
   },
   yAxis: { show: false, type: 'value' },
   series: [
@@ -96,12 +95,20 @@ option.value = {
 };
 
 export const renderEcharts = (element: Ref<HTMLDivElement>) => {
-  const myChart: any = echarts.init(element.value, null, {
+  myChart = echarts.init(element.value, null, {
     renderer: 'svg',
     devicePixelRatio: window.devicePixelRatio,
   });
 
   debounceChart(myChart);
 
-  myChart.setOption(option.value);
+  myChart.setOption(option);
+};
+
+/** 更新图表数据 */
+export const updateChart = (option: any) => {
+  const series = myChart.getOption().series;
+  series[0].data = option.data1;
+  series[1].data = option.data2;
+  myChart.setOption({ series });
 };
