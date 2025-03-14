@@ -3,7 +3,7 @@ import dayjs, { type Dayjs } from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import gradientString from 'gradient-string';
 
-import { wrapperEnv } from './utils';
+import { logOutputSize, wrapperEnv } from './utils';
 
 dayjs.extend(duration);
 
@@ -22,7 +22,7 @@ http://localhost:${VITE_PORT}`
   );
 };
 
-export const viteConsoleLog = (mode) => {
+export const viteConsoleLog = (mode: string) => {
   const { VITE_PORT } = wrapperEnv(mode);
 
   let config: { command: string };
@@ -43,9 +43,12 @@ export const viteConsoleLog = (mode) => {
       if (config.command === 'build') {
         endTime = dayjs(new Date());
         const format = dayjs.duration(endTime.diff(startTime)).format('mm分ss秒');
+
         console.log(
           boxen(
-            gradientString('cyan', 'magenta').multiline(`🎉 恭喜打包完成（总用时${format}）`),
+            gradientString('cyan', 'magenta').multiline(
+              `🎉 恭喜打包完成（总用时${format}）打包大小（${logOutputSize()}）`
+            ),
             boxenOptions
           )
         );

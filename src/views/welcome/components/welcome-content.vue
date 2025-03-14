@@ -5,31 +5,66 @@ const router = useRouter();
 </script>
 
 <template>
-  <ul class="welcome__content-list">
-    <li @click="router.push('/smart-park')">
-      <img alt="car" src="@/assets/images/welcome/icon/center/car.png" />
-      <span>智慧停车</span>
-    </li>
-    <li>
-      <img alt="distribution" src="@/assets/images/welcome/icon/center/distribution.png" />
-      <span>智慧配送</span>
-    </li>
-    <li>
-      <img alt="muck" src="@/assets/images/welcome/icon/center/muck.png" />
-      <span>智慧渣土</span>
-    </li>
-    <li>
-      <img alt="clean-city" src="@/assets/images/welcome/icon/center/clean-city.png" />
-      <span>智慧洁城</span>
-    </li>
-    <li>
-      <img alt="lamp" src="@/assets/images/welcome/icon/center/lamp.png" />
-      <span>智慧路灯</span>
-    </li>
-  </ul>
+  <div class="welcome__content">
+    <div class="welcome__content-inner">
+      <p>
+        <img alt="welcome-bg" src="@/assets/images/welcome/icon/welcome.png" />
+        <i>xxxx</i>
+        你好 欢迎使用xxxxxxxzz
+      </p>
+    </div>
+    <ul class="welcome__content-list">
+      <li @click="router.push('/smart-park')">
+        <img alt="car" src="@/assets/images/welcome/icon/center/car.png" />
+        <span>智慧停车</span>
+      </li>
+      <li>
+        <img alt="distribution" src="@/assets/images/welcome/icon/center/distribution.png" />
+        <span>智慧配送</span>
+      </li>
+      <li>
+        <img alt="muck" src="@/assets/images/welcome/icon/center/muck.png" />
+        <span>智慧渣土</span>
+      </li>
+      <li>
+        <img alt="clean-city" src="@/assets/images/welcome/icon/center/clean-city.png" />
+        <span>智慧洁城</span>
+      </li>
+      <li>
+        <img alt="lamp" src="@/assets/images/welcome/icon/center/lamp.png" />
+        <span>智慧路灯</span>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+.welcome__content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+  &-inner {
+    margin: 156px 0 0 0;
+  }
+
+  p {
+    color: #fff;
+    font-size: 16px;
+
+    i {
+      color: var(--color-primary-secondary);
+    }
+  }
+
+  img {
+    width: 239px;
+    height: 34px;
+  }
+}
+
 .welcome__content-list {
   display: flex;
   align-items: center;

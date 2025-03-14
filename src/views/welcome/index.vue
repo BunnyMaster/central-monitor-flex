@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import WelcomeContent from '@/views/welcome/components/welcome-content/index.vue';
+import WelcomeContent from '@/views/welcome/components/welcome-content.vue';
 import WelcomeFooter from '@/views/welcome/components/welcome-footer.vue';
 </script>
 
@@ -16,27 +16,5 @@ import WelcomeFooter from '@/views/welcome/components/welcome-footer.vue';
   height: 100%;
   background: url('@/assets/images/welcome/bg/bg-particle.png') no-repeat center;
   background-size: cover;
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-
-    p {
-      color: #fff;
-      font-size: 16px;
-
-      i {
-        color: var(--color-primary-secondary);
-      }
-    }
-
-    img {
-      width: 239px;
-      height: 34px;
-    }
-  }
 }
 </style>

@@ -33,6 +33,7 @@ export const buildEnv = (): BuildOptions => {
     rollupOptions: {
       external: ['md-editor-v3', 'echarts'],
       input: {
+        // @ts-ignore
         index: pathResolve('../index.html', import.meta.url),
       },
       // 静态资源分类打包

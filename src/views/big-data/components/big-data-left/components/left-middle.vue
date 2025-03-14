@@ -41,14 +41,14 @@ onMounted(() => {
       { title: '经营总收入', amount: randomNumber(9999999), percent: randomNumber() },
       { title: '经营总收入', amount: randomNumber(9999999), percent: randomNumber() },
     ];
-  }, 1000);
+  }, 2000);
 });
 </script>
 
 <template>
   <div class="big-data__sidebar-item h-[389px]">
     <div class="flex-x-between">
-      <h1 class="big-data__sidebar-title">规模效益</h1>
+      <h1 class="big-data__sidebar-title">本年经营收入</h1>
       <span class="big-data__sidebar-title-describe">截止时间至2021年6月</span>
     </div>
 
@@ -84,8 +84,8 @@ li {
     position: absolute;
     top: -10px;
     right: -5px;
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
   }
 
   h1 {

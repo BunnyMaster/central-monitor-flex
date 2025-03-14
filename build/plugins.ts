@@ -4,9 +4,9 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import { presetIcons } from 'unocss';
 import UnoCSS from 'unocss/vite';
 import type { PluginOption } from 'vite';
+// @ts-ignore
 import { vitePluginFakeServer } from 'vite-plugin-fake-server';
 import removeConsole from 'vite-plugin-remove-console';
-import { createStyleImportPlugin } from 'vite-plugin-style-import';
 import Inspector from 'vite-plugin-vue-inspector';
 
 import { useCDN } from './cdn';
@@ -40,14 +40,6 @@ export const plugins = (mode: string): PluginOption[] => {
             'vertical-align': 'middle',
           },
         }),
-      ],
-    }),
-    createStyleImportPlugin({
-      libs: [
-        {
-          libraryName: 'vite-plugin-style-import',
-          resolveStyle: (name) => `@/assets/${name}`,
-        },
       ],
     }),
     compressPack(mode),

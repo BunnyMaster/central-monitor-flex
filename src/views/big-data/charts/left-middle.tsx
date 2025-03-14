@@ -27,7 +27,7 @@ option.value = {
   series: [
     {
       type: 'gauge',
-      title: { fontSize: 14, color: '#fff', offsetCenter: ['0%', '14%'] },
+      title: { fontSize: '0.7em', color: '#fff', offsetCenter: ['0%', '14%'] },
       startAngle: 90,
       endAngle: -270,
       pointer: { show: false },
@@ -36,23 +36,10 @@ option.value = {
       splitLine: { show: false, distance: 0, length: 10 },
       axisTick: { show: false },
       axisLabel: { show: false, distance: 50 },
-      // data: [
-      //   {
-      //     value: 80,
-      //     name: '环比变化',
-      //     detail: { valueAnimation: true, offsetCenter: ['0%', '-20%'] },
-      //     itemStyle: {
-      //       color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-      //         { offset: 0, color: '#00CCD2' },
-      //         { offset: 1, color: '#00A2FF' },
-      //       ]),
-      //     },
-      //   },
-      // ],
       detail: {
-        width: 10,
-        height: 50,
-        fontSize: 14,
+        width: 40,
+        height: 40,
+        fontSize: '0.8em',
         fontWeight: 0,
         color: '#fff',
         formatter: '+{value}%',
@@ -62,18 +49,15 @@ option.value = {
 };
 
 /** 绘制图表 */
-export const renderEcharts: any = (
-  myChart: Ref<EChartsType | undefined>,
-  element: Ref<HTMLDivElement | undefined>
-) => {
+const renderEcharts: any = (myChart: Ref<echarts.ECharts>, element: Ref<HTMLDivElement>) => {
   myChart.value = echarts.init(element.value, null, {
     renderer: 'svg',
     devicePixelRatio: window.devicePixelRatio,
-  }) as any;
-
-  debounceChart(myChart.value);
+  });
 
   myChart.value!.setOption(option.value!);
+
+  debounceChart(myChart.value);
 };
 
 /* 封装组件 */

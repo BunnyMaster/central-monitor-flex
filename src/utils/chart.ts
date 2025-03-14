@@ -1,8 +1,9 @@
 import { useDebounceFn, useEventListener } from '@vueuse/core';
-import type { EChartsType } from 'echarts';
+
+import type echarts from '@/plugins/echarts';
 
 /** 通用重置图表样式 */
-export const debounceChart = (myChart: EChartsType | undefined) => {
+export const debounceChart = (myChart: echarts.ECharts | undefined) => {
   const debounceFn = useDebounceFn(() => {
     myChart!.resize();
   }, 500);

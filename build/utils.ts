@@ -1,9 +1,13 @@
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import fs from 'fs';
+import path from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { loadEnv } from 'vite';
 import viteCompression from 'vite-plugin-compression';
+
+import { buildEnv } from './buildEnv';
 
 export const root: string = process.cwd();
 
@@ -12,6 +16,7 @@ export const root: string = process.cwd();
  * @param dir 路径片段，默认`build`
  * @param metaUrl 模块的完整`url`，如果在`build`目录外调用必传`import.meta.url`
  */
+// @ts-ignore
 export const pathResolve = (dir = '.', metaUrl = import.meta.url) => {
   // 当前文件目录的绝对路径
   const currentFileDir = dirname(fileURLToPath(metaUrl));
@@ -66,4 +71,48 @@ export const compressPack = (mode: string) => {
   const { VITE_COMPRESSION } = wrapperEnv(mode);
 
   return VITE_COMPRESSION == 'gzip' ? viteCompression({ threshold: 1024000 }) : null;
+};
+
+/**
+ * 计算打包后文件夹大小
+ * @returns
+ */
+export const logOutputSize = (): string => {
+  const outDir = `../${buildEnv().outDir}`;
+
+  function convertSize(size: number) {
+    const units: Array<string> = ['byte', 'KB', 'MB', 'GB'];
+
+    // 输入的单位是否存在
+    let index = 0;
+
+    while (size >= 1024) {
+      size /= 1024;
+      index++;
+    }
+
+    return `${size.toFixed(2)} ${units[index]}`;
+  }
+
+  // 计算文件夹字节大小
+  function getFolderSize(folderPath: string) {
+    let size = 0;
+
+    fs.readdirSync(folderPath).forEach((fileName: string) => {
+      const filePath = path.join(folderPath, fileName);
+      const stats = fs.statSync(filePath);
+
+      if (stats.isFile()) {
+        size += stats.size;
+      } else if (stats.isDirectory()) {
+        size += getFolderSize(filePath);
+      }
+    });
+
+    return size;
+  }
+
+  const folderSize = getFolderSize(path.resolve(__dirname, outDir));
+
+  return convertSize(folderSize);
 };
