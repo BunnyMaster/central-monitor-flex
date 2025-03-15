@@ -9,7 +9,7 @@ let myChart = null;
 
 const option = {
   backgroundColor: 'transparent',
-  grid: { top: 40, right: 0, left: 0, bottom: 24 },
+  grid: { top: '19%', right: 9, left: 9, bottom: '20%' },
   tooltip: {},
   legend: {
     data: [
@@ -29,7 +29,7 @@ const option = {
     show: true,
     data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
     itemStyle: { color: '#ccc' },
-    splitLine: { show: true, lineStyle: { color: '#333', width: 1, type: 'dotted' } },
+    splitLine: { show: true, lineStyle: { color: '#333', width: 1, type: 'solid' } },
     splitArea: { show: false },
   },
   yAxis: { show: false, type: 'value' },
@@ -37,7 +37,7 @@ const option = {
     {
       name: '入园',
       type: 'line',
-      data: [3, 9, 2, 8, 3, 4, 8, 2, 8, 3, 4, 8],
+      // data: [3, 9, 2, 8, 3, 4, 8, 2, 8, 3, 4, 8],
       smooth: true,
       symbol: 'circle',
       symbolSize: 14,
@@ -47,7 +47,7 @@ const option = {
     {
       name: '出园',
       type: 'line',
-      data: [2, 8, 3, 7, 1, 9, 18, 3, 7, 1, 9, 6],
+      // data: [2, 8, 3, 7, 1, 9, 18, 3, 7, 1, 9, 6],
       smooth: true,
       symbol: 'circle',
       symbolSize: 14,
@@ -60,7 +60,7 @@ const option = {
 /** 渲染图表 */
 export const renderEcharts = (element: Ref<HTMLDivElement>) => {
   myChart = echarts.init(element.value, null, {
-    renderer: 'svg',
+    renderer: 'canvas',
     devicePixelRatio: window.devicePixelRatio,
   });
 

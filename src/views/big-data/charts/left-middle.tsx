@@ -4,21 +4,11 @@ import type { EChartsOption, EChartsType } from 'echarts';
 import { defineComponent, onMounted, type Ref, ref, watch } from 'vue';
 
 import echarts from '@/plugins/echarts';
-import { debounceChart } from '@/utils/chart';
+import { debounceChart, graphicLinearGradient } from '@/utils/chart';
 
 const itemStyles = [
-  {
-    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-      { offset: 0, color: '#00CCD2' },
-      { offset: 1, color: '#00A2FF' },
-    ]),
-  },
-  {
-    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-      { offset: 0, color: '#CBB668' },
-      { offset: 1, color: '#FABC00' },
-    ]),
-  },
+  { color: graphicLinearGradient('#00CCD2', '#00A2FF') },
+  { color: graphicLinearGradient('#CBB668', '#FABC00') },
 ];
 
 const option: Ref<EChartsOption | undefined> = ref<EChartsOption>();
@@ -44,12 +34,7 @@ option.value = {
         color: '#fff',
         formatter: '+{value}%',
       },
-      data: [
-        {
-          name: '环比变化',
-          detail: { valueAnimation: true, offsetCenter: ['0%', '-20%'] },
-        },
-      ],
+      data: [{ name: '环比变化', detail: { valueAnimation: true, offsetCenter: ['0%', '-20%'] } }],
     },
   ],
 };
@@ -68,11 +53,8 @@ const renderEcharts: any = (myChart: Ref<echarts.ECharts>, element: Ref<HTMLDivE
 
 /* 封装组件 */
 export const ChartProgress = defineComponent({
-  props: {
-    percent: {
-      type: Number,
-    },
-  },
+  props: { percent: { type: Number } },
+
   setup(props) {
     const chart = ref<HTMLDivElement>();
     const myChart = ref<EChartsType>();

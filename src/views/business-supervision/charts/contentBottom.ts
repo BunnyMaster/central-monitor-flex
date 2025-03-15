@@ -4,8 +4,9 @@ import type { EChartsOption } from 'echarts';
 import { type Ref, ref } from 'vue';
 
 import echarts from '@/plugins/echarts';
-import { debounceChart } from '@/utils/chart';
+import { debounceChart, graphicLinearGradient } from '@/utils/chart';
 
+let myChart = null;
 const option = ref<EChartsOption>();
 option.value = {
   tooltip: {
@@ -47,12 +48,7 @@ option.value = {
       name: 'Direct',
       type: 'bar',
       barWidth: '40%',
-      itemStyle: {
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-          { offset: 0, color: '#00CCD2' },
-          { offset: 1, color: '#00A2FF' },
-        ]),
-      },
+      itemStyle: { color: graphicLinearGradient('#00CCD2', '#00A2FF') },
       // emphasis: {
       //   shadowBlur: 10, // 取消阴影模糊
       //   shadowColor: '#000', // 取消阴影颜色
@@ -64,7 +60,7 @@ option.value = {
 };
 
 export const renderEcharts = (element: Ref<HTMLDivElement>) => {
-  const myChart: any = echarts.init(element.value, null, {
+  myChart = echarts.init(element.value, null, {
     renderer: 'svg',
     devicePixelRatio: window.devicePixelRatio,
   });

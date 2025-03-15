@@ -1,14 +1,14 @@
 <script lang="ts" setup>
 import { onMounted, onUnmounted, ref } from 'vue';
 
-import { renderEcharts, updateChart } from '@/views/big-data/charts/leftBottom';
+import { renderEcharts, updateChart } from '@/views/big-data/charts/left-bottom';
 
 const chart = ref<HTMLDivElement>();
 const timer = ref(null);
 
 const randomData = () => {
   function random() {
-    return Array(11)
+    return Array(12)
       .fill(0)
       .map(() => {
         const num = (Math.random() * 100).toFixed(2);
@@ -16,16 +16,18 @@ const randomData = () => {
       });
   }
 
-  timer.value = setInterval(() => {
-    const data: Array<Array<number>> = [random(), random()];
+  const data: Array<Array<number>> = [random(), random()];
 
-    updateChart(data);
-  }, 1000);
+  updateChart(data);
 };
 
 onMounted(() => {
   renderEcharts(chart);
   randomData();
+
+  timer.value = setInterval(() => {
+    randomData();
+  }, 6000);
 });
 
 onUnmounted(() => {

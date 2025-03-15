@@ -11,7 +11,7 @@ const route = useRoute();
 const appStore = useAppStore();
 
 onBeforeMount(() => {
-  appStore.setBackground('../assets/images/common/bg/bg-layout.png');
+  appStore.setBackground('@/assets/images/common/bg/bg-layout.png');
 });
 </script>
 

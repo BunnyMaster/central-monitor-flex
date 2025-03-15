@@ -1,4 +1,6 @@
 <script lang="tsx" setup>
+import { getImage } from '@/utils/image';
+
 const list = [
   {
     title: '今日出口额 / 万元',
@@ -34,14 +36,6 @@ const list = [
 
 // 动态顶部元素
 const contentEl = () => {
-  const getImage = (index) => {
-    const image = new URL(
-      `../../../../../assets/images/business-supervision/bg/content/bg-card-${index + 1}.png`,
-      import.meta.url
-    );
-    return image.href;
-  };
-
   return (
     <>
       {list.map((item, index) => (
@@ -57,7 +51,12 @@ const contentEl = () => {
               ))}
             </section>
           </div>
-          <img alt="card-1" src={getImage(index)} />
+          <img
+            alt="card-1"
+            src={getImage(
+              `../assets/images/business-supervision/bg/content/bg-card-${index + 1}.png`
+            )}
+          />
         </li>
       ))}
     </>

@@ -1,11 +1,19 @@
-<script setup lang="ts">
+<script lang="ts" setup>
+import { ref } from 'vue';
 
+const chart = ref<HTMLDivElement>();
 </script>
 
 <template>
-top
+  <div class="content-bottom">
+    <div ref="chart" />
+  </div>
 </template>
 
-<style scoped lang="scss">
-
+<style lang="scss" scoped>
+.content-bottom {
+  width: 800px;
+  height: 377px;
+  background: mediumpurple;
+}
 </style>

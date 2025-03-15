@@ -1,49 +1,42 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { getImage } from '@/utils/image';
+
+const list = [
+  {
+    img: '../assets/images/business-supervision/bg/content/bg-middle-1.png',
+    title: '员工',
+    describe: '相关员工',
+    amount: 365,
+  },
+  {
+    img: '../assets/images/business-supervision/bg/content/bg-middle-2.png',
+    title: '智慧大楼',
+    describe: '区域面积/㎡',
+    amount: 365,
+  },
+  {
+    img: '../assets/images/business-supervision/bg/content/bg-middle-3.png',
+    title: '智慧设备',
+    describe: '设备总数',
+    amount: 1123,
+  },
+  {
+    img: '../assets/images/business-supervision/bg/content/bg-middle-4.png',
+    title: '数据报表',
+    describe: '报表下载总数',
+    amount: 287,
+  },
+];
+</script>
 
 <template>
   <ul class="business-supervision__middle">
-    <li>
-      <img
-        alt="bg-middle-1"
-        src="@/assets/images/business-supervision/bg/content/bg-middle-1.png"
-      />
-      <h2>员工</h2>
+    <li v-for="(item, index) in list" :key="index">
+      <img :alt="`bg-middle-${index}`" :src="getImage(item.img)" />
+      <h2>{{ item.title }}</h2>
       <div class="business-supervision__middle-detail">
-        <strong>365</strong>
-        <span>相关员工</span>
-      </div>
-    </li>
-    <li>
-      <img
-        alt="bg-middle-2"
-        src="@/assets/images/business-supervision/bg/content/bg-middle-2.png"
-      />
-      <h2>智慧大楼</h2>
-      <div class="business-supervision__middle-detail">
-        <strong>365</strong>
-        <span>区域面积/㎡</span>
-      </div>
-    </li>
-    <li>
-      <img
-        alt="bg-middle-3"
-        src="@/assets/images/business-supervision/bg/content/bg-middle-3.png"
-      />
-      <h2>智慧设备</h2>
-      <div class="business-supervision__middle-detail">
-        <strong>1123</strong>
-        <span>设备总数</span>
-      </div>
-    </li>
-    <li>
-      <img
-        alt="bg-middle-3"
-        src="@/assets/images/business-supervision/bg/content/bg-middle-3.png"
-      />
-      <h2>数据报表</h2>
-      <div class="business-supervision__middle-detail">
-        <strong>287</strong>
-        <span>报表下载总数</span>
+        <strong>{{ item.amount }}</strong>
+        <span>{{ item.describe }}</span>
       </div>
     </li>
   </ul>

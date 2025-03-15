@@ -17,7 +17,7 @@ const useAppStore = defineStore('appStore', {
         const href = new URL(background, import.meta.url).href;
         this.background = `url(${href})`;
       } else {
-        const href = new URL('../assets/images/common/bg/bg-layout.png', import.meta.url).href;
+        const href = new URL('@/assets/images/common/bg/bg-layout.png', import.meta.url).href;
         this.background = `url(${href})`;
       }
     },
