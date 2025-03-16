@@ -1,6 +1,4 @@
 <script lang="tsx" setup>
-import { getImage } from '@/utils/image';
-
 const list = [
   {
     title: '今日出口额 / 万元',
@@ -51,12 +49,7 @@ const contentEl = () => {
               ))}
             </section>
           </div>
-          <img
-            alt="card-1"
-            src={getImage(
-              `../assets/images/business-supervision/bg/content/bg-card-${index + 1}.png`
-            )}
-          />
+          <img alt="card-1" src={`/images/business-supervision/content/bg-card-${index + 1}.png`} />
         </li>
       ))}
     </>

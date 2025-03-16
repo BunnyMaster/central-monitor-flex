@@ -9,9 +9,10 @@ let myChart = null;
 
 const option = {
   backgroundColor: 'transparent',
-  grid: { top: '19%', right: 9, left: 9, bottom: '20%' },
+  grid: { top: '9%', right: 9, left: 9, bottom: '20%' },
   tooltip: {},
   legend: {
+    show: false,
     data: [
       { name: '出园', icon: 'rect', itemStyle: { color: '#32C5FF' } },
       { name: '入园', icon: 'rect', itemStyle: { color: '#16CEB9' } },

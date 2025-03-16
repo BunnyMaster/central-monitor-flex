@@ -9,7 +9,7 @@ import BigDataRight from '@/views/big-data/components/big-data-right/index.vue';
 const appStore = useAppStore();
 
 onBeforeMount(async () => {
-  appStore.setBackground('@/assets/images/common/bg/bg-secondary.png');
+  appStore.setBackground('/images/common/bg/bg-secondary.png');
 });
 </script>
 
@@ -30,6 +30,6 @@ onBeforeMount(async () => {
   width: 100%;
   height: 100%;
 
-  @include view-style-default(530px, 748px);
+  @include view-style-default(530px, 748px, #122953b3);
 }
 </style>

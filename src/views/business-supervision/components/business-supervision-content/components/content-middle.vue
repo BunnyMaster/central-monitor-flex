@@ -1,38 +1,40 @@
 <script lang="ts" setup>
-import { getImage } from '@/utils/image';
-
 const list = [
   {
-    img: '../assets/images/business-supervision/bg/content/bg-middle-1.png',
+    img: '/images/business-supervision/content/bg-middle-1.png',
     title: '员工',
     describe: '相关员工',
     amount: 365,
   },
   {
-    img: '../assets/images/business-supervision/bg/content/bg-middle-2.png',
+    img: '/images/business-supervision/content/bg-middle-2.png',
     title: '智慧大楼',
     describe: '区域面积/㎡',
     amount: 365,
   },
   {
-    img: '../assets/images/business-supervision/bg/content/bg-middle-3.png',
+    img: '/images/business-supervision/content/bg-middle-3.png',
     title: '智慧设备',
     describe: '设备总数',
     amount: 1123,
   },
   {
-    img: '../assets/images/business-supervision/bg/content/bg-middle-4.png',
+    img: '/images/business-supervision/content/bg-middle-4.png',
     title: '数据报表',
     describe: '报表下载总数',
     amount: 287,
   },
 ];
+
+const getImage = (url) => {
+  return new URL(url, import.meta.url).href;
+};
 </script>
 
 <template>
   <ul class="business-supervision__middle">
     <li v-for="(item, index) in list" :key="index">
-      <img :alt="`bg-middle-${index}`" :src="getImage(item.img)" />
+      <img :src="item.img" alt="" />
       <h2>{{ item.title }}</h2>
       <div class="business-supervision__middle-detail">
         <strong>{{ item.amount }}</strong>

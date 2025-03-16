@@ -2,10 +2,10 @@
 import { getImage } from '@/utils/image';
 
 const list = [
-  { title: '员工', img: '../assets/images/big-data/bg/bg-content-top-1.png' },
-  { title: '智慧大楼', img: '../assets/images/big-data/bg/bg-content-top-2.png' },
-  { title: '智慧设备', img: '../assets/images/big-data/bg/bg-content-top-3.png' },
-  { title: '数据报表', img: '../assets/images/big-data/bg/bg-content-top-4.png' },
+  { title: '员工', img: '/images/big-data/bg-content-top-1.png' },
+  { title: '智慧大楼', img: '/images/big-data/bg-content-top-2.png' },
+  { title: '智慧设备', img: '/images/big-data/bg-content-top-3.png' },
+  { title: '数据报表', img: '/images/big-data/bg-content-top-4.png' },
 ];
 </script>
 

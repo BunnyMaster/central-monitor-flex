@@ -1,4 +1,4 @@
-@mixin view-style-default($sidebar-width,$content-width) {
+@mixin view-style-default($sidebar-width,$content-width,$item-bg) {
   &__sidebar {
     display: flex;
     flex-wrap: wrap;
@@ -12,7 +12,7 @@
     &-item {
       padding: 9px 15px;
       width: 100%;
-      background: rgba(14, 95, 255, 0.2);
+      background: $item-bg;
     }
 
     &-tag {

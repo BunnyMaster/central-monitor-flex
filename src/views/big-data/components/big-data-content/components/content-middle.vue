@@ -3,10 +3,15 @@ import { onMounted, ref } from 'vue';
 
 const isActive = ref(true);
 
-onMounted(() => {
+/** 改变移动状态 */
+const changeMoveState = () => {
   setInterval(() => {
     isActive.value = !isActive.value;
   }, 2000);
+};
+
+onMounted(() => {
+  changeMoveState();
 });
 </script>
 
@@ -18,7 +23,9 @@ onMounted(() => {
         alt=""
         src="@/assets/images/big-data/bg/bg-middle-move.png"
       />
+
       <h1>工作台</h1>
+
       <img
         :class="[isActive ? 'move-bottom' : 'move-top']"
         alt=""
@@ -59,26 +66,7 @@ onMounted(() => {
   }
 
   .move-bottom {
-    animation: 2s linear 0s infinite normal none running line-move-top;
-  }
-}
-
-@keyframes line-move-top {
-  0% {
-    transform: translateX(200%);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes line-move {
-  0% {
-    transform: rotateY(180deg) translateX(100%);
-  }
-  100% {
-    transform: rotateY(180deg) translateX(-200%);
+    animation: 2s linear 0s infinite normal none running line-move-alternate;
   }
 }
 </style>
