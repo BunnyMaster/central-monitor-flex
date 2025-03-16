@@ -18,11 +18,12 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .big-data__sidebar-item {
-  width: 800px;
+  margin: 16px 0 0 0;
+  width: 100%;
   height: 377px;
 
   &-chart {
-    padding: 29px 25px 21px 28px;
+    padding: 19px 0 0 0;
     width: 100%;
     height: 100%;
   }

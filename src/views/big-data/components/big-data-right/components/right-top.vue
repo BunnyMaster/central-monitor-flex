@@ -1,32 +1,87 @@
-<script lang="ts" setup>
-import { ref } from 'vue';
+<script lang="tsx" setup>
+import { onMounted, ref } from 'vue';
 
+import { displayContent } from '@/components/PanelItem/DigitalNumber';
 import TimeSelect from '@/components/PanelItem/TimeSelect/index.vue';
 import { TimeSelectType } from '@/components/PanelItem/TimeSelect/type';
+import { renderEcharts } from '@/views/business-supervision/charts/leftSidebarTop';
+
+const chartProgress = ref<HTMLDivElement>();
+const money = '1386114';
 
 const timeList = ref<TimeSelectType[]>([
   { label: '2020.09', value: '2021' },
   { label: '2020.09', value: '2021' },
   { label: '2020.09', value: '2021' },
 ]);
+
+onMounted(() => {
+  renderEcharts(chartProgress);
+});
 </script>
 
 <template>
-  <div class="big-data__sidebar-item">
+  <div class="big-data__sidebar-item h-[226px]">
     <div class="flex-x-between">
-      <div class="big-data__sidebar-title">
-        <h1>规模效益</h1>
-      </div>
-
+      <h1 class="big-data__sidebar-title">园区进出口额</h1>
       <div>
+        <span class="big-data__sidebar-tag">总数据</span>
         <TimeSelect :time-list="timeList" />
       </div>
+    </div>
+
+    <div class="money-digit">
+      <component :is="displayContent(money)" />
+    </div>
+
+    <div>
+      <div ref="chartProgress" class="big-data__sidebar-progress" />
+
+      <ul class="big-data__sidebar-value">
+        <li>
+          进口额
+          <i>¥1551154545</i>
+        </li>
+        <li class="thin-line h-[20px]" />
+        <li>
+          <i>¥1551154545</i>
+          出口额
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.big-data__sidebar-item {
-  height: 274px;
+.money-digit {
+  margin: 14px 0 0 0;
+  width: 100%;
+
+  span {
+    height: 69px;
+  }
+}
+
+.big-data__sidebar {
+  width: 100%;
+
+  &-progress {
+    margin: 14px 0 0 0;
+    width: 100%;
+    height: 24px;
+  }
+
+  &-value {
+    display: flex;
+    justify-content: space-between;
+    margin: 9px 0 0 0;
+    font-size: 18px;
+
+    i {
+      font-style: normal;
+      font-size: 20px;
+      color: var(--color-primary-secondary);
+    }
+  }
 }
 </style>

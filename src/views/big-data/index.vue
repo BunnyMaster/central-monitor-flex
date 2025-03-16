@@ -26,10 +26,10 @@ onBeforeMount(async () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 25px 14px 25px;
+  padding: 0 9px 0 9px;
   width: 100%;
   height: 100%;
 
-  @include view-style-default(530px, 748px, #122953b3);
+  @include view-style-default(530px, 800px, #122953b3);
 }
 </style>
