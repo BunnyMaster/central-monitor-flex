@@ -40,7 +40,7 @@ const list = [
 
   &-inner {
     margin: 156px 0 0 0;
-    animation: flipInY 1s 1.5s;
+    animation: flipInY 1s 0.9s;
   }
 
   p {

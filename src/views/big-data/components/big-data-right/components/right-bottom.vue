@@ -1,61 +1,21 @@
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue';
-
-import { renderEcharts } from '@/views/business-supervision/charts/leftSidebarMiddle';
-
-const chartPie = ref<HTMLDivElement>();
-
-onMounted(() => {
-  renderEcharts(chartPie);
-});
+const list = [
+  { title: '134.5㎡', summary: '建成投产面积' },
+  { title: '38000㎡', summary: '保税仓库面积' },
+  { title: '327.3㎡', summary: '物流场站' },
+];
 </script>
 
 <template>
   <div class="big-data__sidebar-item">
     <div class="flex-x-between">
-      <h1 class="big-data__sidebar-title">企业信息</h1>
-      <span class="big-data__sidebar-title-describe">截止时间至2021.12.30</span>
+      <h1 class="big-data__sidebar-title">园区规划</h1>
     </div>
 
     <ul class="big-data__sidebar-card">
-      <li>
-        <h1>报税金额</h1>
-        <p class="c-warning-secondary">¥1551154545</p>
-      </li>
-      <li>
-        <div class="flex-x-between">
-          <div>
-            <h1>企业数量</h1>
-            <p class="c-primary-secondary">783</p>
-          </div>
-          <div ref="chartPie" class="big-data__sidebar-card-chart-pie" />
-        </div>
-        <div class="big-data__sidebar-card-enterprise-type">
-          <span class="mr-[13px]">
-            <i class="bg-primary-secondary" />
-            国营企业 345
-          </span>
-          <span>
-            <i class="bg-warning-secondary" />
-            私营企业 345
-          </span>
-        </div>
-      </li>
-      <li>
-        <div class="flex-x-between">
-          <h1>总投资金额</h1>
-          <span class="font-size-[12px]">环比变化</span>
-          <span class="font-size-[12px]">+123%</span>
-        </div>
-        <p class="c-primary-secondary">¥1551154545</p>
-      </li>
-      <li>
-        <div class="flex-x-between">
-          <h1>税收总金额</h1>
-          <span class="font-size-[12px]">环比变化</span>
-          <span class="font-size-[12px]">-123%</span>
-        </div>
-        <p class="c-primary-secondary">¥1551154545</p>
+      <li v-for="(item, index) in list" :key="index">
+        <h1>{{ item.title }}</h1>
+        <p>{{ item.summary }}</p>
       </li>
     </ul>
   </div>
@@ -64,53 +24,63 @@ onMounted(() => {
 <style lang="scss" scoped>
 .big-data__sidebar-item {
   width: 100%;
-  height: 338px;
+  height: 166px;
+
+  .big-data__sidebar-card {
+    display: flex;
+    justify-content: center;
+    margin: 19px 0;
+    width: 100%;
+  }
 }
 
-.big-data__sidebar-card {
+li {
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: flex-start;
-  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 24px 0 0;
+  width: 144px;
+  height: 83px;
+  background: url('@/assets/images/big-data/bg/bg-right-bottom.png') no-repeat center;
+  background-size: cover;
 
-  li {
-    padding: 9px 16px 0 19px;
-    margin: 15px 0 0 0;
-    width: 242px;
-    height: 124px;
-    background: url('@/assets/images/business-supervision/bg/sidebar/frame-1.png') no-repeat center;
-    background-size: cover;
-
-    h1 {
-      margin: 0 0 2px 0;
-      font-size: 18px;
-    }
-
-    p {
-      font-size: 30px;
-    }
+  &::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--color-primary-secondary);
+    border-radius: 50%;
+    bottom: -5px;
+    z-index: 1;
   }
 
-  &-enterprise-type {
-    margin: 4px 0 0 0;
-    width: 100%;
-
-    span {
-      font-size: 13px;
-    }
-
-    i {
-      display: inline-block;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-    }
+  &::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--color-primary-secondary-1);
+    border-radius: 50%;
+    bottom: -10px;
+    animation: zoomIn 0.8s alternate infinite;
   }
 
-  &-chart-pie {
-    width: 82px;
-    height: 82px;
+  &:last-child {
+    margin: 0;
+  }
+
+  h1 {
+    margin: 0 0 2px 0;
+    color: var(--color-primary-secondary);
+    font-size: 18px;
+  }
+
+  p {
+    color: #fff;
+    font-size: 12px;
   }
 }
 </style>
