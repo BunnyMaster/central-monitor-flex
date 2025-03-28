@@ -3,6 +3,12 @@ const list = [
   { title: '134.5㎡', summary: '建成投产面积' },
   { title: '38000㎡', summary: '保税仓库面积' },
   { title: '327.3㎡', summary: '物流场站' },
+  { title: '327.3㎡', summary: '物流场站' },
+  { title: '327.3㎡', summary: '物流场站' },
+  { title: '327.3㎡', summary: '物流场站' },
+  { title: '327.3㎡', summary: '物流场站' },
+  { title: '327.3㎡', summary: '物流场站' },
+  { title: '327.3㎡', summary: '物流场站' },
 ];
 </script>
 
@@ -24,12 +30,12 @@ const list = [
 <style lang="scss" scoped>
 .big-data__sidebar-item {
   width: 100%;
-  height: 166px;
 
   .big-data__sidebar-card {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
-    margin: 19px 0;
+    margin: 19px 0 0 0;
     width: 100%;
   }
 }
@@ -40,7 +46,7 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 24px 0 0;
+  margin: 0 24px 14px 0;
   width: 144px;
   height: 83px;
   background: url('@/assets/images/big-data/bg/bg-right-bottom.png') no-repeat center;

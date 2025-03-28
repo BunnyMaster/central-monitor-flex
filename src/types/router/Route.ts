@@ -8,6 +8,8 @@ interface CustomizeRouteMeta {
   subtitle?: string;
   transition?: string;
   hidden?: boolean;
+  /* 头部类型 */
+  headerType?: any;
 }
 
 /**

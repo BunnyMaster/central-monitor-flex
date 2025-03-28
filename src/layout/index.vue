@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router';
 
 import CommonHeader from '@/components/CommonHeader/CommonHeader.vue';
 import LayoutHeader from '@/components/CommonHeader/LayoutHeader.vue';
+import { HeaderTypeEnum } from '@/enums/HeaderTypeEnum';
 import { useAppStore } from '@/store/app';
 
 const router = useRouter();
@@ -17,7 +18,8 @@ onBeforeMount(() => {
 
 <template>
   <div :style="{ background: appStore.background }" class="layout-container">
-    <layout-header v-if="route.name === 'welcome'" />
+    <layout-header v-if="route.meta.headerType === HeaderTypeEnum.default" />
+    <common-header v-else-if="route.meta.headerType === 'subtitle'" />
     <common-header v-else />
 
     <main>
