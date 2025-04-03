@@ -9,7 +9,7 @@
 <style lang="scss">
 #app {
   width: 100%;
-  height: 1080px;
-  //height: 100%;
+  //height: 1080px;
+  height: 100%;
 }
 </style>

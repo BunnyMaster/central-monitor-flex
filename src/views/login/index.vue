@@ -1,12 +1,23 @@
 <script lang="ts" setup>
 import { onBeforeMount, ref } from 'vue';
 
-import LayoutHeader from '@/components/CommonHeader/LayoutHeader.vue';
 import { useAppStore } from '@/store/app';
+import { useLoginStore } from '@/store/modules/login';
+import LoginHeader from '@/views/login/components/login-header.vue';
 
 const appStore = useAppStore();
-
+const loginStore = useLoginStore();
 const isViewPassword = ref(false);
+
+/* 显示密码 */
+const viewPasswordOnClick = () => {
+  isViewPassword.value = !isViewPassword.value;
+};
+
+/* 表单提交 */
+const onSubmit = () => {
+  console.log(666);
+};
 
 onBeforeMount(() => {
   appStore.setBackground('/images/common/bg/bg-layout.png');
@@ -15,21 +26,22 @@ onBeforeMount(() => {
 
 <template>
   <div :style="{ background: appStore.background }" class="layout-container">
-    <layout-header />
+    <login-header />
 
     <div class="layout-content">
       <div class="layout-content__inner">
-        <main>
+        <form class="layout-content__form" @submit="onSubmit">
           <h1>欢迎登录</h1>
 
-          <div class="ipt-group">
+          <div class="layout-content__inner-input-group">
             <span>
               <i class="i-heroicons-outline:user" />
-              <input maxlength="15" placeholder="请输入用户名" />
+              <input v-model="loginStore.username" maxlength="15" placeholder="请输入用户名" />
             </span>
             <span>
               <i class="i-heroicons-outline:lock-closed" />
               <input
+                v-model="loginStore.password"
                 :type="isViewPassword ? '' : 'password'"
                 maxlength="32"
                 placeholder="请输入密码"
@@ -38,24 +50,26 @@ onBeforeMount(() => {
                 v-show="isViewPassword"
                 class="i-heroicons-outline:eye"
                 style="left: unset; right: 18px"
-                @click="isViewPassword = !isViewPassword"
+                @click="viewPasswordOnClick"
               />
               <i
                 v-show="!isViewPassword"
                 class="i-heroicons-outline:eye-off"
                 style="left: unset; right: 18px"
-                @click="isViewPassword = !isViewPassword"
+                @click="viewPasswordOnClick"
               />
             </span>
           </div>
 
           <div class="layout-content__inner-info">
-            <span>手机号登录</span>
-            <span>忘记密码</span>
+            <span class="flex-center">
+              <input id="rememberMe" v-model="loginStore.rememberMe" type="checkbox" />
+              <label class="ml-[4px]" for="rememberMe">记住我</label>
+            </span>
           </div>
 
           <button>登录</button>
-        </main>
+        </form>
       </div>
     </div>
   </div>
@@ -108,76 +122,75 @@ onBeforeMount(() => {
 
         span {
           transition: all 0.4s;
-          cursor: pointer;
         }
 
         span:hover {
           color: #a4ffff;
         }
       }
-    }
-  }
 
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 305px;
-    height: 283px;
-    color: #fff;
+      &-input-group {
+        span {
+          display: block;
+          position: relative;
 
-    h1 {
-      font-size: 37px;
-      text-align: center;
-    }
+          &:nth-child(2) {
+            margin: 20px 0 0 0;
+          }
+        }
 
-    button {
-      width: 145px;
-      height: 60px;
-      margin: 0;
-      padding: 0;
-      font-size: 18px;
-      color: #beffff;
-      border: 1px solid #00142d;
-      border-radius: 9px;
-      transition: 0.5s;
-      background-image: linear-gradient(to right, #00142d 0%, #006bc5 51%, #00142d 100%);
-      background-size: 200% auto;
+        i {
+          position: absolute;
+          top: 18px;
+          left: 23px;
+          font-size: 24px;
+          color: var(--color-primary-secondary);
+        }
 
-      &:hover {
-        border: 1px solid #006bc5;
-        background-position: right center;
-      }
-    }
-  }
-
-  .ipt-group {
-    span {
-      display: block;
-      position: relative;
-
-      &:nth-child(2) {
-        margin: 20px 0 0 0;
+        input {
+          padding: 15px 43px 15px 65px;
+          width: 305px;
+          height: 60px;
+          font-size: 16px;
+          color: var(--color-primary-secondary);
+          outline: none;
+          background: url('@/assets/images/login/bg-login-btn.png') no-repeat center;
+          background-size: cover;
+        }
       }
     }
 
-    i {
-      position: absolute;
-      top: 18px;
-      left: 23px;
-      font-size: 24px;
-      color: var(--color-primary-secondary);
-    }
-
-    input {
-      padding: 15px 43px 15px 65px;
+    &__form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       width: 305px;
-      height: 60px;
-      font-size: 16px;
-      color: var(--color-primary-secondary);
-      outline: none;
-      background: url('@/assets/images/login/bg-login-btn.png') no-repeat center;
-      background-size: cover;
+      height: 283px;
+      color: #fff;
+
+      h1 {
+        font-size: 37px;
+        text-align: center;
+      }
+
+      button {
+        width: 145px;
+        height: 60px;
+        margin: 0;
+        padding: 0;
+        font-size: 18px;
+        color: #beffff;
+        border: 1px solid #00142d;
+        border-radius: 9px;
+        transition: 0.5s;
+        background-image: linear-gradient(to right, #00142d 0%, #006bc5 51%, #00142d 100%);
+        background-size: 200% auto;
+
+        &:hover {
+          border: 1px solid #006bc5;
+          background-position: right center;
+        }
+      }
     }
   }
 }
