@@ -14,8 +14,6 @@ import WelcomeFooter from '@/views/welcome/components/welcome-footer.vue';
 .welcome {
   width: 100%;
   height: 100%;
-  background: url('@/assets/images/welcome/bg/bg-particle.png') no-repeat center;
-  background-size: cover;
   animation: bounceInUp 1s;
 }
 </style>

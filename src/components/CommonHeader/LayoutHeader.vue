@@ -1,9 +1,8 @@
 <script lang="ts" setup>
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 
 import BarOp from '@/components/CommonHeader/HeaderBarOp.vue';
 
-const router = useRouter();
 const route = useRoute();
 </script>
 

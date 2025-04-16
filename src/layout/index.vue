@@ -1,18 +1,17 @@
 <script lang="ts" setup>
 import { onBeforeMount } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 
 import CommonHeader from '@/components/CommonHeader/CommonHeader.vue';
 import LayoutHeader from '@/components/CommonHeader/LayoutHeader.vue';
 import { HeaderTypeEnum } from '@/enums/HeaderTypeEnum';
 import { useAppStore } from '@/store/app';
 
-const router = useRouter();
 const route = useRoute();
 const appStore = useAppStore();
 
 onBeforeMount(() => {
-  appStore.setBackground('/images/common/bg/bg-layout.png');
+  appStore.setBackground('/images/bg/bg-layout.png');
 });
 </script>
 

@@ -6,7 +6,7 @@ const routes: RouteConfigsTable[] = [
     path: '/welcome',
     name: 'welcome',
     component: () => import('@/views/welcome/index.vue'),
-    meta: { transition: 'fade', title: '后台管理系统大标题', headerType: HeaderTypeEnum.default },
+    meta: { transition: 'fade', title: '后台管理系统标题', headerType: HeaderTypeEnum.default },
   },
   {
     path: '/smart-park',
@@ -14,6 +14,16 @@ const routes: RouteConfigsTable[] = [
     component: () => import('@/views/smart-park/index.vue'),
     meta: {
       title: '智慧智能监管中心',
+      subtitle: '车辆监控中心',
+      headerType: HeaderTypeEnum.subtitle,
+    },
+  },
+  {
+    path: '/data-analyse',
+    name: 'dataAnalyse',
+    component: () => import('@/views/data-analyse/index.vue'),
+    meta: {
+      title: '数据分析',
       subtitle: '车辆监控中心',
       headerType: HeaderTypeEnum.subtitle,
     },

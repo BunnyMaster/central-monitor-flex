@@ -9,7 +9,7 @@ import BusinessSupervisionRight from '@/views/business-supervision/components/bu
 const appStore = useAppStore();
 
 onBeforeMount(() => {
-  appStore.setBackground('/images/common/bg/bg-secondary.png');
+  appStore.setBackground('/images/bg/bg02.png');
 });
 </script>
 
