@@ -1,12 +1,20 @@
 import type { RouteComponent } from 'vue-router';
 
 /**
+ * @description 动画入场和离场
+ */
+interface Transition {
+  enter?: string;
+  leave?: string;
+}
+
+/**
  * @description 完整子路由的`meta`配置表
  */
 interface CustomizeRouteMeta {
   title?: string;
   subtitle?: string;
-  transition?: string;
+  transition?: Transition;
   hidden?: boolean;
   /* 头部类型 */
   headerType?: any;
