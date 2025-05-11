@@ -20,7 +20,5 @@ import DataAnalyseRight from '@/views/data-analyse/components/data-analyse-right
   padding: 0 20px;
   width: 100%;
   height: 100%;
-
-  background: cadetblue;
 }
 </style>

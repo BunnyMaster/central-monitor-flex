@@ -1,11 +1,12 @@
 <script lang="ts" setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { useIntervalFn } from '@vueuse/core';
+import { onMounted, ref } from 'vue';
 
 import { renderEcharts, updateChart } from '@/views/big-data/charts/left-bottom';
 
 const chart = ref<HTMLDivElement>();
-const timer = ref(null);
 
+/* 随机数据 */
 const randomData = () => {
   function random() {
     return Array(12)
@@ -21,18 +22,18 @@ const randomData = () => {
   updateChart(data);
 };
 
+/* 模拟数据 */
+const mockRandomData = () => {
+  useIntervalFn(() => {
+    randomData();
+  }, 1000);
+};
+
 onMounted(() => {
   renderEcharts(chart);
   randomData();
 
-  timer.value = setInterval(() => {
-    randomData();
-  }, 6000);
-});
-
-onUnmounted(() => {
-  clearInterval(timer.value);
-  timer.value = null;
+  mockRandomData();
 });
 </script>
 

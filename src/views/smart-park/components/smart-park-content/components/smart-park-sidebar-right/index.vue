@@ -1,11 +1,10 @@
 <script lang="ts" setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { useIntervalFn } from '@vueuse/core';
+import { onMounted, ref } from 'vue';
 
 import { renderEcharts, updateChart } from '@/views/smart-park/charts/right-sidebar';
 
 const weekDataChart = ref<HTMLDivElement>();
-
-const timer = ref(null);
 
 /** 随机数据 */
 const randomData = () => {
@@ -18,7 +17,7 @@ const randomData = () => {
       });
   }
 
-  timer.value = setInterval(() => {
+  useIntervalFn(() => {
     updateChart({ data1: random(), data2: random() });
   }, 1000);
 };
@@ -26,11 +25,6 @@ const randomData = () => {
 onMounted(() => {
   renderEcharts(weekDataChart);
   randomData();
-});
-
-onUnmounted(() => {
-  clearInterval(timer.value);
-  timer.value = null;
 });
 </script>
 

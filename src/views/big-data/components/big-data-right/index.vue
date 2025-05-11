@@ -11,5 +11,3 @@ import RightTop from '@/views/big-data/components/big-data-right/components/righ
     <right-bottom />
   </div>
 </template>
-
-<style lang="scss" scoped></style>
