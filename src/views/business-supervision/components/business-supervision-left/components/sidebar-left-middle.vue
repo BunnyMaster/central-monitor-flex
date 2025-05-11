@@ -75,7 +75,7 @@ onMounted(() => {
     margin: 15px 0 0 0;
     width: 242px;
     height: 124px;
-    background: url('@/assets/images/business-supervision/bg/sidebar/frame-1.png') no-repeat center;
+    background: url('@/views/business-supervision/images/sidebar/frame-1.png') no-repeat center;
     background-size: cover;
 
     h1 {

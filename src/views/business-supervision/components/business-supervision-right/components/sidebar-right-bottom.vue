@@ -72,7 +72,7 @@ onMounted(() => {
       align-items: center;
       width: 240px;
       height: 167px;
-      background: url('@/assets/images/business-supervision/bg/sidebar/bg-sidebar-bottom-panel.png')
+      background: url('@/views/business-supervision/images/sidebar/bg-sidebar-bottom-panel.png')
         no-repeat center;
       background-size: cover;
 

@@ -21,7 +21,7 @@ onMounted(() => {
       <img
         :class="[isActive ? 'move-top' : 'move-bottom']"
         alt=""
-        src="@/assets/images/big-data/bg/bg-middle-move.png"
+        src="@/views/big-data/images/bg-middle-move.png"
       />
 
       <h1>工作台</h1>
@@ -29,7 +29,7 @@ onMounted(() => {
       <img
         :class="[isActive ? 'move-bottom' : 'move-top']"
         alt=""
-        src="@/assets/images/big-data/bg/bg-middle-move.png"
+        src="@/views/big-data/images/bg-middle-move.png"
       />
     </div>
   </div>
@@ -57,7 +57,7 @@ onMounted(() => {
     line-height: 109px;
     font-size: 34px;
     color: var(--color-primary-secondary);
-    background: url('@/assets/images/big-data/bg/bg-middle-title.png') no-repeat center;
+    background: url('@/views/big-data/images/bg-middle-title.png') no-repeat center;
     background-size: cover;
   }
 

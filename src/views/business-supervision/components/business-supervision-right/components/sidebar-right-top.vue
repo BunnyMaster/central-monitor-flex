@@ -32,26 +32,17 @@ const timeList = ref<TimeSelectType[]>([
       <ul class="business-supervision__sidebar-list">
         <li>
           <h1>$ 1.62</h1>
-          <img
-            alt=""
-            src="@/assets/images/business-supervision/bg/sidebar/bg-middle-coordinate.png"
-          />
+          <img alt="" src="@/views/business-supervision/images/sidebar/bg-middle-coordinate.png" />
           <p>批准规划面积验收率</p>
         </li>
         <li>
           <h1>$ 1.62</h1>
-          <img
-            alt=""
-            src="@/assets/images/business-supervision/bg/sidebar/bg-middle-coordinate.png"
-          />
+          <img alt="" src="@/views/business-supervision/images/sidebar/bg-middle-coordinate.png" />
           <p>批准规划面积验收率</p>
         </li>
         <li>
           <h1>$ 1.62</h1>
-          <img
-            alt=""
-            src="@/assets/images/business-supervision/bg/sidebar/bg-middle-coordinate.png"
-          />
+          <img alt="" src="@/views/business-supervision/images/sidebar/bg-middle-coordinate.png" />
           <p>批准规划面积验收率</p>
         </li>
       </ul>
@@ -71,7 +62,7 @@ const timeList = ref<TimeSelectType[]>([
   &--spin {
     width: 167px;
     height: 167px;
-    background: url('@/assets/images/business-supervision/bg/sidebar/bg-middle-spin.png') no-repeat
+    background: url('@/views/business-supervision/images/sidebar/bg-middle-spin.png') no-repeat
       center;
     background-size: cover;
     animation: rotate 2s linear infinite;

@@ -39,7 +39,7 @@ onMounted(() => {
   margin: 20px 0 0 0;
   width: 761px;
   height: 294px;
-  background: url('@/assets/images/business-supervision/bg/content/bg-bottom.png') no-repeat center;
+  background: url('@/views/business-supervision/images/content/bg-bottom.png') no-repeat center;
   background-size: cover;
 
   &-inner {

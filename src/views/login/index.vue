@@ -109,7 +109,7 @@ onBeforeMount(() => {
       align-items: center;
       width: 749px;
       height: 578px;
-      background: url('@/assets/images/login/bg-login.png') no-repeat center;
+      background: url('@/views/login/images/bg-login.png') no-repeat center;
       background-size: cover;
 
       &-info {
@@ -154,7 +154,7 @@ onBeforeMount(() => {
           font-size: 16px;
           color: var(--color-primary-secondary);
           outline: none;
-          background: url('@/assets/images/login/bg-login-btn.png') no-repeat center;
+          background: url('@/views/login/images/bg-login-btn.png') no-repeat center;
           background-size: cover;
         }
       }

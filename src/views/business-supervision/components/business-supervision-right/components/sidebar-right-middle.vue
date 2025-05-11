@@ -47,8 +47,8 @@ const list = [
       padding: 0 0 0 14px;
       width: 243px;
       height: 124px;
-      background: url('@/assets/images/business-supervision/bg/sidebar/bg-sidebar-panel.png')
-        no-repeat center;
+      background: url('@/views/business-supervision/images/sidebar/bg-sidebar-panel.png') no-repeat
+        center;
       background-size: cover;
 
       h1 {

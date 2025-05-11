@@ -60,7 +60,7 @@ const devices = ref<any>([
     justify-content: center;
     width: 74px;
     height: 46px;
-    background: url('@/assets/images/business-supervision/bg/sidebar/device-carriage.png') no-repeat
+    background: url('@/views/business-supervision/images/sidebar/device-carriage.png') no-repeat
       center;
     background-size: cover;
 

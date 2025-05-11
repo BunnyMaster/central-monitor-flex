@@ -4,7 +4,7 @@ import type { RouteConfigsTable } from '@/types/router/Route';
 const routes: RouteConfigsTable[] = [
   {
     path: '/welcome',
-    name: 'welcome',
+    name: 'Welcome',
     component: () => import('@/views/welcome/index.vue'),
     meta: {
       title: '后台管理系统标题',
@@ -13,7 +13,7 @@ const routes: RouteConfigsTable[] = [
   },
   {
     path: '/smart-park',
-    name: 'smartPark',
+    name: 'SmartPark',
     component: () => import('@/views/smart-park/index.vue'),
     meta: {
       title: '智慧智能监管中心',
@@ -27,7 +27,7 @@ const routes: RouteConfigsTable[] = [
   },
   {
     path: '/data-analyse',
-    name: 'dataAnalyse',
+    name: 'DataAnalyse',
     component: () => import('@/views/data-analyse/index.vue'),
     meta: {
       title: '数据分析',
@@ -40,8 +40,22 @@ const routes: RouteConfigsTable[] = [
     },
   },
   {
+    path: '/community',
+    name: 'Community',
+    component: () => import('@/views/community/index.vue'),
+    meta: {
+      title: '社区',
+      subtitle: '社区可视化中心',
+      headerType: HeaderTypeEnum.subtitle,
+      transition: {
+        enter: 'animate__bounceIn animate__faster',
+        leave: 'animate__bounceOut',
+      },
+    },
+  },
+  {
     path: '/business-supervision',
-    name: 'businessSupervision',
+    name: 'BusinessSupervision',
     component: () => import('@/views/business-supervision/index.vue'),
     meta: {
       title: '智慧经营监管中心',
@@ -51,7 +65,7 @@ const routes: RouteConfigsTable[] = [
   },
   {
     path: '/big-data',
-    name: 'bigData',
+    name: 'BigData',
     component: () => import('@/views/big-data/index.vue'),
     meta: {
       title: '大数据可视化中心',

@@ -49,7 +49,7 @@ li {
   margin: 0 24px 14px 0;
   width: 144px;
   height: 83px;
-  background: url('@/assets/images/big-data/bg/bg-right-bottom.png') no-repeat center;
+  background: url('@/views/big-data/images/bg-right-bottom.png') no-repeat center;
   background-size: cover;
 
   &::before {

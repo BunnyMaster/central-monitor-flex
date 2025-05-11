@@ -46,13 +46,13 @@ import ContentPercent from '@/views/smart-park/components/smart-park-content/com
   align-items: center;
   width: 824px;
   height: 650px;
-  background: url('@/assets/images/smart-park/bg/bg-middle.png') no-repeat center;
+  background: url('@/views/smart-park/images/bg/bg-middle.png') no-repeat center;
   background-size: cover;
 
   // 中间部分标题
   &-title {
     height: 61px;
-    background: url('@/assets/images/smart-park/bg/bg-main-title.png') no-repeat center;
+    background: url('@/views/smart-park/images/bg/bg-main-title.png') no-repeat center;
     background-size: cover;
 
     h1 {
@@ -71,7 +71,7 @@ import ContentPercent from '@/views/smart-park/components/smart-park-content/com
     margin: 28px 0 77px 0;
     width: 666px;
     height: 400px;
-    background: url('@/assets/images/smart-park/bg/bg-main-1.png') no-repeat center;
+    background: url('@/views/smart-park/images/bg/bg-main-1.png') no-repeat center;
     background-size: cover;
   }
 
@@ -87,7 +87,7 @@ import ContentPercent from '@/views/smart-park/components/smart-park-content/com
     &-headline {
       width: 100%;
       height: 100%;
-      background: url('@/assets/images/smart-park/bg/bg-main-center.png');
+      background: url('@/views/smart-park/images/bg/bg-main-center.png');
       background-size: cover;
       font-size: 19px;
       animation: rotate 30s linear infinite;

@@ -3,8 +3,8 @@ defineProps({
   percent: Number,
 });
 
-import ArrowDown from '@/assets/images/smart-park/arrow/arrow-down.png';
-import ArrowUp from '@/assets/images/smart-park/arrow/arrow-up.png';
+import ArrowDown from '@/views/smart-park/images/arrow/arrow-down.png';
+import ArrowUp from '@/views/smart-park/images/arrow/arrow-up.png';
 
 const calPercentItem = (percent: number): Element => {
   return percent > 25 ? (
@@ -35,7 +35,7 @@ const calPercentItem = (percent: number): Element => {
   position: absolute;
   width: 86px;
   height: 86px;
-  background: url('@/assets/images/common/bg/bg-main-2.png') no-repeat center;
+  background: url('@/views/smart-park/images/bg/bg-main-1.png') no-repeat center;
   background-size: cover;
 }
 </style>

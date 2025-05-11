@@ -7,7 +7,7 @@ const list = [
   { title: '停车场', image: '/images/welcome/car.png', target: '/smart-park' },
   { title: '数据分析', image: '/images/welcome/distribution.png', target: '/data-analyse' },
   { title: '智慧渣土', image: '/images/welcome/muck.png', target: '/smart-park' },
-  { title: '智慧洁城', image: '/images/welcome/clean-city.png', target: '/smart-park' },
+  { title: '社区', image: '/images/welcome/clean-city.png', target: '/community' },
   { title: '智慧路灯', image: '/images/welcome/lamp.png', target: '/smart-park' },
 ];
 </script>
@@ -16,7 +16,7 @@ const list = [
   <div class="welcome__content">
     <div class="welcome__content-inner">
       <p>
-        <img alt="welcome-bg" src="@/assets/images/welcome/icon/welcome.png" />
+        <img alt="welcome-bg" src="../images/welcome.png" />
         <i>xxxx</i>
         你好 欢迎使用xxxxxxxzz
       </p>

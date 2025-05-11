@@ -52,7 +52,7 @@ const getImage = (url) => {
   margin: 30px 0 0 0;
   width: 761px;
   height: 407px;
-  background: url('@/assets/images/business-supervision/bg/content/bg-middle.png') no-repeat center;
+  background: url('@/views/business-supervision/images/content/bg-middle.png') no-repeat center;
   background-size: cover;
 
   li {
@@ -76,7 +76,7 @@ const getImage = (url) => {
       text-align: center;
       line-height: 40px;
       color: var(--color-primary-secondary);
-      background: url('@/assets/images/business-supervision/bg/content/bg-middle-tag.png') no-repeat
+      background: url('@/views/business-supervision/images/content/bg-middle-tag.png') no-repeat
         center;
       background-size: cover;
     }
@@ -89,8 +89,8 @@ const getImage = (url) => {
     align-items: center;
     width: 140px;
     height: 99px;
-    background: url('@/assets/images/business-supervision/bg/content/bg-middle-detail.png')
-      no-repeat center;
+    background: url('@/views/business-supervision/images/content/bg-middle-detail.png') no-repeat
+      center;
     background-size: cover;
 
     strong {

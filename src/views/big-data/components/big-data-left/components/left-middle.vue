@@ -82,7 +82,7 @@ li {
   padding: 0 18px 0 14px;
   width: 248px;
   height: 143px;
-  background: url('@/assets/images/big-data/bg/bg-middle.png') no-repeat center;
+  background: url('@/views/big-data/images/bg-middle.png') no-repeat center;
   background-size: cover;
 
   .progress {

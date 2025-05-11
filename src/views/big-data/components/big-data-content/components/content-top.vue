@@ -47,7 +47,7 @@ ul {
       line-height: 54px;
       text-align: center;
       color: var(--color-primary-secondary);
-      background: url('@/assets/images/big-data/bg/bg-content-top-item.png') no-repeat center;
+      background: url('@/views/big-data/images/bg-content-top-item.png') no-repeat center;
       background-size: cover;
     }
   }

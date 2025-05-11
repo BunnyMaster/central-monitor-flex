@@ -77,7 +77,7 @@ onMounted(() => {
     color: #fff;
     line-height: 40px;
     font-size: 16px;
-    background: url('@/assets/images/smart-park/bg/bg-frame-2.png') no-repeat center;
+    background: url('@/views/smart-park/images/bg/bg-frame-2.png') no-repeat center;
     background-size: cover;
   }
 
@@ -87,7 +87,7 @@ onMounted(() => {
     color: var(--color-primary-secondary);
     line-height: 66px;
     font-size: 34px;
-    background: url('@/assets/images/smart-park/bg/bg-frame-3.png') no-repeat center;
+    background: url('@/views/smart-park/images/bg/bg-frame-3.png') no-repeat center;
     background-size: cover;
   }
 
