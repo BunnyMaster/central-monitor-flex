@@ -7,7 +7,7 @@ const router = useRouter();
 const list = ref([
   { icon: 'i-material-symbols:home-and-garden', name: '园区', target: '/' },
   { icon: 'i-fa:building', name: '园区', target: '/' },
-  { icon: 'i-fa-solid:chart-line', name: '经营', target: '/business-supervision' },
+  { icon: 'i-fa-solid:chart-line', name: '经营监督', target: '/business-supervision' },
   { icon: 'i-eos-icons:big-data-outlined', name: '大数据', target: '/big-data' },
 ]);
 </script>

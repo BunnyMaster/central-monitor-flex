@@ -4,8 +4,8 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 const list = [
-  { title: '智慧停车', image: '/images/welcome/car.png', target: '/smart-park' },
-  { title: '智慧配送', image: '/images/welcome/distribution.png', target: '/data-analyse' },
+  { title: '停车场', image: '/images/welcome/car.png', target: '/smart-park' },
+  { title: '数据分析', image: '/images/welcome/distribution.png', target: '/data-analyse' },
   { title: '智慧渣土', image: '/images/welcome/muck.png', target: '/smart-park' },
   { title: '智慧洁城', image: '/images/welcome/clean-city.png', target: '/smart-park' },
   { title: '智慧路灯', image: '/images/welcome/lamp.png', target: '/smart-park' },

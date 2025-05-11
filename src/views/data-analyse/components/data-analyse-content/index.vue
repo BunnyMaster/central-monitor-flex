@@ -1,5 +1,20 @@
 <script lang="ts" setup>
+import { onMounted, ref } from 'vue';
+
+import PanelTitle1 from '@/components/PanelItem/PanelTitle/PanelTitle1.vue';
+import { renderFooterChart } from '@/views/data-analyse/charts/content-footer';
+
 const titleList = [170582, 586220, 168902];
+
+const footerChartRef = ref();
+
+const footerChart = () => {
+  renderFooterChart(footerChartRef);
+};
+
+onMounted(() => {
+  footerChart();
+});
 </script>
 
 <template>
@@ -14,7 +29,10 @@ const titleList = [170582, 586220, 168902];
 
     <main class="data-analyse-content__body">body</main>
 
-    <footer class="data-analyse-content__footer">footer</footer>
+    <footer class="data-analyse-content__footer">
+      <PanelTitle1 title="销售设备数量区域占比" />
+      <div ref="footerChartRef" class="data-analyse-content__footer-chart" />
+    </footer>
   </div>
 </template>
 
@@ -23,6 +41,10 @@ const titleList = [170582, 586220, 168902];
   margin: 0 35px;
   width: 803px;
   height: 970px;
+
+  h1 {
+    color: white;
+  }
 
   &__header {
     display: flex;
@@ -48,14 +70,19 @@ const titleList = [170582, 586220, 168902];
 
   &__body {
     margin: 14px 0 0 0;
-    width: 803px;
+    width: 100%;
     height: 567px;
   }
 
   &__footer {
     margin: 6px 0 0 0;
-    width: 860px;
+    width: 100%;
     height: 284px;
+
+    &-chart {
+      width: 100%;
+      height: 275px;
+    }
   }
 }
 </style>
