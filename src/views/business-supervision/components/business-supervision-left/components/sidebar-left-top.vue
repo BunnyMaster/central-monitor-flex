@@ -1,7 +1,7 @@
 <script lang="tsx" setup>
 import { onMounted, ref } from 'vue';
 
-import { displayContent } from '@/components/PanelItem/DigitalNumber';
+import { displayContent } from '@/components/DigitalNumber/DigitalCurrency';
 import TimeSelect from '@/components/TimeSelect/index.vue';
 import { TimeSelectType } from '@/components/TimeSelect/type';
 import { renderEcharts } from '@/views/business-supervision/charts/leftSidebarTop';

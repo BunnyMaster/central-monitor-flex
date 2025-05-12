@@ -35,7 +35,7 @@ const calPercentItem = (percent: number): Element => {
   position: absolute;
   width: 86px;
   height: 86px;
-  background: url('@/views/smart-park/images/bg/bg-main-1.png') no-repeat center;
+  background: url('@/assets/images/common/bg/bg-main-2.png') no-repeat center;
   background-size: cover;
 }
 </style>

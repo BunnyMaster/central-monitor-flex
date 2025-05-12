@@ -6,7 +6,7 @@ const randomNumber = (range: number = 100) => {
 
 export default defineFakeRoute([
   {
-    url: 'community-statistics',
+    url: '/api/community/community-statistics',
     method: 'GET',
     response: () => ({
       code: 200,
@@ -14,25 +14,29 @@ export default defineFakeRoute([
         {
           name: '统计人口',
           total: randomNumber(9999),
-          subtitle: `${randomNumber()}%`,
+          subtitle: '常驻人口',
+          subPercent: `${randomNumber()}%`,
           subTotal: randomNumber(99999),
         },
         {
           name: '统计人口',
           total: randomNumber(9999),
-          subtitle: `${randomNumber()}%`,
+          subtitle: '常驻人口',
+          subPercent: `${randomNumber()}%`,
           subTotal: randomNumber(99999),
         },
         {
           name: '统计人口',
           total: randomNumber(9999),
-          subtitle: `${randomNumber()}%`,
+          subtitle: '常驻人口',
+          subPercent: `${randomNumber()}%`,
           subTotal: randomNumber(99999),
         },
         {
           name: '统计人口',
           total: randomNumber(9999),
-          subtitle: `${randomNumber()}%`,
+          subtitle: '常驻人口',
+          subPercent: `${randomNumber()}%`,
           subTotal: randomNumber(99999),
         },
       ],

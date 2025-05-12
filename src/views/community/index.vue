@@ -21,6 +21,6 @@ import CommunityRight from '@/views/community/components/community-right.vue';
   width: 100%;
   height: 100%;
 
-  @include view-style-default(530px, 759px, #0e5fff33);
+  @include view-style-default(530px, 926px, #0e5fff33);
 }
 </style>
