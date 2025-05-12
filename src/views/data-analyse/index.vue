@@ -2,9 +2,9 @@
 import { onBeforeMount } from 'vue';
 
 import { useAppStore } from '@/store/app';
-import DataAnalyseContent from '@/views/data-analyse/components/data-analyse-content/index.vue';
-import DataAnalyseLeft from '@/views/data-analyse/components/data-analyse-left/index.vue';
-import DataAnalyseRight from '@/views/data-analyse/components/data-analyse-right/index.vue';
+import DataAnalyseContent from '@/views/data-analyse/components/data-analyse-content.vue';
+import DataAnalyseLeft from '@/views/data-analyse/components/data-analyse-left.vue';
+import DataAnalyseRight from '@/views/data-analyse/components/data-analyse-right.vue';
 
 const appStore = useAppStore();
 

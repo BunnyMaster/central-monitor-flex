@@ -21,7 +21,7 @@ defineProps({
 .panel {
   width: 430px;
   height: 440px;
-  background: url('./bg.png') no-repeat;
+  background: url('../images/bg-common-panel.png') no-repeat;
   background-size: cover;
 
   h1 {

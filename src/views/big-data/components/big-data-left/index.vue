@@ -3,8 +3,8 @@ import { useIntervalFn } from '@vueuse/core';
 import { onMounted, ref } from 'vue';
 
 import { displayContent } from '@/components/PanelItem/DigitalNumber';
-import TimeSelect from '@/components/PanelItem/TimeSelect/index.vue';
-import { TimeSelectType } from '@/components/PanelItem/TimeSelect/type';
+import TimeSelect from '@/components/TimeSelect/index.vue';
+import { TimeSelectType } from '@/components/TimeSelect/type';
 import { formatter } from '@/utils/chart';
 import { ChartProgress } from '@/views/big-data/charts/left-body';
 import { renderFooterChart, updateFooterChart } from '@/views/big-data/charts/left-footer';

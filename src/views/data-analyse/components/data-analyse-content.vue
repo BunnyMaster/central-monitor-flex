@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
 
-import PanelTitle1 from '@/components/PanelItem/PanelTitle/PanelTitle1.vue';
 import { renderFooterChart } from '@/views/data-analyse/charts/content-footer';
+import PanelTitle from '@/views/data-analyse/components/PanelTitle.vue';
 
 const titleList = [170582, 586220, 168902];
 
@@ -30,7 +30,7 @@ onMounted(() => {
     <main class="data-analyse-content__body">body</main>
 
     <footer class="data-analyse-content__footer">
-      <PanelTitle1 title="销售设备数量区域占比" />
+      <PanelTitle title="销售设备数量区域占比" />
       <div ref="footerChartRef" class="data-analyse-content__footer-chart" />
     </footer>
   </div>
@@ -41,10 +41,6 @@ onMounted(() => {
   margin: 0 35px;
   width: 803px;
   height: 970px;
-
-  h1 {
-    color: white;
-  }
 
   &__header {
     display: flex;

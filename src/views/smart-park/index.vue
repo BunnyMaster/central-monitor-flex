@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import SmartPartContent from '@/views/smart-park/components/smart-park-content/index.vue';
-import SmartPartFooter from '@/views/smart-park/components/smart-park-footer/index.vue';
+import SmartParkContent from '@/views/smart-park/components/smart-park-content.vue';
+import SmartParkFooter from '@/views/smart-park/components/smart-park-footer.vue';
 </script>
 
 <template>
@@ -9,9 +9,9 @@ import SmartPartFooter from '@/views/smart-park/components/smart-park-footer/ind
       <img alt="左箭头" src="@/views/smart-park/images/arrow/arrow-left.png" />
     </div>
 
-    <smart-part-content />
+    <smart-park-content />
 
-    <smart-part-footer />
+    <smart-park-footer />
 
     <div class="smart-park__arrow right-[38px]">
       <img alt="左箭头" src="@/views/smart-park/images/arrow/arrow-right.png" />

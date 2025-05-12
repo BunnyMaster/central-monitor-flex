@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
 
-import PanelTitle1 from '@/components/PanelItem/PanelTitle/PanelTitle1.vue';
 import { renderBodyChart } from '@/views/data-analyse/charts/right-body';
 import { renderFooterChart } from '@/views/data-analyse/charts/right-footer';
+import PanelTitle from '@/views/data-analyse/components/PanelTitle.vue';
 
 const footerChartRef = ref();
 const footerChart = () => {
@@ -24,17 +24,17 @@ onMounted(() => {
 <template>
   <div class="data-analyse-right">
     <header class="data-analyse-right__header">
-      <PanelTitle1 title="数据占有率" />
+      <PanelTitle title="数据占有率" />
       <div ref="bodyChartRef" class="data-analyse-right-chart" />
     </header>
 
     <main class="data-analyse-right__body">
-      <PanelTitle1 title="数据分析展示" />
+      <PanelTitle title="数据分析展示" />
       <div ref="bodyChartRef" class="data-analyse-right__body-chart" />
     </main>
 
     <footer class="data-analyse-right__footer">
-      <PanelTitle1 title="数据展示统计" />
+      <PanelTitle title="数据展示统计" />
 
       <div ref="footerChartRef" class="data-analyse-right__footer-chart" />
     </footer>
@@ -45,10 +45,6 @@ onMounted(() => {
 .data-analyse-right {
   width: 496px;
   height: 970px;
-
-  h1 {
-    color: #fff;
-  }
 
   &__header {
     margin: 10px 0 0 0;

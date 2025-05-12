@@ -34,10 +34,10 @@ service.interceptors.response.use(
     if (response.config.responseType === 'blob' || response.config.responseType === 'arraybuffer') {
       return response;
     }
-    // const { code, data, msg } = response.data;
-    // if (code === ResultEnum.SUCCESS) {
-    //   return data;
-    // }
+    const { code, data, msg } = response.data;
+    if (code === 200) {
+      return data;
+    }
 
     if (response.status === 200) {
       return response.data;

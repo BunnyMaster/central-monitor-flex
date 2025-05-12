@@ -14,6 +14,7 @@ defineProps({
 <style lang="scss" scoped>
 h1 {
   position: relative;
+  color: #fff;
   line-height: 40px;
   font-size: 20px;
 

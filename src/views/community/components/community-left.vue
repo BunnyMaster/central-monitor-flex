@@ -1,15 +1,15 @@
 <script lang="ts" setup>
-import CommunityPanel from '@/components/PanelItem/CommunityPanel/index.vue';
+import CommonPanel from '@/views/community/components/CommonPanel.vue';
 </script>
 
 <template>
   <div class="community__sidebar">
     <div class="community__sidebar-item">
-      <CommunityPanel title="智慧设备总数" />
+      <CommonPanel title="智慧设备总数" />
     </div>
 
     <div class="community__sidebar-item">
-      <CommunityPanel title="预警概览" />
+      <CommonPanel title="预警概览" />
     </div>
   </div>
 </template>

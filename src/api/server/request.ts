@@ -34,22 +34,22 @@ service.interceptors.response.use(
     if (response.config.responseType === 'blob' || response.config.responseType === 'arraybuffer') {
       return response;
     }
-    // const { code, data, msg } = response.data;
-    // if (code === ResultEnum.SUCCESS) {
-    //   return data;
-    // }
+    const { code, data, message } = response.data;
+    if (code === 200) {
+      return data;
+    }
 
     if (response.status === 200) {
       return response.data;
     }
 
     // ElMessage.error(msg || '系统出错');
-    return Promise.reject(response.data.message || 'Error');
+    return Promise.reject(message || 'Error');
   },
   (error: any) => {
     // 异常处理
     if (error.response.data) {
-      // const { code, msg } = error.response.data;
+      // const { code, message } = error.response.data;
       // if (code === ResultEnum.TOKEN_INVALID) {
       // ElNotification({
       //   title: '提示',

@@ -12,11 +12,7 @@ defineProps({
     <div class="mt-[7px] font-size-[18px] c-primary">{{ door }}</div>
     <div class="flex-center mt-[8px] c-primary">
       <span class="float-left font-size-[14px] c-primary-secondary cursor-pointer hover">查看</span>
-      <img
-        alt="arrow-item"
-        class="float-left h-[16px]"
-        src="@/views/smart-park/images/arrow/arrow-item.png"
-      />
+      <img alt="arrow-item" class="float-left h-[16px]" src="../../images/arrow/arrow-item.png" />
     </div>
   </div>
 </template>

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
 
-import TimeSelect from '@/components/PanelItem/TimeSelect/index.vue';
-import { TimeSelectType } from '@/components/PanelItem/TimeSelect/type';
+import TimeSelect from '@/components/TimeSelect/index.vue';
+import { TimeSelectType } from '@/components/TimeSelect/type';
 import { renderEcharts } from '@/views/business-supervision/charts/contentBottom';
 
 const chartYear = ref();

@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
 
-import PanelTitle1 from '@/components/PanelItem/PanelTitle/PanelTitle1.vue';
-import Progress1 from '@/components/PanelItem/Progress/Progress1.vue';
+import Progress1 from '@/components/Progress/Progress1.vue';
 import { renderEcharts } from '@/views/data-analyse/charts/left-brand';
+import PanelTitle from '@/views/data-analyse/components/PanelTitle.vue';
 
 const brandChartRef = ref();
 const deviceTotal = ref('1010');
@@ -40,7 +40,7 @@ onMounted(() => {
 
     <!--中心区域-->
     <div class="data-analyse-left__center">
-      <PanelTitle1 title="销售公司销售设备数量占比" />
+      <PanelTitle title="销售公司销售设备数量占比" />
 
       <ul>
         <li v-for="(item, index) in companyList" :key="index">
@@ -59,7 +59,7 @@ onMounted(() => {
 
     <!--底部区域-->
     <div class="data-analyse-left__bottom">
-      <PanelTitle1 title="品牌占有率" />
+      <PanelTitle title="品牌占有率" />
 
       <div ref="brandChartRef" class="data-analyse-left__bottom-chart" />
     </div>
