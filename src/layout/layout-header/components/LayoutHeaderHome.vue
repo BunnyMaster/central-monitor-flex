@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useRoute } from 'vue-router';
 
-import BarOp from '@/components/CommonHeader/HeaderBarOp.vue';
+import LayoutHeaderNav from '@/layout/layout-header/components/LayoutHeaderNav.vue';
 
 const route = useRoute();
 </script>
@@ -10,7 +10,7 @@ const route = useRoute();
   <header>
     <div class="header-title">
       <h1>{{ route.meta.title }}</h1>
-      <BarOp />
+      <LayoutHeaderNav />
     </div>
   </header>
 </template>
@@ -19,7 +19,7 @@ const route = useRoute();
 .header-title {
   width: 100%;
   height: 108px;
-  background: url('@/assets/images/common/header/bg-layout-header.png') no-repeat center;
+  background: url('@/layout/layout-header/images/layout-header-1.png') no-repeat center;
   background-size: cover;
 
   h1 {

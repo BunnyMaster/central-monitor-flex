@@ -17,7 +17,7 @@ const route = useRoute();
 .header-title {
   width: 100%;
   height: 108px;
-  background: url('@/assets/images/common/header/bg-layout-header.png') no-repeat center;
+  background: url('@/layout/layout-header/images/layout-header-1.png') no-repeat center;
   background-size: cover;
 
   h1 {

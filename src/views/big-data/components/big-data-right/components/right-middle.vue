@@ -11,7 +11,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="big-data__sidebar-item">
+  <div class="big-data__body">
     <div class="flex-x-between">
       <h1 class="big-data__sidebar-title">企业信息</h1>
       <span class="big-data__sidebar-title-describe">截止时间至2021.12.30</span>
@@ -62,7 +62,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-.big-data__sidebar-item {
+.big-data__body {
   width: 100%;
   height: 338px;
 }
@@ -79,7 +79,7 @@ onMounted(() => {
     margin: 15px 0 0 0;
     width: 242px;
     height: 124px;
-    background: url('@/assets/images/business-supervision/bg/sidebar/frame-1.png') no-repeat center;
+    background: url('@/views/big-data/images/frame-1.png') no-repeat center;
     background-size: cover;
 
     h1 {

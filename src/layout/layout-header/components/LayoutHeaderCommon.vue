@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
-import BarOp from '@/components/CommonHeader/HeaderBarOp.vue';
+import LayoutHeaderNav from '@/layout/layout-header/components/LayoutHeaderNav.vue';
 import dayjs from '@/plugins/dayjs';
 import { resetRouter } from '@/router';
 
@@ -34,13 +34,13 @@ onMounted(() => {
       <img
         alt="icon-setting"
         class="ml-[-284px]"
-        src="@/assets/images/common/icon/icon-home.png"
+        src="../images/icon/icon-home.png"
         @click="resetRouter()"
       />
-      <img alt="icon-home" class="ml-[284px]" src="@/assets/images/common/icon/icon-setting.png" />
+      <img alt="icon-home" class="ml-[284px]" src="../images/icon/icon-setting.png" />
     </div>
 
-    <BarOp />
+    <LayoutHeaderNav />
   </header>
 </template>
 
@@ -48,7 +48,7 @@ onMounted(() => {
 header {
   position: relative;
   height: 108px;
-  background: url('@/assets/images/common/header/bg-parking-header.png') no-repeat center;
+  background: url('@/layout/layout-header/images/layout-header-2.png') no-repeat center;
   background-size: cover;
 }
 

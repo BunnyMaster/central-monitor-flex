@@ -4,7 +4,7 @@ import { onMounted, ref } from 'vue';
 import { displayContent } from '@/components/PanelItem/DigitalNumber';
 import TimeSelect from '@/components/PanelItem/TimeSelect/index.vue';
 import { TimeSelectType } from '@/components/PanelItem/TimeSelect/type';
-import { renderEcharts } from '@/views/big-data/charts/right-top';
+import { renderEcharts } from '@/views/big-data/charts/right-header';
 
 const chartProgress = ref<HTMLDivElement>();
 const money = '1386114';
@@ -21,11 +21,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="big-data__sidebar-item h-[226px]">
+  <div class="big-data__header h-[226px]">
     <div class="flex-x-between">
-      <h1 class="big-data__sidebar-title">园区进出口额</h1>
+      <h1 class="big-data__header-title">园区进出口额</h1>
       <div>
-        <span class="big-data__sidebar-tag">总数据</span>
+        <span class="big-data__header-tag">总数据</span>
         <TimeSelect :time-list="timeList" />
       </div>
     </div>
@@ -35,9 +35,9 @@ onMounted(() => {
     </div>
 
     <div>
-      <div ref="chartProgress" class="big-data__sidebar-progress" />
+      <div ref="chartProgress" class="big-data__header-progress" />
 
-      <ul class="big-data__sidebar-value">
+      <ul class="big-data__header-value">
         <li>
           进口额
           <i>¥1551154545</i>
@@ -62,8 +62,9 @@ onMounted(() => {
   }
 }
 
-.big-data__sidebar {
+.big-data__header {
   width: 100%;
+  height: 226px;
 
   &-progress {
     margin: 14px 0 0 0;

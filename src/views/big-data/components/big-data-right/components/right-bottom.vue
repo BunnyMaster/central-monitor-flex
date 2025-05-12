@@ -13,7 +13,7 @@ const list = [
 </script>
 
 <template>
-  <div class="big-data__sidebar-item">
+  <div class="big-data__body">
     <div class="flex-x-between">
       <h1 class="big-data__sidebar-title">园区规划</h1>
     </div>
@@ -28,7 +28,7 @@ const list = [
 </template>
 
 <style lang="scss" scoped>
-.big-data__sidebar-item {
+.big-data__body {
   width: 100%;
 
   .big-data__sidebar-card {

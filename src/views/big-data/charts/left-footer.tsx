@@ -59,7 +59,7 @@ const option = {
 };
 
 /** 渲染图表 */
-export const renderEcharts = (element: Ref<HTMLDivElement>) => {
+export const renderFooterChart = (element: Ref<HTMLDivElement>) => {
   myChart = echarts.init(element.value, null, {
     renderer: 'canvas',
     devicePixelRatio: window.devicePixelRatio,
@@ -71,7 +71,7 @@ export const renderEcharts = (element: Ref<HTMLDivElement>) => {
 };
 
 /** 更新图表数据 */
-export const updateChart = (option: Array<Array<number>>) => {
+export const updateFooterChart = (option: Array<Array<number>>) => {
   const series = myChart.getOption().series;
   series[0].data = option[0];
   series[1].data = option[1];

@@ -3,9 +3,9 @@
 <template>
   <div class="bar-op">
     <ul>
-      <li><img alt="icon-1" src="@/assets/images/common/icon/icon-1.png" /></li>
-      <li><img alt="icon-2" src="@/assets/images/common/icon/icon-2.png" /></li>
-      <li><img alt="icon-3" src="@/assets/images/common/icon/icon-3.png" /></li>
+      <li><img alt="icon-1" src="../images/icon/icon-1.png" /></li>
+      <li><img alt="icon-2" src="../images/icon/icon-2.png" /></li>
+      <li><img alt="icon-3" src="../images/icon/icon-3.png" /></li>
     </ul>
     <span class="hover">王菠萝</span>
   </div>

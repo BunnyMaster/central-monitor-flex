@@ -78,7 +78,7 @@ const option = {
 };
 
 /** 渲染图表 */
-export const renderEcharts = (element: Ref<HTMLDivElement>) => {
+export const renderFooterChart = (element: Ref<HTMLDivElement>) => {
   myChart = echarts.init(element.value, null, {
     renderer: 'canvas',
     devicePixelRatio: window.devicePixelRatio,

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import CommunityContent from '@/views/community/community-content/index.vue';
-import CommunityLeft from '@/views/community/community-left/index.vue';
-import CommunityRight from '@/views/community/community-right/index.vue';
+import CommunityContent from '@/views/community/components/community-content.vue';
+import CommunityLeft from '@/views/community/components/community-left.vue';
+import CommunityRight from '@/views/community/components/community-right.vue';
 </script>
 
 <template>

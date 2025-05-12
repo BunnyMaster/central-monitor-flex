@@ -48,8 +48,8 @@ const routes: RouteConfigsTable[] = [
       subtitle: '社区可视化中心',
       headerType: HeaderTypeEnum.subtitle,
       transition: {
-        enter: 'animate__bounceIn animate__faster',
-        leave: 'animate__bounceOut',
+        enter: 'animate__backInLeft animate__faster',
+        leave: 'animate__backOutRight animate__faster',
       },
     },
   },
