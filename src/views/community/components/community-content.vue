@@ -1,17 +1,35 @@
 <script lang="ts" setup>
+import { useIntervalFn } from '@vueuse/core';
 import { storeToRefs } from 'pinia';
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 
 import { useCommunityStore } from '@/store/modules/community';
 import { getImage } from '@/utils/image';
+import { renderBodyChart, updateBodyChart } from '@/views/community/charts/conten-body-chart';
 
 const BODY_CARD_LIST = ['大数据中心', '数字楼宇', '平台设备管理'];
 
 const communityStore = useCommunityStore();
-const { communityStatisticsList } = storeToRefs(communityStore);
+const { statisticsList, deviceStatus } = storeToRefs(communityStore);
+
+// 图表Ref
+const securityCharRef = ref();
+
+/* 初始化数据 */
+const initData = async () => {
+  await communityStore.fetchCommunityStatisticsList();
+  await communityStore.fetchCommityDeicesStatus();
+
+  updateBodyChart({ data: deviceStatus.value.security });
+};
 
 onMounted(() => {
-  communityStore.loadCommunityStatisticsList();
+  renderBodyChart(securityCharRef);
+  initData();
+
+  useIntervalFn(() => {
+    initData();
+  }, 1000);
 });
 </script>
 
@@ -19,11 +37,7 @@ onMounted(() => {
   <div class="community__content">
     <header class="community__header">
       <ul class="community__stats-list">
-        <li
-          v-for="(item, index) in communityStatisticsList"
-          :key="index"
-          class="community__stat-card"
-        >
+        <li v-for="(item, index) in statisticsList" :key="index" class="community__stat-card">
           <div class="community__stat-content">
             <h1>{{ item.name }}</h1>
             <h2>{{ item.total }}</h2>
@@ -48,37 +62,29 @@ onMounted(() => {
       </ul>
 
       <div class="community__metrics">
-        <div class="community__metric-card">
-          <h1>80</h1>
+        <div
+          v-for="(item, index) in deviceStatus?.devcies?.slice(0, 2)"
+          :key="index"
+          class="community__metric-card"
+        >
+          <h1>{{ item.total }}</h1>
           <span>
             设备
             <br />
-            正常运行总数
+            {{ item.title }}
           </span>
         </div>
-        <div class="community__metric-card">
-          <h1>20</h1>
+        <div ref="securityCharRef" class="community__instrument-panel" />
+        <div
+          v-for="(item, index) in deviceStatus?.devcies?.slice(2, 4)"
+          :key="index"
+          class="community__metric-card"
+        >
+          <h1>{{ item.total }}</h1>
           <span>
             设备
             <br />
-            故障总数
-          </span>
-        </div>
-        <div class="community__instrument-panel">xxxx</div>
-        <div class="community__metric-card">
-          <h1>20</h1>
-          <span>
-            设备
-            <br />
-            故障总数
-          </span>
-        </div>
-        <div class="community__metric-card">
-          <h1>98%</h1>
-          <span>
-            设备
-            <br />
-            故障总数
+            {{ item.title }}
           </span>
         </div>
       </div>
@@ -196,8 +202,10 @@ onMounted(() => {
 
     /* 中间仪表盘内容 */
     .community__instrument-panel {
+      padding: 20px;
       width: 286px;
       height: 169px;
+      color: #fff;
       background: url('../images/bg-body-instrument-panel.png');
     }
   }

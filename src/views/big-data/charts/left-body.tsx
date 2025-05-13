@@ -51,13 +51,25 @@ const renderEcharts: any = (myChart: Ref<echarts.ECharts>, element: Ref<HTMLDivE
   debounceChart(myChart.value);
 };
 
+/** 更新图标数据 */
+const updateChart = (myChart: Ref<EChartsType | undefined>, props: any) => {
+  const series = myChart.value.getOption().series;
+  series[0].data[0].value = props.percent;
+  series[0].data[0].itemStyle = props.percent >= 20 ? itemStyles[0] : itemStyles[1];
+
+  myChart.value?.setOption({ series });
+};
+
 /* 封装组件 */
 export const ChartProgress = defineComponent({
+  name: 'ChartProgress',
   props: { percent: { type: Number } },
 
   setup(props) {
-    const chart = ref<HTMLDivElement>();
+    // 唯一的 Chart
     const myChart = ref<EChartsType>();
+    // 元素
+    const chart = ref<HTMLDivElement>();
 
     onMounted(() => {
       renderEcharts(myChart, chart);
@@ -75,12 +87,3 @@ export const ChartProgress = defineComponent({
     return () => <div ref={chart} className="progress"></div>;
   },
 });
-
-/** 更新图标数据 */
-const updateChart = (myChart: Ref<EChartsType | undefined>, props: any) => {
-  const series = myChart.value.getOption().series;
-  series[0].data[0].value = props.percent;
-  series[0].data[0].itemStyle = props.percent >= 20 ? itemStyles[0] : itemStyles[1];
-
-  myChart.value?.setOption({ series });
-};

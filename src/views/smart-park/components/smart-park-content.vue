@@ -15,9 +15,9 @@ const { roadStatus, roadStatusSuggest, tollgateMonitoringData, trafficStatistics
   storeToRefs(smartPark);
 
 const initData = () => {
-  smartPark.loadRoadStatus();
-  smartPark.loadTollgateMonitoringData();
-  smartPark.loadFlowRate();
+  smartPark.fetchRoadStatus();
+  smartPark.fetchTollgateMonitoringData();
+  smartPark.fetchFlowRate();
 
   updateChart({
     enter: trafficStatistics.value.enter,

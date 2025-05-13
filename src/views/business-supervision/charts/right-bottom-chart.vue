@@ -58,7 +58,7 @@ option.value = {
       type: 'pictorialBar',
       barWidth: 30,
       itemStyle: { color: '#0D3770' },
-      symbolRepeat: 'true',
+      symbolRepeat: true,
       symbolMargin: 3,
       symbol: 'rect',
       symbolSize: [30, 4],

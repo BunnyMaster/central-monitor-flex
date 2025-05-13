@@ -1,10 +1,6 @@
 import { defineStore } from 'pinia';
 
-import {
-  fetchRoadStatus,
-  fetchTollgateMonitoringData,
-  fetchTrafficStatistics,
-} from '@/api/smartPark';
+import { gethRoadStatus, getTollgateMonitoringData, getTrafficStatistics } from '@/api/smartPark';
 
 export const useSmartPark = defineStore('smartparkStore', {
   state: () => ({
@@ -19,19 +15,19 @@ export const useSmartPark = defineStore('smartparkStore', {
   }),
   actions: {
     /* 道路情况 */
-    async loadRoadStatus() {
-      const result: any = await fetchRoadStatus();
+    async fetchRoadStatus() {
+      const result: any = await gethRoadStatus();
       this.roadStatus = result.entrances;
       this.roadStatusSuggest = result.suggest;
     },
     /* 卡口车辆监控 */
-    async loadTollgateMonitoringData() {
-      const result = await fetchTollgateMonitoringData();
+    async fetchTollgateMonitoringData() {
+      const result = await getTollgateMonitoringData();
       this.tollgateMonitoringData = result;
     },
     /* 车流量概览 */
-    async loadFlowRate() {
-      const result = await fetchTrafficStatistics();
+    async fetchFlowRate() {
+      const result = await getTrafficStatistics();
       this.trafficStatistics = result;
     },
   },

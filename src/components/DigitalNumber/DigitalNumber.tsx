@@ -21,11 +21,11 @@ export default defineComponent({
       .flat();
 
     return () => (
-      <>
+      <div className={'mb-[20px]'}>
         {moneyStringList.map((item, index) => (
           <span key={index}>{item}</span>
         ))}
-      </>
+      </div>
     );
   },
 });
