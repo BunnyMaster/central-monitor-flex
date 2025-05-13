@@ -10,18 +10,19 @@ import {
 export const useCommunityStore = defineStore('communityStore', {
   state: () => ({
     // 设备总数
-    devicesList: [],
+    devicesList: { list: [], total: 0 },
     // 预警概览
     alarmOverviewList: [],
     // 统计列表
     statisticsList: [],
     // 设备状态
-    deviceStatus: { devcies: [], security: undefined },
+    deviceStatus: { devcies: [], security: 0 },
   }),
   actions: {
     /* 设备总数 */
     async fetchCommunityDevicesAmount() {
       const result = await getCommunityDevicesAmount();
+
       this.devicesList = result;
     },
     /* 预警概览 */

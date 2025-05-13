@@ -13,18 +13,17 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const moneyString: string = props.separator ? formatter(props.money) : props.money.toString();
-    const moneyStringList = moneyString
-      .split(/(\d,)/g)
-      .filter((item) => item !== '')
-      .map((item) => (!item.includes(',') ? item.split('') : item))
-      .flat();
-
     return () => (
       <div className={'mb-[20px]'}>
-        {moneyStringList.map((item, index) => (
-          <span key={index}>{item}</span>
-        ))}
+        {(props.separator ? formatter(props.money) : props.money.toString())
+          .split(/(\d,)/g)
+          .filter((item) => item !== '')
+          .map((item) => (!item.includes(',') ? item.split('') : item))
+          .flat()
+          .map((item, index) => (
+            <span key={index}>{item}</span>
+          ))}
+        {/* {moneyStringList.value?.map((item, index) => <span key={index}>{item}</span>)} */}
       </div>
     );
   },

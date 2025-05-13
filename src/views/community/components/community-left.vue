@@ -42,9 +42,9 @@ onMounted(() => {
     <div class="community__sidebar-item">
       <CommonPanel title="设备总数">
         <div class="community__sidebar-digital">
-          <DigitalNumber :money="1964" />
+          <DigitalNumber :money="devicesList?.total" />
 
-          <div v-for="(item, index) in devicesList" :key="index" class="progress-list">
+          <div v-for="(item, index) in devicesList?.list" :key="index" class="progress-list">
             <LeftHeaderChart
               :data-left="calculateDevicePercent(item.connect, item.outside)"
               :data-right="calculateDevicePercent(item.outside, item.connect)"
@@ -73,13 +73,15 @@ onMounted(() => {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: flex-end;
+    justify-content: space-around;
 
     .progress-list {
       display: flex;
       flex-direction: column;
       justify-items: center;
       margin: 14px 0 0 0;
+      width: 100%;
       color: #fff;
 
       :deep(.progress) {

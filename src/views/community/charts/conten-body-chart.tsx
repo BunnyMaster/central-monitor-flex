@@ -7,7 +7,6 @@ import { debounceChart } from '@/utils/chart';
 let myChart = null;
 
 const option = ref<EChartsOption>({
-  grid: { top: 0, right: 0, bottom: -100, left: 0, containLabel: true },
   series: [
     {
       type: 'gauge',
@@ -48,8 +47,8 @@ const option = ref<EChartsOption>({
       },
       axisLabel: { show: false },
       detail: {
-        fontSize: 18,
-        offsetCenter: [0, '-9%'],
+        fontSize: 24,
+        offsetCenter: [0, '9%'],
         valueAnimation: true,
         formatter: function (value) {
           return Math.round(value * 100) + '\n安全指数';

@@ -11,12 +11,15 @@ export default defineFakeRoute([
     method: 'GET',
     response: () => ({
       code: 200,
-      data: [
-        { name: '设备类型一', outside: randomNumber(), connect: randomNumber() },
-        { name: '设备类型二', outside: randomNumber(), connect: randomNumber() },
-        { name: '设备类型三', outside: randomNumber(), connect: randomNumber() },
-        { name: '设备类型四', outside: randomNumber(), connect: randomNumber() },
-      ],
+      data: {
+        list: [
+          { name: '设备类型一', outside: randomNumber(), connect: randomNumber() },
+          { name: '设备类型二', outside: randomNumber(), connect: randomNumber() },
+          { name: '设备类型三', outside: randomNumber(), connect: randomNumber() },
+          { name: '设备类型四', outside: randomNumber(), connect: randomNumber() },
+        ],
+        total: randomNumber(9999),
+      },
       message: '操作成功',
     }),
   },
