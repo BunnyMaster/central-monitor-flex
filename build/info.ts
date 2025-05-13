@@ -47,7 +47,7 @@ export const viteConsoleLog = (mode: string) => {
         console.log(
           boxen(
             gradientString('cyan', 'magenta').multiline(
-              `🎉 恭喜打包完成（总用时${format}）打包大小（${logOutputSize()}）`
+              `🎉 恭喜打包完成（总用时${format}）打包大小（${logOutputSize()})`
             ),
             boxenOptions
           )

@@ -1,33 +1,38 @@
 <script lang="ts" setup>
 import { useIntervalFn } from '@vueuse/core';
+import { storeToRefs } from 'pinia';
 import { onMounted, ref } from 'vue';
 
+import { useSmartPark } from '@/store/modules/smartPark';
 import { renderEcharts, updateChart } from '@/views/smart-park/charts/right-sidebar';
 import ContentItem from '@/views/smart-park/components/common/content-item.vue';
 import ContentPercent from '@/views/smart-park/components/common/content-percent.vue';
 
 const weekDataChart = ref<HTMLDivElement>();
 
-/** 随机数据 */
-const randomData = () => {
-  renderEcharts(weekDataChart);
+const smartPark = useSmartPark();
+const { roadStatus, roadStatusSuggest, tollgateMonitoringData, trafficStatistics } =
+  storeToRefs(smartPark);
 
-  function random() {
-    return Array(11)
-      .fill(0)
-      .map(() => {
-        const num = (Math.random() * 100).toFixed(2);
-        return parseInt(num);
-      });
-  }
+const initData = () => {
+  smartPark.loadRoadStatus();
+  smartPark.loadTollgateMonitoringData();
+  smartPark.loadFlowRate();
 
-  useIntervalFn(() => {
-    updateChart({ data1: random(), data2: random() });
-  }, 1000);
+  updateChart({
+    enter: trafficStatistics.value.enter,
+    outer: trafficStatistics.value.outer,
+    timeline: trafficStatistics.value.timeline,
+  });
 };
 
 onMounted(() => {
-  randomData();
+  renderEcharts(weekDataChart);
+  initData();
+
+  useIntervalFn(() => {
+    initData();
+  }, 1000);
 });
 </script>
 
@@ -42,36 +47,33 @@ onMounted(() => {
 
         <!-- 汽车列表 -->
         <ul class="mt-[32px]">
-          <li class="smart-park__sidebar--left-item">
-            <img alt="car-1" src="../images/car/car-1.png" />
-            <p>入卡口（西北门）</p>
-            <span class="dashed-circle c-primary-secondary border-b-primary-secondary">畅通</span>
-          </li>
-          <li class="smart-park__sidebar--left-item">
-            <img alt="car-1" src="../images/car/car-1.png" />
-            <p>入卡口（东北门）</p>
-            <span class="dashed-circle c-primary-secondary border-b-primary-secondary">畅通</span>
-          </li>
-          <li class="smart-park__sidebar--left-item">
-            <img alt="car-1" src="../images/car/car-2.png" />
-            <p>入卡口（东北门）</p>
-            <span class="dashed-circle c-warning border-b-warning">拥堵</span>
-          </li>
-          <li class="smart-park__sidebar--left-item">
-            <img alt="car-1" src="../images/car/car-1.png" />
-            <p>入卡口（东南门）</p>
-            <span class="dashed-circle c-primary-secondary border-b-primary-secondary">畅通</span>
+          <li
+            v-for="(item, index) in roadStatus"
+            :key="index"
+            class="smart-park__sidebar--left-item"
+          >
+            <div v-show="item.status === '畅通'" class="flex-x-around w-[100%]">
+              <img alt="car-1" src="../images/car/car-1.png" />
+              <p>{{ item.name }}</p>
+              <span class="dashed-circle c-primary-secondary border-b-primary-secondary">
+                {{ item.status }}
+              </span>
+            </div>
+
+            <div v-show="item.status === '拥堵'" class="flex-x-around w-[100%]">
+              <img alt="car-1" src="../images/car/car-2.png" />
+              <p>{{ item.name }}</p>
+              <span class="dashed-circle c-warning border-b-warning">
+                {{ item.status }}
+              </span>
+            </div>
           </li>
         </ul>
 
         <!-- 建议 -->
         <div class="smart-park__sidebar--left-suggest">
           <h5>车流量建议</h5>
-          <p>
-            高峰时段大量车流量容易造成拥堵，主要由XXX企业、XXX企业的车辆构成，
-            <span>可建议XXX企业向后延迟15min错峰入园。</span>
-            高峰时段大量车流量容易造成拥堵， 主要由XXX企业、XXX企业的车辆构成
-          </p>
+          <p v-html="roadStatusSuggest" />
         </div>
       </div>
     </div>
@@ -84,21 +86,13 @@ onMounted(() => {
 
         <!-- 中间布局 -->
         <div class="smart-park__body-inner">
-          <div class="pos-relative">
-            <content-item :count="45" class="top-[37px] left-[40px] w-[175px]" door="西北门" />
-            <content-percent :percent="44" class="top-[73px] left-[193px]" />
-          </div>
-          <div class="pos-relative">
-            <content-item :count="67" class="top-[37px] left-[120px] w-[175px]" door="东北门" />
-            <content-percent :percent="25" class="top-[73px] right-[192px]" />
-          </div>
-          <div class="pos-relative">
-            <content-item :count="345" class="top-[45px] left-[34px] w-[175px]" door="西南门" />
-            <content-percent :percent="25" class="top-[40px] left-[193px]" />
-          </div>
-          <div class="pos-relative">
-            <content-item :count="145" class="top-[45px] left-[130px] w-[175px]" door="东南门" />
-            <content-percent :percent="44" class="top-[40px] left-[66px]" />
+          <div v-for="(item, index) in tollgateMonitoringData" :key="index" class="pos-relative">
+            <content-item
+              :count="item.count"
+              class="top-[37px] left-[40px] w-[175px]"
+              :door="item.door"
+            />
+            <content-percent :percent="item.percent" class="top-[73px] left-[193px]" />
           </div>
 
           <div class="smart-park__body-content">
@@ -119,13 +113,13 @@ onMounted(() => {
 
         <!-- 汽车列表 -->
         <ul class="flex-x-around mt-[32px] w-[331px]">
-          <li class="smart-park__sidebar-flow-item">
-            <span>最高进园车流量</span>
-            <span>897</span>
-          </li>
-          <li class="smart-park__sidebar-flow-item">
-            <span>最高进园车流量</span>
-            <span>494</span>
+          <li
+            v-for="(item, index) in trafficStatistics.overview"
+            :key="index"
+            class="smart-park__sidebar-flow-item"
+          >
+            <span>{{ item.title }}</span>
+            <span>{{ item.statistics }}</span>
           </li>
         </ul>
 
@@ -172,7 +166,7 @@ onMounted(() => {
     background: url('@/views/smart-park/images/bg/bg-suggest.png') no-repeat center;
     background-size: cover;
 
-    span {
+    :deep(span) {
       color: var(--color-warning-secondary);
     }
   }

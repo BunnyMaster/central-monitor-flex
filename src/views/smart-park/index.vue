@@ -1,11 +1,36 @@
 <script lang="ts" setup>
+import { useTimeoutFn } from '@vueuse/core';
+import { ref } from 'vue';
+
 import SmartParkContent from '@/views/smart-park/components/smart-park-content.vue';
 import SmartParkFooter from '@/views/smart-park/components/smart-park-footer.vue';
+
+const showNavigationArrows = ref(false);
+let hideArrowsTimeout: (() => void) | null = null;
+
+/* 鼠标经过显示箭头 */
+const handleMouseMovement = () => {
+  // 每次鼠标移动时显示箭头
+  showNavigationArrows.value = true;
+
+  // 清除之前的定时器（如果存在）
+  if (hideArrowsTimeout) {
+    hideArrowsTimeout();
+  }
+
+  // 设置新的定时器，2秒后隐藏箭头
+  const { start, stop } = useTimeoutFn(() => {
+    showNavigationArrows.value = false;
+  }, 2000);
+
+  hideArrowsTimeout = stop;
+  start();
+};
 </script>
 
 <template>
-  <div class="smart-park">
-    <div class="smart-park__arrow left-[38px]">
+  <div class="smart-park" @mousemove="handleMouseMovement">
+    <div v-show="showNavigationArrows" class="smart-park__arrow left-[38px]">
       <img alt="左箭头" src="@/views/smart-park/images/arrow/arrow-left.png" />
     </div>
 
@@ -13,7 +38,7 @@ import SmartParkFooter from '@/views/smart-park/components/smart-park-footer.vue
 
     <smart-park-footer />
 
-    <div class="smart-park__arrow right-[38px]">
+    <div v-show="showNavigationArrows" class="smart-park__arrow right-[38px]">
       <img alt="左箭头" src="@/views/smart-park/images/arrow/arrow-right.png" />
     </div>
   </div>

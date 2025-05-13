@@ -31,7 +31,7 @@ const option = {
   xAxis: {
     type: 'category',
     show: true,
-    data: ['02.01', '02.02', '02.03', '02.04', '02.05', '02.06', '02.07'],
+    data: [],
     itemStyle: { color: '#ccc' },
     splitLine: {
       show: true,
@@ -108,7 +108,10 @@ export const renderEcharts = (element: Ref<HTMLDivElement>) => {
 /** 更新图表数据 */
 export const updateChart = (option: any) => {
   const series = myChart.getOption().series;
-  series[0].data = option.data1;
-  series[1].data = option.data2;
-  myChart.setOption({ series });
+  const xAxis = myChart.getOption().xAxis;
+  series[0].data = option.outer;
+  series[1].data = option.enter;
+  xAxis[0].data = option.timeline;
+
+  myChart.setOption({ series, xAxis });
 };
