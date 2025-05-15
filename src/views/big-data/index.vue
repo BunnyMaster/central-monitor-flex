@@ -26,7 +26,7 @@ onBeforeMount(async () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 9px 0 9px;
+  padding: 0 14px;
   width: 100%;
   height: 100%;
 

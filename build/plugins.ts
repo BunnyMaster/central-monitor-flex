@@ -4,9 +4,9 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import { presetIcons } from 'unocss';
 import UnoCSS from 'unocss/vite';
 import type { PluginOption } from 'vite';
-// @ts-ignore
 import { vitePluginFakeServer } from 'vite-plugin-fake-server';
 import removeConsole from 'vite-plugin-remove-console';
+import vueDevTools from 'vite-plugin-vue-devtools';
 import Inspector from 'vite-plugin-vue-inspector';
 
 import { useCDN } from './cdn';
@@ -20,6 +20,7 @@ export const plugins = (mode: string): PluginOption[] => {
     Inspector(),
     report(),
     removeConsole(),
+    vueDevTools(),
     useCDN(mode),
     viteConsoleLog(mode),
     UnoCSS({

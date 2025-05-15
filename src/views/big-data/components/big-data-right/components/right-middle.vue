@@ -1,12 +1,28 @@
 <script lang="ts" setup>
+import { useIntervalFn } from '@vueuse/core';
+import { storeToRefs } from 'pinia';
 import { onMounted, ref } from 'vue';
 
+import { useBigDataStore } from '@/store/modules/bigData';
 import { renderEcharts } from '@/views/business-supervision/charts/leftSidebarMiddle';
 
 const chartPie = ref<HTMLDivElement>();
 
+const bidDataStore = useBigDataStore();
+const { enterpriseInfo } = storeToRefs(bidDataStore);
+
+const initAppData = () => {
+  bidDataStore.fetchEnterpriseInfo();
+};
+
 onMounted(() => {
   renderEcharts(chartPie);
+
+  initAppData();
+
+  useIntervalFn(() => {
+    initAppData();
+  }, 1000);
 });
 </script>
 
@@ -20,24 +36,24 @@ onMounted(() => {
     <ul class="big-data__sidebar-card">
       <li>
         <h1>报税金额</h1>
-        <p class="c-warning-secondary">¥1551154545</p>
+        <p class="c-warning-secondary">￥{{ enterpriseInfo.taxAmount }}</p>
       </li>
       <li>
         <div class="flex-x-between">
           <div>
             <h1>企业数量</h1>
-            <p class="c-primary-secondary">783</p>
+            <p class="c-primary-secondary">{{ enterpriseInfo.enterpriseCount }}</p>
           </div>
           <div ref="chartPie" class="big-data__sidebar-card-chart-pie" />
         </div>
         <div class="big-data__sidebar-card-enterprise-type">
-          <span class="mr-[13px]">
+          <span class="mr-[4px]">
             <i class="bg-primary-secondary" />
-            国营企业 345
+            国营企业 {{ enterpriseInfo.stateOwnedEnterprise }}
           </span>
           <span>
             <i class="bg-warning-secondary" />
-            私营企业 345
+            私营企业 {{ enterpriseInfo.privateEnterprise }}
           </span>
         </div>
       </li>
@@ -47,7 +63,7 @@ onMounted(() => {
           <span class="font-size-[12px]">环比变化</span>
           <span class="font-size-[12px]">+123%</span>
         </div>
-        <p class="c-primary-secondary">¥1551154545</p>
+        <p class="c-primary-secondary">¥{{ enterpriseInfo.investmentTotal }}</p>
       </li>
       <li>
         <div class="flex-x-between">
@@ -55,7 +71,7 @@ onMounted(() => {
           <span class="font-size-[12px]">环比变化</span>
           <span class="font-size-[12px]">-123%</span>
         </div>
-        <p class="c-primary-secondary">¥1551154545</p>
+        <p class="c-primary-secondary">¥{{ enterpriseInfo.taxTotalAmount }}</p>
       </li>
     </ul>
   </div>

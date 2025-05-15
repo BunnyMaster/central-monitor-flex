@@ -1,10 +1,9 @@
 import 'echarts/lib/component/dataZoom';
 
-import type { EChartsOption, EChartsType } from 'echarts';
+import type { EChartsOption } from 'echarts';
 import { defineComponent, onMounted, type Ref, ref, watch } from 'vue';
 
 import echarts from '@/plugins/echarts';
-import { debounceChart } from '@/utils/chart';
 
 const option = ref<EChartsOption>({
   tooltip: {
@@ -69,13 +68,11 @@ export const renderLeftHeaderEcharts: any = (
     devicePixelRatio: window.devicePixelRatio,
   });
 
-  myChart.value!.setOption(option.value!);
-
-  debounceChart(myChart.value);
+  myChart.value?.setOption(option.value);
 };
 
 /** 更新图标数据 */
-const updateChart = (myChart: Ref<EChartsType | undefined>, props: any) => {
+const updateChart = (myChart: Ref<echarts.ECharts | undefined>, props: any) => {
   const series = myChart.value.getOption().series;
   series[0].data[0] = props.dataLeft;
   series[1].data[0] = props.dataRight;
@@ -87,18 +84,18 @@ const LeftHeaderChart = defineComponent({
   name: 'LeftHeaderChart',
   props: { dataLeft: { type: Number }, dataRight: { type: Number } },
   setup(props) {
-    const myChartRef = ref<EChartsType>();
+    const myChartRef = ref<echarts.ECharts>();
     const chartRef = ref<HTMLDivElement>();
 
     onMounted(() => {
       renderLeftHeaderEcharts(myChartRef, chartRef);
+      updateChart(myChartRef, props);
 
       watch(
         () => [props.dataLeft, () => props.dataRight],
         () => {
           updateChart(myChartRef, props);
-        },
-        { immediate: true }
+        }
       );
     });
 

@@ -12,10 +12,11 @@ export default defineComponent({
       default: false,
     },
   },
-  setup(props) {
+  setup(props, { slots }) {
     return () => (
       <div className={'mb-[20px]'}>
-        {(props.separator ? formatter(props.money) : props.money.toString())
+        {slots.default?.()}
+        {(props.separator ? formatter(props.money ?? 0) : props.money.toString())
           .split(/(\d,)/g)
           .filter((item) => item !== '')
           .map((item) => (!item.includes(',') ? item.split('') : item))
@@ -23,7 +24,6 @@ export default defineComponent({
           .map((item, index) => (
             <span key={index}>{item}</span>
           ))}
-        {/* {moneyStringList.value?.map((item, index) => <span key={index}>{item}</span>)} */}
       </div>
     );
   },

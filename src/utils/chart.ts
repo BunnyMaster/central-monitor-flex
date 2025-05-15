@@ -13,7 +13,7 @@ export const debounceChart = (myChart: echarts.ECharts | undefined) => {
 
 /** 数字格式化 */
 export const formatter = (number: any) => {
-  const numbers = number.toString().split('').reverse();
+  const numbers = number?.toString().split('').reverse();
   const segs = [];
 
   while (numbers.length) segs.push(numbers.splice(0, 3).join(''));

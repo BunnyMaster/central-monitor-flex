@@ -103,7 +103,7 @@ onMounted(() => {
 
   .community__stat-card {
     position: relative;
-    width: 209px;
+    width: 215px;
     height: 204px;
     color: #fff;
 
@@ -111,6 +111,8 @@ onMounted(() => {
       position: absolute;
       top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .community__stat-content {
@@ -145,7 +147,7 @@ onMounted(() => {
   margin: 40px 0 0 0;
   width: 100%;
   height: 660px;
-  background: url('../images/bg-body.png') no-repeat;
+  background: url('../images/bg-body.png') no-repeat center;
   background-size: contain;
 
   /* 数据图片内容 */
@@ -186,7 +188,8 @@ onMounted(() => {
       align-items: center;
       width: 105px;
       height: 170px;
-      background: url('../images/bg-body-card.png');
+      background: url('../images/bg-body-card.png') no-repeat center;
+      background-size: cover;
 
       h1 {
         font-size: 40px;
@@ -206,7 +209,8 @@ onMounted(() => {
       width: 286px;
       height: 169px;
       color: #fff;
-      background: url('../images/bg-body-instrument-panel.png');
+      background: url('../images/bg-body-instrument-panel.png') no-repeat center;
+      background-size: cover;
     }
   }
 }

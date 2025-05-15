@@ -1,70 +1,60 @@
 <script lang="ts" setup>
 import { useIntervalFn } from '@vueuse/core';
-import { onMounted, ref } from 'vue';
+import dayjs from 'dayjs';
+import { storeToRefs } from 'pinia';
+import { onMounted, reactive, ref } from 'vue';
 
-import { displayContent } from '@/components/DigitalNumber/DigitalCurrency';
+import DigitalNumber from '@/components/DigitalNumber/DigitalNumber';
 import TimeSelect from '@/components/TimeSelect/index.vue';
 import { TimeSelectType } from '@/components/TimeSelect/type';
+import { useBigDataStore } from '@/store/modules/bigData';
 import { formatter } from '@/utils/chart';
 import { ChartProgress } from '@/views/big-data/charts/left-body';
 import { renderFooterChart, updateFooterChart } from '@/views/big-data/charts/left-footer';
 
-const timeList = ref<TimeSelectType[]>([
-  { label: '2020.09', value: '2021' },
-  { label: '2020.09', value: '2021' },
-  { label: '2020.09', value: '2021' },
+const TIME_LIST = ref<TimeSelectType[]>([
+  { label: '2020.09', value: '2020-09' },
+  { label: '2021.09', value: '2021-09' },
+  { label: '2022.09', value: '2022-08' },
+  { label: '2023.09', value: '2023-08' },
+  { label: '2025.09', value: '2025-08' },
 ]);
 
-/* body数据---模拟数据 */
-const bodyList = ref([]);
-const initBodyList = () => {
-  const randomNumber = (range: number = 100) => {
-    return parseInt((Math.random() * range).toFixed(0));
-  };
-
-  bodyList.value = [
-    { title: '经营总收入', amount: randomNumber(9999999), percent: randomNumber() },
-    { title: '经营总收入', amount: randomNumber(9999999), percent: randomNumber() },
-    { title: '经营总收入', amount: randomNumber(9999999), percent: randomNumber() },
-    { title: '经营总收入', amount: randomNumber(9999999), percent: randomNumber() },
-  ];
-};
+const bigdataStore = useBigDataStore();
+const { scaleProfit, incomeList, parkPlan } = storeToRefs(bigdataStore);
+const form = reactive({
+  date: TIME_LIST.value[0].value,
+});
 
 /* 底部图表---模拟数据 */
 const footerChartRef = ref<HTMLDivElement>();
-const mockFooterChart = () => {
-  function random() {
-    return Array(12)
-      .fill(0)
-      .map(() => {
-        const num = (Math.random() * 100).toFixed(2);
-        return parseInt(num);
-      });
-  }
 
-  const data: Array<Array<number>> = [random(), random()];
-  updateFooterChart(data);
+/* 初始化数据 */
+const initAppData = () => {
+  bigdataStore.fetchScaleProfit({ date: form.date });
+  bigdataStore.fetchYearIncome();
+  bigdataStore.fetchParkPlan();
+  updateFooterChart(parkPlan.value);
 };
 
 onMounted(() => {
   // 渲染底部图表
   renderFooterChart(footerChartRef);
-  initBodyList();
+  initAppData();
 
   // 模拟底部图表
   useIntervalFn(() => {
-    mockFooterChart();
-    initBodyList();
+    initAppData();
   }, 1000);
 });
 </script>
 
 <template>
   <div class="big-data__sidebar">
-    <div class="big-data__header">
+    <header class="big-data__header">
       <div class="flex-x-between">
         <h1 class="big-data__sidebar-title">规模效益</h1>
-        <TimeSelect :time-list="timeList" />
+        <TimeSelect v-model="form.date" :time-list="TIME_LIST" />
       </div>
 
       <ul>
@@ -74,16 +64,16 @@ onMounted(() => {
             <div>
               <span>
                 总值增幅
-                <em>+123%</em>
+                <em>+{{ scaleProfit.total }}%</em>
               </span>
               <span>
                 超越第二名
-                <em>+22.3%</em>
+                <em>+{{ scaleProfit.incomeChain }}%</em>
               </span>
             </div>
           </div>
           <div class="money-digit">
-            <component :is="displayContent('8888888')" />
+            <DigitalNumber :money="scaleProfit.income" :separator="true" />
           </div>
         </li>
 
@@ -93,47 +83,50 @@ onMounted(() => {
             <div>
               <span>
                 环比变化
-                <em>+123%</em>
+                <em>+{{ scaleProfit.expendChain }}%</em>
               </span>
             </div>
           </div>
           <div class="money-digit">
-            <component :is="displayContent('888888')" />
+            <DigitalNumber :money="scaleProfit.expend" :separator="true" />
           </div>
         </li>
       </ul>
-    </div>
+    </header>
 
-    <div class="big-data__body h-[389px]">
+    <main class="big-data__body h-[389px]">
       <div class="flex-x-between">
         <h1 class="big-data__sidebar-title">本年经营收入</h1>
-        <span class="big-data__sidebar-title-describe">截止时间至2021年6月</span>
+        <span class="big-data__sidebar-title-describe">
+          截止时间至 {{ dayjs(incomeList.endTime).format('YYYY-MM-DD') }}
+        </span>
       </div>
 
       <ul>
-        <li v-for="(item, index) in bodyList" :key="index">
+        <li v-for="(item, index) in incomeList.list" :key="index">
           <div>
             <h1>{{ item.title }}</h1>
-            <em>¥ {{ formatter(item.amount) }}}</em>
+            <em>¥ {{ formatter(item.amount) }}</em>
           </div>
           <ChartProgress :percent="item.percent" />
         </li>
       </ul>
-    </div>
+    </main>
 
-    <div class="big-data__footer">
+    <footer class="big-data__footer">
       <div class="flex-x-between">
         <div class="big-data__sidebar-title">
           <h1>园区规划</h1>
         </div>
       </div>
       <div ref="footerChartRef" class="big-data__footer-chart-container" />
-    </div>
+    </footer>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .big-data__header {
+  width: 100%;
   height: 274px;
 
   ul {

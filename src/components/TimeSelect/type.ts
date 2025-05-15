@@ -1,4 +1,4 @@
 export interface TimeSelectType {
-  value: string | number;
-  label: string | number;
+  value: string;
+  label: string;
 }

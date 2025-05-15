@@ -30,7 +30,6 @@ const option = ref<EChartsOption>({
     barWidth: 20,
     barGap: 0,
     coordinateSystem: 'polar',
-    itemStyle: {},
     label: { show: true, position: 'middle' },
   },
 });
@@ -50,13 +49,14 @@ export const renderBodyChart = (element: Ref<HTMLDivElement>) => {
 /** 更新图标数据 */
 export const updateBodyChart = (props: any) => {
   const series = myChart?.getOption()?.series;
+
   series[0].data = props.list?.map((item, index) => ({
     name: item.name,
     value: item.value,
     itemStyle: { color: colors[index], borderRadius: 10 },
   }));
 
-  const total = props.list.reduce((old, item) => old + item.value, 0);
+  const total = props.list?.reduce((old, item) => old + item.value, 0);
 
   const title = myChart?.getOption()?.title;
   title[0].text = total;

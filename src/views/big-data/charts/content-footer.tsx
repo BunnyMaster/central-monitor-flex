@@ -78,7 +78,7 @@ const option = {
 };
 
 /** 渲染图表 */
-export const renderFooterChart = (element: Ref<HTMLDivElement>) => {
+export const renderBigDateContentFooterChart = (element: Ref<HTMLDivElement>) => {
   myChart = echarts.init(element.value, null, {
     renderer: 'canvas',
     devicePixelRatio: window.devicePixelRatio,
@@ -87,4 +87,13 @@ export const renderFooterChart = (element: Ref<HTMLDivElement>) => {
   debounceChart(myChart);
 
   myChart.setOption(option);
+};
+
+/** 更新图标数据 */
+export const updateBigDateContentFooterChart = (props: { data: Array<number> }) => {
+  const series = myChart.getOption()?.series;
+  series[0].data = props.data;
+  series[1].data = props.data;
+
+  myChart.setOption({ series });
 };

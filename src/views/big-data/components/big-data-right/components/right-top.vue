@@ -1,50 +1,85 @@
 <script lang="tsx" setup>
-import { onMounted, ref } from 'vue';
+import { useIntervalFn } from '@vueuse/core';
+import { storeToRefs } from 'pinia';
+import { onMounted, reactive, ref } from 'vue';
 
-import { displayContent } from '@/components/DigitalNumber/DigitalCurrency';
+import DigitalNumber from '@/components/DigitalNumber/DigitalNumber';
 import TimeSelect from '@/components/TimeSelect/index.vue';
 import { TimeSelectType } from '@/components/TimeSelect/type';
-import { renderEcharts } from '@/views/big-data/charts/right-header';
+import { useBigDataStore } from '@/store/modules/bigData';
+import {
+  renderBigDataLeftTopEcharts,
+  updateBigDataLeftTopEcharts,
+} from '@/views/big-data/charts/right-header';
 
-const chartProgress = ref<HTMLDivElement>();
-const money = '1386114';
-
-const timeList = ref<TimeSelectType[]>([
-  { label: '2020.09', value: '2021' },
-  { label: '2020.09', value: '2021' },
-  { label: '2020.09', value: '2021' },
+const TIME_LIST = ref<TimeSelectType[]>([
+  { label: '2020.09', value: '2020-09' },
+  { label: '2021.09', value: '2021-09' },
+  { label: '2022.09', value: '2022-08' },
+  { label: '2023.09', value: '2023-08' },
+  { label: '2025.09', value: '2025-08' },
 ]);
 
+const bidDataStore = useBigDataStore();
+const { parkImportExportData } = storeToRefs(bidDataStore);
+
+// 图表
+const chartProgressRef = ref<HTMLDivElement>();
+
+// 查询表单
+const form = reactive({
+  date: TIME_LIST.value[0].value,
+});
+
+/* 初始化数据 */
+const initAppData = () => {
+  bidDataStore.fetchParkImportExportData({ date: form.date });
+  updateBigDataLeftTopEcharts({
+    import: parkImportExportData.value.import,
+    export: parkImportExportData.value.export,
+  });
+};
+
 onMounted(() => {
-  renderEcharts(chartProgress);
+  // 渲染图表
+  renderBigDataLeftTopEcharts(chartProgressRef);
+
+  // 初始化数据
+  initAppData();
+
+  // 定时刷新
+  useIntervalFn(() => {
+    initAppData();
+  }, 1000);
 });
 </script>
 
 <template>
   <div class="big-data__header h-[226px]">
     <div class="flex-x-between">
-      <h1 class="big-data__header-title">园区进出口额</h1>
+      <h1 class="big-data__sidebar-title">园区进出口额</h1>
       <div>
-        <span class="big-data__header-tag">总数据</span>
-        <TimeSelect :time-list="timeList" />
+        <TimeSelect v-model="form.date" :time-list="TIME_LIST" />
       </div>
     </div>
 
     <div class="money-digit">
-      <component :is="displayContent(money)" />
+      <DigitalNumber :money="parkImportExportData.amount" :separator="true">
+        <span>￥</span>
+      </DigitalNumber>
     </div>
 
     <div>
-      <div ref="chartProgress" class="big-data__header-progress" />
+      <div ref="chartProgressRef" class="big-data__header-progress" />
 
       <ul class="big-data__header-value">
         <li>
           进口额
-          <i>¥1551154545</i>
+          <i>¥ {{ parkImportExportData.import }}</i>
         </li>
         <li class="thin-line h-[20px]" />
         <li>
-          <i>¥1551154545</i>
+          <i>¥ {{ parkImportExportData.export }}</i>
           出口额
         </li>
       </ul>
@@ -57,7 +92,7 @@ onMounted(() => {
   margin: 14px 0 0 0;
   width: 100%;
 
-  span {
+  :deep(span) {
     height: 69px;
   }
 }

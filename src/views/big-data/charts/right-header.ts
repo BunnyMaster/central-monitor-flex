@@ -6,6 +6,8 @@ import { type Ref, ref } from 'vue';
 import echarts from '@/plugins/echarts';
 import { debounceChart } from '@/utils/chart';
 
+let myChart = null;
+
 const option = ref<EChartsOption>();
 option.value = {
   tooltip: {
@@ -44,8 +46,8 @@ option.value = {
   ],
 };
 
-export const renderEcharts = (element: Ref<HTMLDivElement>) => {
-  const myChart: any = echarts.init(element.value, null, {
+export const renderBigDataLeftTopEcharts = (element: Ref<HTMLDivElement>) => {
+  myChart = echarts.init(element.value, null, {
     renderer: 'svg',
     devicePixelRatio: window.devicePixelRatio,
   });
@@ -53,4 +55,16 @@ export const renderEcharts = (element: Ref<HTMLDivElement>) => {
   debounceChart(myChart);
 
   myChart.setOption(option.value);
+};
+
+/** 更新图标数据 */
+export const updateBigDataLeftTopEcharts = (props: {
+  import: Array<number>;
+  export: Array<number>;
+}) => {
+  const series = myChart.getOption()?.series;
+  series[0].data[0] = props.import;
+  series[1].data[0] = -props.export;
+
+  myChart.setOption({ series });
 };

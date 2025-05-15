@@ -1,15 +1,24 @@
 <script lang="ts" setup>
-const list = [
-  { title: '134.5㎡', summary: '建成投产面积' },
-  { title: '38000㎡', summary: '保税仓库面积' },
-  { title: '327.3㎡', summary: '物流场站' },
-  { title: '327.3㎡', summary: '物流场站' },
-  { title: '327.3㎡', summary: '物流场站' },
-  { title: '327.3㎡', summary: '物流场站' },
-  { title: '327.3㎡', summary: '物流场站' },
-  { title: '327.3㎡', summary: '物流场站' },
-  { title: '327.3㎡', summary: '物流场站' },
-];
+import { useIntervalFn } from '@vueuse/core';
+import { storeToRefs } from 'pinia';
+import { onMounted } from 'vue';
+
+import { useBigDataStore } from '@/store/modules/bigData';
+
+const bidDataStore = useBigDataStore();
+const { parkAreas } = storeToRefs(bidDataStore);
+
+const initAppData = () => {
+  bidDataStore.fetchParkAreas();
+};
+
+onMounted(() => {
+  initAppData();
+
+  useIntervalFn(() => {
+    initAppData();
+  }, 1000);
+});
 </script>
 
 <template>
@@ -19,8 +28,8 @@ const list = [
     </div>
 
     <ul class="big-data__sidebar-card">
-      <li v-for="(item, index) in list" :key="index">
-        <h1>{{ item.title }}</h1>
+      <li v-for="(item, index) in parkAreas" :key="index">
+        <h1>{{ item.title }} ㎡</h1>
         <p>{{ item.summary }}</p>
       </li>
     </ul>

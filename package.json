@@ -8,6 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "report": "rimraf dist && vite build",
+    "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock,build}/**/*.{vue,js,ts,tsx}\" --fix",
+    "lint:prettier": "prettier --write  \"src/**/*.{js,ts,json,tsx,css,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint --cache --fix \"**/*.{html,vue,css,scss}\" --cache-location node_modules/.cache/stylelint/",
     "lint": "pnpm lint:eslint && pnpm lint:prettier && pnpm lint:stylelint"
   },
@@ -57,7 +59,7 @@
     "vite-plugin-fake-server": "^2.2.0",
     "vite-plugin-remove-console": "^2.2.0",
     "vite-plugin-vue-inspector": "^5.3.1",
-    "vue": "^3.5.13",
+    "vue": "^3.5.14",
     "vue-demi": "^0.14.10",
     "vue-eslint-parser": "^9.4.3",
     "vue-router": "^4.4.3",
@@ -73,7 +75,9 @@
     "typescript": "~5.7.2",
     "vite": "6.2.6",
     "vite-plugin-compression": "^0.5.1",
-    "vue-tsc": "^2.2.0"
+    "vue-tsc": "^2.2.0",
+    "vite-plugin-vue-devtools": "^7.7.2",
+    "jiti": "^2.4.2"
   },
   "engines": {
     "node": "^18.18.0 || ^20.9.0 || >=21.1.0",

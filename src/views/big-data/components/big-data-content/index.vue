@@ -1,16 +1,24 @@
 <script lang="ts" setup>
 import { useIntervalFn } from '@vueuse/core';
+import { storeToRefs } from 'pinia';
 import { onMounted, ref } from 'vue';
 
+import { useBigDataStore } from '@/store/modules/bigData';
 import { getImage } from '@/utils/image';
-import { renderFooterChart } from '@/views/big-data/charts/content-footer';
+import {
+  renderBigDateContentFooterChart,
+  updateBigDateContentFooterChart,
+} from '@/views/big-data/charts/content-footer';
 
-const headerList = [
+const HEADER_LIST = [
   { title: '员工', img: '/images/big-data/bg-content-top-1.png' },
   { title: '智慧大楼', img: '/images/big-data/bg-content-top-2.png' },
   { title: '智慧设备', img: '/images/big-data/bg-content-top-3.png' },
   { title: '数据报表', img: '/images/big-data/bg-content-top-4.png' },
 ];
+
+const bidDataStore = useBigDataStore();
+const { revenueOverview } = storeToRefs(bidDataStore);
 
 const isActive = ref(true);
 const footerChartRef = ref<HTMLDivElement>();
@@ -22,9 +30,25 @@ const changeMoveState = () => {
   }, 2000);
 };
 
+const initAppData = async () => {
+  await bidDataStore.fetchRevenueOverview();
+  updateBigDateContentFooterChart({ data: revenueOverview.value });
+};
+
 onMounted(() => {
+  // 修改工作台箭头状态
   changeMoveState();
-  renderFooterChart(footerChartRef);
+
+  // 初始化渲染图表
+  renderBigDateContentFooterChart(footerChartRef);
+
+  // 初始化数据显示
+  initAppData();
+
+  // 定时获取数据内容
+  useIntervalFn(() => {
+    initAppData();
+  }, 1000);
 });
 </script>
 
@@ -32,7 +56,7 @@ onMounted(() => {
   <div class="big-data__content">
     <header class="big-data__header">
       <ul class="big-data__stats-list">
-        <li v-for="(item, index) in headerList" :key="index">
+        <li v-for="(item, index) in HEADER_LIST" :key="index">
           <img :src="getImage(item.img)" alt="" />
           <h2>{{ item.title }}</h2>
         </li>
