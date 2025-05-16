@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useRoute } from 'vue-router';
 
-import LayoutHeaderNav from '@/layout/layout-header/components/LayoutHeaderNav.vue';
+import LayoutHeaderNav from '@/layout/layout-header/components/layout-nav/LayoutHeaderNav.vue';
 
 const route = useRoute();
 </script>

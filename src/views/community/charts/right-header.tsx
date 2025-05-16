@@ -17,7 +17,7 @@ const option = ref<EChartsOption>({
     {
       name: '名称',
       type: 'pie',
-      radius: [14, 100],
+      radius: [14, 104],
       center: ['50%', '50%'],
       roseType: 'area',
       itemStyle: { borderRadius: 4 },
