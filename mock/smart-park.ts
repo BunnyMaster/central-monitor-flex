@@ -1,5 +1,7 @@
 import { defineFakeRoute } from 'vite-plugin-fake-server';
 
+const BASE_URL = '/mock/smart-park';
+
 const randomNumber = (range: number = 100) => {
   return parseInt((Math.random() * range).toFixed(0));
 };
@@ -14,7 +16,7 @@ const mockRoadStatus = () => {
 export default defineFakeRoute([
   // 道路状况
   {
-    url: '/api/smart-park/road-status',
+    url: `${BASE_URL}/road-status`,
     method: 'GET',
     response: () => ({
       code: 200,
@@ -50,7 +52,7 @@ export default defineFakeRoute([
   },
   // 车辆监控
   {
-    url: '/api/smart-park/monitor',
+    url: `${BASE_URL}/monitor`,
     method: 'GET',
     response: () => ({
       code: 200,
@@ -65,7 +67,7 @@ export default defineFakeRoute([
   },
   // 车流量
   {
-    url: '/api/smart-park/flow-rate',
+    url: `${BASE_URL}/flow-rate`,
     method: 'GET',
     response: () => ({
       code: 200,

@@ -2,9 +2,11 @@ import { defineStore } from 'pinia';
 
 import {
   getAlarmsOverview,
-  getCommityDeicesStatus,
+  getCommunityDeicesStatus,
   getCommunityDevicesAmount,
   getCommunityStatistics,
+  getDataStatistics,
+  getServerProject,
 } from '@/api/community';
 
 export const useCommunityStore = defineStore('communityStore', {
@@ -16,28 +18,36 @@ export const useCommunityStore = defineStore('communityStore', {
     // 统计列表
     statisticsList: [],
     // 设备状态
-    deviceStatus: { devcies: [], security: 0 },
+    deviceStatus: { devices: [], security: 0 },
+    // 数据统计
+    dataStatistics: [],
+    // 右侧底部服务项目
+    serverProject: [],
   }),
   actions: {
     /* 设备总数 */
     async fetchCommunityDevicesAmount() {
-      const result = await getCommunityDevicesAmount();
-
-      this.devicesList = result;
+      this.devicesList = await getCommunityDevicesAmount();
     },
     /* 预警概览 */
     async fetchAlarmsOverview() {
-      const result = await getAlarmsOverview();
-      this.alarmOverviewList = result;
+      this.alarmOverviewList = await getAlarmsOverview();
     },
     /* 社区统计 */
     async fetchCommunityStatisticsList() {
       this.statisticsList = await getCommunityStatistics();
     },
     /* 设备状态 */
-    async fetchCommityDeicesStatus() {
-      const result = await getCommityDeicesStatus();
-      this.deviceStatus = result;
+    async fetchCommunityDeicesStatus() {
+      this.deviceStatus = await getCommunityDeicesStatus();
+    },
+    /* 数据统计 */
+    async fetchDataStatistics() {
+      this.dataStatistics = await getDataStatistics();
+    },
+    /* 右侧底部服务项目 */
+    async fetchServerProject() {
+      this.serverProject = await getServerProject();
     },
   },
 });

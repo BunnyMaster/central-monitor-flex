@@ -1,5 +1,7 @@
 import { defineFakeRoute } from 'vite-plugin-fake-server/client';
 
+const BASE_URL = '/mock/community';
+
 const randomNumber = (range: number = 100) => {
   return parseInt((Math.random() * range).toFixed(0));
 };
@@ -7,7 +9,7 @@ const randomNumber = (range: number = 100) => {
 export default defineFakeRoute([
   // 设备总数
   {
-    url: '/api/community/devices-amount',
+    url: `${BASE_URL}/devices-amount`,
     method: 'GET',
     response: () => ({
       code: 200,
@@ -25,7 +27,7 @@ export default defineFakeRoute([
   },
   // 预警概览
   {
-    url: '/api/community/alarms-overview',
+    url: `${BASE_URL}/alarms-overview`,
     method: 'GET',
     response: () => ({
       code: 200,
@@ -40,7 +42,7 @@ export default defineFakeRoute([
   },
   // 中间顶部区域
   {
-    url: '/api/community/community-statistics',
+    url: `${BASE_URL}/community-statistics`,
     method: 'GET',
     response: () => ({
       code: 200,
@@ -58,12 +60,12 @@ export default defineFakeRoute([
   },
   // 中间区域设备运行状态
   {
-    url: '/api/community/devices-status',
+    url: `${BASE_URL}/devices-status`,
     method: 'GET',
     response: () => ({
       code: 200,
       data: {
-        devcies: [
+        devices: [
           {
             title: '正常运行总数',
             total: randomNumber(100),
@@ -83,6 +85,39 @@ export default defineFakeRoute([
         ],
         security: randomNumber(),
       },
+      message: '操作成功',
+    }),
+  },
+  // 数据统计
+  {
+    url: `${BASE_URL}/data-statistics`,
+    method: 'GET',
+    response: () => ({
+      code: 200,
+      data: [
+        { name: '园区面积', value: randomNumber(9999) },
+        { name: '绿化面积', value: randomNumber(9999) },
+        { name: '道路面积', value: randomNumber(9999) },
+        { name: '新能源车', value: randomNumber(9999) },
+        { name: '安防在线率', value: randomNumber(9999) },
+        { name: '安防在线率', value: randomNumber(9999) },
+      ],
+      message: '操作成功',
+    }),
+  },
+  // 服务项目
+  {
+    url: `${BASE_URL}/server-project`,
+    method: 'GET',
+    response: () => ({
+      code: 200,
+      data: Array(15)
+        .fill(0)
+        .map((_, index) => ({
+          name: `服务项目-${index}`,
+          left: randomNumber(),
+          right: randomNumber(),
+        })),
       message: '操作成功',
     }),
   },

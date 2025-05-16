@@ -5,7 +5,7 @@ import { onMounted, ref } from 'vue';
 
 import DigitalNumber from '@/components/DigitalNumber/DigitalNumber';
 import { useCommunityStore } from '@/store/modules/community';
-import { renderBodyChart, updateBodyChart } from '@/views/community/charts/left-body-chart';
+import { renderBodyChart, updateBodyChart } from '@/views/community/charts/left-footer-chart';
 import LeftHeaderChart from '@/views/community/charts/left-header-chart';
 import CommonPanel from '@/views/community/components/CommonPanel.vue';
 

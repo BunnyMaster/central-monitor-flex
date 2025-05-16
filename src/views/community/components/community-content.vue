@@ -18,7 +18,7 @@ const securityCharRef = ref();
 /* 初始化数据 */
 const initData = async () => {
   await communityStore.fetchCommunityStatisticsList();
-  await communityStore.fetchCommityDeicesStatus();
+  await communityStore.fetchCommunityDeicesStatus();
 
   updateBodyChart({ data: deviceStatus.value.security });
 };
@@ -63,7 +63,7 @@ onMounted(() => {
 
       <div class="community__metrics">
         <div
-          v-for="(item, index) in deviceStatus?.devcies?.slice(0, 2)"
+          v-for="(item, index) in deviceStatus?.devices?.slice(0, 2)"
           :key="index"
           class="community__metric-card"
         >
@@ -76,7 +76,7 @@ onMounted(() => {
         </div>
         <div ref="securityCharRef" class="community__instrument-panel" />
         <div
-          v-for="(item, index) in deviceStatus?.devcies?.slice(2, 4)"
+          v-for="(item, index) in deviceStatus?.devices?.slice(2, 4)"
           :key="index"
           class="community__metric-card"
         >

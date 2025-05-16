@@ -1,6 +1,6 @@
 import { defineFakeRoute } from 'vite-plugin-fake-server';
 
-const BASE_URL = '/api/big-data';
+const BASE_URL = '/mock/big-data';
 
 const randomNumber = (range: number = 100) => {
   return parseInt((Math.random() * range).toFixed(0));

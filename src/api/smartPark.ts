@@ -1,7 +1,7 @@
-import request from '@/api/server/request';
+import request from '@/api/server/requestMock';
 
 /* 实时道路 */
-export const gethRoadStatus = () => {
+export const getRoadStatus = () => {
   return request.get('/smart-park/road-status');
 };
 

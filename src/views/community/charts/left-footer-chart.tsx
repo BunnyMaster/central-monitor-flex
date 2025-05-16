@@ -7,7 +7,6 @@ import { debounceChart } from '@/utils/chart';
 let myChart = null;
 
 /* 随机颜色 */
-
 const colors = ['#3D7FFF', '#00FFFF', '#FF1190', '#FEDB65'];
 
 const option = ref<EChartsOption>({

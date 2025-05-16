@@ -1,4 +1,4 @@
-import request from '@/api/server/request';
+import request from '@/api/server/requestMock';
 
 /* 规模效益 */
 export const getScaleProfit = (data: any) => {

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 
-import { gethRoadStatus, getTollgateMonitoringData, getTrafficStatistics } from '@/api/smartPark';
+import { getRoadStatus, getTollgateMonitoringData, getTrafficStatistics } from '@/api/smartPark';
 
 export const useSmartPark = defineStore('smartparkStore', {
   state: () => ({
@@ -16,7 +16,7 @@ export const useSmartPark = defineStore('smartparkStore', {
   actions: {
     /* 道路情况 */
     async fetchRoadStatus() {
-      const result: any = await gethRoadStatus();
+      const result: any = await getRoadStatus();
       this.roadStatus = result.entrances;
       this.roadStatusSuggest = result.suggest;
     },
