@@ -57,7 +57,10 @@ const useMock = (mode: string) => {
         logger: true,
         include: 'mock',
         infixName: false,
-        enableProd: true, // 线上支持mock
+        enableDev: true,
+        enableProd: true,
+        build: true,
+        http2: true,
       })
     : null;
 };
