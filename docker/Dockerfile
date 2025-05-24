@@ -19,9 +19,9 @@ RUN echo "Asia/Shanghai" > /etc/timezone
 WORKDIR /usr/share/nginx/html
 
 # 将前端项目打包文件复制到 Nginx 的默认静态文件目录
-COPY dist/ /usr/share/nginx/html
+COPY docker/dist/ /usr/share/nginx/html
 # 复制到nginx目录下
-COPY dist/ /etc/nginx/html
+COPY docker/dist/ /etc/nginx/html
 
 # 暴露 Nginx 的默认端口
 EXPOSE 80
