@@ -61,9 +61,6 @@ const useMock = (mode: string) => {
         // enableProd: true,
         // build: true,
         // http2: true,
-        // enableProd: true,
-        // build: true,
-        // http2: true,
       })
     : null;
 };
