@@ -24,8 +24,6 @@ build-job:
     - npm i -g pnpm && pnpm i && pnpm build
     # 打印编译完成信息
     - echo "Compile complete."
-    # 创建文件夹
-    - mkdir docker/dist
     # 从Docker Hub拉取OpenJDK基础镜像
     - docker pull nginx:1.27.3
     # 打印拉取完成信息
