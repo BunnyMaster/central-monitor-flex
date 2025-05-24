@@ -16,8 +16,7 @@ build-job:
     # 打印编译开始信息
     - echo "Compiling the code..."
     # 使用Maven编译Java项目，跳过测试
-    - npm i -g pnpm && pnpm i
-    - pnpm build
+    - npm i -g pnpm && pnpm i && pnpm build
     # 打印编译完成信息
     - echo "Compile complete."
     # 从Docker Hub拉取OpenJDK基础镜像

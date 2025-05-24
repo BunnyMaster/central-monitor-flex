@@ -7,7 +7,7 @@ export const buildEnv = (): BuildOptions => {
     target: 'es2015',
     assetsInlineLimit: 20000,
     // 构建输出的目录，默认值为"dist"
-    outDir: 'docker/dist',
+    outDir: 'dist',
     // 用于指定使用的代码压缩工具。在这里，minify 被设置为 'terser'，表示使用 Terser 进行代码压缩。默认值terser
     // esbuild 打包更快，但是不能去除 console.log，terser打包慢，但能去除 console.log
     minify: 'terser', // "esbuild"
