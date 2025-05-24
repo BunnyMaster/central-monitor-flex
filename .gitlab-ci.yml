@@ -4,6 +4,11 @@ stages:
   - build-docker # 第二阶段：构建Docker镜像
   - deploy # 第三阶段：部署应用程序
 
+cache: # 缓存内容
+  paths:
+    - node_modules/
+    - docker/dist/
+
 # 定义全局变量
 variables:
   CONTAINER_NAME: 'central-monitor' # Docker容器名称
