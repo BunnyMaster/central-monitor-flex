@@ -95,6 +95,18 @@
       "allowedVersions": {
         "eslint": "9"
       }
+    },
+    "packageExtensions": {
+      "rollup@*": {
+        "optionalDependencies": {
+          "fsevents": "*"
+        }
+      }
     }
-  }
+  },
+  "onlyBuiltDependencies": [
+    "@parcel/watcher",
+    "esbuild",
+    "vue-demi"
+  ]
 }
