@@ -18,10 +18,13 @@ defineProps({
   width: 100%;
   height: 11px;
   border: 1px solid var(--color-primary-secondary);
+  border-radius: 2px;
 
   &-inner {
     height: 100%;
+    border-radius: 4px;
     background: var(--color-primary);
+    transition: all 0.4s;
   }
 }
 </style>

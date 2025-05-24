@@ -9,10 +9,7 @@ let myChart = null;
 
 const option = {
   tooltip: { trigger: 'item' },
-  legend: {
-    top: 'bottom',
-    data: ['品牌A', '品牌B', '品牌C', '品牌D', '品牌E', '品牌F'],
-  },
+  legend: { top: 'bottom', textStyle: { color: '#fff' } },
   series: [
     {
       name: '品牌占比',
@@ -27,9 +24,7 @@ const option = {
           shadowColor: 'rgba(0, 0, 0, 0.5)',
         },
       },
-      label: {
-        formatter: '{b}: {c}%',
-      },
+      label: { formatter: '{b}: {c}%', color: '#fff' },
       data: [
         { value: 10.89, name: '品牌A' },
         { value: 30.89, name: '品牌B' },
@@ -57,9 +52,8 @@ export const renderEcharts = (element: Ref<HTMLDivElement>) => {
 };
 
 /** 更新图表数据 */
-export const updateChart = (option: Array<Array<number>>) => {
+export const updateChart = (data: any) => {
   const series = myChart.getOption().series;
-  // series[0].data = option[0];
-  // series[1].data = option[1];
+  series[0].data = data;
   myChart.setOption({ series });
 };

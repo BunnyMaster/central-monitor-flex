@@ -7,7 +7,7 @@
       <!--<li><img alt="icon-2" src="../../images/icon/icon-2.png" /></li>-->
       <!--<li><img alt="icon-3" src="../../images/icon/icon-3.png" /></li>-->
     </ul>
-    <span class="hover">王菠萝</span>
+    <span class="hover">小兔子🐇</span>
   </div>
 </template>
 

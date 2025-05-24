@@ -1,23 +1,39 @@
 <script lang="ts" setup>
+import { useIntervalFn } from '@vueuse/core';
+import { storeToRefs } from 'pinia';
 import { onMounted, ref } from 'vue';
 
 import Progress1 from '@/components/Progress/Progress1.vue';
-import { renderEcharts } from '@/views/data-analyse/charts/left-brand';
+import { useDataAnalyseHook } from '@/store/modules/dataAnalyse';
+import { renderEcharts, updateChart } from '@/views/data-analyse/charts/left-brand';
 import PanelTitle from '@/views/data-analyse/components/PanelTitle.vue';
 
-const brandChartRef = ref();
-const deviceTotal = ref('1010');
+const dataAnalyseStore = useDataAnalyseHook();
+const { deviceSalesStats, companySalesDistribution, brandsDistribution } =
+  storeToRefs(dataAnalyseStore);
 
-const companyList = [
-  { name: '科技有限公司', amount: 18888, percent: '40' },
-  { name: '科技有限公司', amount: 18888, percent: '50' },
-  { name: '科技有限公司', amount: 18888, percent: '10' },
-  { name: '科技有限公司', amount: 18888, percent: '80' },
-  { name: '科技有限公司', amount: 18888, percent: '50' },
-];
+/* 初始化数据获取 */
+const initAppData = async () => {
+  // 销售设备总量
+  dataAnalyseStore.fetchDeviceSaesStats();
+  // 销售公司销售设备数量占比
+  dataAnalyseStore.fetchCompanySalesDistribution();
+  // 品牌占有率
+  await dataAnalyseStore.fetchBrandsDistribution();
+
+  // 更新图表
+  updateChart(brandsDistribution.value);
+};
+
+const brandChartRef = ref();
 
 onMounted(() => {
   renderEcharts(brandChartRef);
+  initAppData();
+
+  useIntervalFn(() => {
+    initAppData();
+  }, 1000);
 });
 </script>
 
@@ -28,13 +44,15 @@ onMounted(() => {
       <div>
         <h1 class="font-size-[21px]">销售设备总量(台)</h1>
         <div class="data-analyse-left__top-percent">
-          <span>环比去年增长 52%</span>
+          <span>环比去年增长 {{ deviceSalesStats.yearlyGrowthRate }} %</span>
           <i class="i-mdi-trending-up">s</i>
         </div>
       </div>
 
       <ul class="flex">
-        <li v-for="(num, index) in deviceTotal" :key="index">{{ num }}</li>
+        <li v-for="(num, index) in deviceSalesStats.totalDeviceSales.toString()" :key="index">
+          {{ num }}
+        </li>
       </ul>
     </div>
 
@@ -43,7 +61,7 @@ onMounted(() => {
       <PanelTitle title="销售公司销售设备数量占比" />
 
       <ul>
-        <li v-for="(item, index) in companyList" :key="index">
+        <li v-for="(item, index) in companySalesDistribution" :key="index">
           <div class="data-analyse-left__center-info">
             <span>{{ item.name }}</span>
             <div class="info-left">
