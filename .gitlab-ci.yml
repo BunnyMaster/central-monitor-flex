@@ -29,7 +29,7 @@ build-job:
     # 打印拉取完成信息
     - echo "docker pull complete."
     # 使用Dockerfile构建Docker镜像，并打上标签
-    - docker build -f Dockerfile -t $CONTAINER_NAME:$DOCKER_TAG .
+    - cd docker && docker build -f Dockerfile -t $CONTAINER_NAME:$DOCKER_TAG .
     # 打印构建成功信息
     - echo "Application successfully deployed."
 
