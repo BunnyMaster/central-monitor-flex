@@ -14,3 +14,13 @@ export const getCompanySalesDistribution = () => {
 export const getBrandsDistribution = () => {
   return request.get('data-analyse/brands-distribution');
 };
+
+/* 数据展示 */
+export const getDataShow = () => {
+  return request.get('data-analyse/data-show');
+};
+
+/* 销售设备数量区域占比 */
+export const getRegionSalesRatio = () => {
+  return request.get('data-analyse/region-sales-ratio');
+};

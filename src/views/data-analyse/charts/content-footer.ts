@@ -15,26 +15,18 @@ const option = {
   },
   title: {
     text: '单位：(万元)',
-    textStyle: {
-      color: 'rgba(131, 162, 192, 1)',
-      fontSize: 12,
-    },
+    textStyle: { color: '#83A2C0FF', fontSize: 12 },
     top: '4%',
     left: '2%',
   },
-  tooltip: {
-    trigger: 'axis',
-  },
+  tooltip: { trigger: 'axis' },
   legend: {
     data: ['增加值'],
     icon: 'rich',
     show: true,
     itemWidth: 18,
     itemHeight: 2,
-    textStyle: {
-      color: '#AFBDD1',
-      fontSize: '12px',
-    },
+    textStyle: { color: '#AFBDD1', fontSize: '12px' },
     top: 8,
     right: 10,
     itemGap: 34,
@@ -50,9 +42,7 @@ const option = {
         color: '#50637A',
       },
     },
-    axisTick: {
-      show: false,
-    },
+    axisTick: { show: false },
     axisLabel: {
       interval: 0,
       color: '#6071A9',
@@ -77,9 +67,9 @@ const option = {
   series: [
     {
       name: '增加值',
-      data: [1, 2, 3, 4, 7, 6, 7, 8, 4, 10],
+      data: [],
       type: 'line',
-      smooth: true,
+      // smooth: true,
       color: '#00F7FF',
       lineStyle: {
         width: 2,
@@ -119,14 +109,12 @@ export const renderFooterChart = (element: Ref<HTMLDivElement>) => {
   });
 
   debounceChart(myChart);
-
   myChart.setOption(option);
 };
 
 /** 更新图表数据 */
-export const updateChart = (option: Array<Array<number>>) => {
+export const updateChart = (data: any) => {
   const series = myChart.getOption().series;
-  // series[0].data = option[0];
-  // series[1].data = option[1];
+  series[0].data = data;
   myChart.setOption({ series });
 };

@@ -1,33 +1,54 @@
 <script lang="ts" setup>
+import { useIntervalFn } from '@vueuse/core';
+import { storeToRefs } from 'pinia';
 import { onMounted, ref } from 'vue';
 
-import { renderFooterChart } from '@/views/data-analyse/charts/content-footer';
+import { useDataAnalyseHook } from '@/store/modules/dataAnalyse';
+import { renderBodyChart } from '@/views/data-analyse/charts/content-body';
+import { renderFooterChart, updateChart } from '@/views/data-analyse/charts/content-footer';
 import PanelTitle from '@/views/data-analyse/components/PanelTitle.vue';
 
-const titleList = [170582, 586220, 168902];
+const dataAnalyseHook = useDataAnalyseHook();
+const { dataShow, regionSalesRatio } = storeToRefs(dataAnalyseHook);
 
 const footerChartRef = ref();
+const bodyChartRef = ref();
 
-const footerChart = () => {
-  renderFooterChart(footerChartRef);
+// 初始化数据
+const initAppData = async () => {
+  // 数据展示
+  dataAnalyseHook.fetchDataShow();
+  // 销售设备数量区域占比
+  await dataAnalyseHook.fetchRegionSalesRatio();
+
+  updateChart(regionSalesRatio.value);
 };
 
 onMounted(() => {
-  footerChart();
+  renderFooterChart(footerChartRef);
+  renderBodyChart(bodyChartRef);
+
+  initAppData();
+
+  useIntervalFn(() => {
+    initAppData();
+  }, 1000);
 });
 </script>
 
 <template>
   <div class="data-analyse-content">
     <ul class="data-analyse-content__header">
-      <li v-for="(item, index) in titleList" :key="index">
-        <h3>数据展示</h3>
-        <strong>{{ item }}</strong>
+      <li v-for="(item, index) in dataShow" :key="index">
+        <h3>{{ item.name }}</h3>
+        <strong>{{ item.value }}</strong>
         <span>台</span>
       </li>
     </ul>
 
-    <main class="data-analyse-content__body">body</main>
+    <main class="data-analyse-content__body">
+      <div ref="bodyChartRef" class="w-full h-[567px]" />
+    </main>
 
     <footer class="data-analyse-content__footer">
       <PanelTitle title="销售设备数量区域占比" />

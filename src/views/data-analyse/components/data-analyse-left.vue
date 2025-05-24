@@ -15,7 +15,7 @@ const { deviceSalesStats, companySalesDistribution, brandsDistribution } =
 /* 初始化数据获取 */
 const initAppData = async () => {
   // 销售设备总量
-  dataAnalyseStore.fetchDeviceSaesStats();
+  dataAnalyseStore.fetchDeviceSalesStats();
   // 销售公司销售设备数量占比
   dataAnalyseStore.fetchCompanySalesDistribution();
   // 品牌占有率

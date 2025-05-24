@@ -56,4 +56,49 @@ export default defineFakeRoute([
       message: '操作成功',
     }),
   },
+  // 数据展示
+  {
+    url: `${BASE_URL}/data-show`,
+    method: 'GET',
+    response: () => ({
+      code: 200,
+      data: Array(3)
+        .fill(0)
+        .map((_, index) => ({
+          name: `数据展示-${index + 1}`,
+          value: randomNumber(99999),
+        })),
+      message: '操作成功',
+    }),
+  },
+  {
+    url: `${BASE_URL}/region-sales-ratio`,
+    method: 'GET',
+    response: () => ({
+      code: 200,
+      data: Array(12)
+        .fill(0)
+        .map((_, index) => {
+          const city = [
+            '北京',
+            '上海',
+            '广州',
+            '深圳',
+            '成都',
+            '杭州',
+            '武汉',
+            '重庆',
+            '西安',
+            '苏州',
+            '南京',
+            '长沙',
+          ];
+          return {
+            name: city[index],
+            value: randomNumber(9999),
+          };
+        }),
+      message: '操作成功',
+    }),
+  },
 ]);
