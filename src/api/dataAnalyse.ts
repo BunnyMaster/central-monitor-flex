@@ -24,3 +24,8 @@ export const getDataShow = () => {
 export const getRegionSalesRatio = () => {
   return request.get('data-analyse/region-sales-ratio');
 };
+
+/* 数据占有率 */
+export const getDataRatio = () => {
+  return request.get('data-analyse/data-ratio');
+};

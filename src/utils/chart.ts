@@ -1,4 +1,5 @@
 import { useDebounceFn, useEventListener } from '@vueuse/core';
+import type { EChartsType } from 'echarts';
 
 import echarts from '@/plugins/echarts';
 
@@ -37,4 +38,19 @@ export const graphicLinearGradient = (
       { offset: 1, color: color2 },
     ]
   );
+};
+
+export const resetSelect = (myChart: EChartsType) => {
+  myChart.dispatchAction({
+    type: 'downplay',
+    seriesIndex: 0,
+  });
+};
+
+export const selectSector = (myChart: EChartsType, dataIndex: number) => {
+  myChart.dispatchAction({
+    type: 'highlight',
+    seriesIndex: 0,
+    dataIndex,
+  });
 };

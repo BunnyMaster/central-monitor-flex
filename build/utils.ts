@@ -94,20 +94,54 @@ export const logOutputSize = (): string => {
     return `${size.toFixed(2)} ${units[index]}`;
   }
 
-  // 计算文件夹字节大小
-  function getFolderSize(folderPath: string) {
+  /**
+   * 计算文件夹大小（排除图片文件）
+   * @param folderPath 文件夹路径
+   * @param currentDepth 当前递归深度（内部使用）
+   * @returns 文件夹大小（字节）
+   */
+  function getFolderSize(folderPath: string, currentDepth: number = 0): number {
+    // 公共常量定义
+    const EXCLUDED_FILE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp', '.svg'];
+    const MAX_DEPTH = 10; // 最大递归深度限制
+
+    // 安全检查
+    if (!fs.existsSync(folderPath)) {
+      throw new Error(`文件夹不存在: ${folderPath}`);
+    }
+
+    if (currentDepth > MAX_DEPTH) {
+      console.warn(`达到最大递归深度 ${MAX_DEPTH}，停止遍历: ${folderPath}`);
+      return 0;
+    }
+
     let size = 0;
 
-    fs.readdirSync(folderPath).forEach((fileName: string) => {
-      const filePath = path.join(folderPath, fileName);
-      const stats = fs.statSync(filePath);
+    try {
+      const files = fs.readdirSync(folderPath);
 
-      if (stats.isFile()) {
-        size += stats.size;
-      } else if (stats.isDirectory()) {
-        size += getFolderSize(filePath);
+      for (const fileName of files) {
+        const filePath = path.join(folderPath, fileName);
+
+        try {
+          const stats = fs.statSync(filePath);
+
+          if (stats.isFile()) {
+            // 检查文件扩展名是否在排除列表中
+            const ext = path.extname(fileName).toLowerCase();
+            if (!EXCLUDED_FILE_EXTENSIONS.includes(ext)) {
+              size += stats.size;
+            }
+          } else if (stats.isDirectory()) {
+            size += getFolderSize(filePath, currentDepth + 1);
+          }
+        } catch (error) {
+          console.error(`无法访问文件: ${filePath}`, error);
+        }
       }
-    });
+    } catch (error) {
+      console.error(`无法读取目录: ${folderPath}`, error);
+    }
 
     return size;
   }

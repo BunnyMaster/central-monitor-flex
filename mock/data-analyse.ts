@@ -71,6 +71,7 @@ export default defineFakeRoute([
       message: '操作成功',
     }),
   },
+  // 销售设备数量区域占比
   {
     url: `${BASE_URL}/region-sales-ratio`,
     method: 'GET',
@@ -98,6 +99,20 @@ export default defineFakeRoute([
             value: randomNumber(9999),
           };
         }),
+      message: '操作成功',
+    }),
+  },
+  {
+    url: `${BASE_URL}/data-ratio`,
+    method: 'GET',
+    response: () => ({
+      code: 200,
+      data: Array(6)
+        .fill(0)
+        .map((_, index) => ({
+          name: `数据-${index + 1}`,
+          value: randomNumber(),
+        })),
       message: '操作成功',
     }),
   },

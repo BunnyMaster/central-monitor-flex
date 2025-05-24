@@ -1,23 +1,40 @@
 <script lang="ts" setup>
+import { useIntervalFn } from '@vueuse/core';
+import { storeToRefs } from 'pinia';
 import { onMounted, ref } from 'vue';
 
+import { useDataAnalyseHook } from '@/store/modules/dataAnalyse';
 import { renderBodyChart } from '@/views/data-analyse/charts/right-body';
 import { renderFooterChart } from '@/views/data-analyse/charts/right-footer';
+import { renderTopChart, updateTopChart } from '@/views/data-analyse/charts/right-top';
 import PanelTitle from '@/views/data-analyse/components/PanelTitle.vue';
 
+const topChartRef = ref();
+const bodyChartRef = ref();
 const footerChartRef = ref();
-const footerChart = () => {
+
+const dataAnalyseHook = useDataAnalyseHook();
+const { dataRatio } = storeToRefs(dataAnalyseHook);
+
+/* 渲染图表 */
+const renderChart = () => {
+  renderTopChart(topChartRef);
+  renderBodyChart(bodyChartRef);
   renderFooterChart(footerChartRef);
 };
 
-const bodyChartRef = ref();
-const bodyChart = () => {
-  renderBodyChart(bodyChartRef);
+const initAppData = async () => {
+  await dataAnalyseHook.fetchDataRatio();
+  updateTopChart(dataRatio.value);
 };
 
 onMounted(() => {
-  bodyChart();
-  footerChart();
+  renderChart();
+  initAppData();
+
+  useIntervalFn(() => {
+    initAppData();
+  }, 10000);
 });
 </script>
 
@@ -25,7 +42,7 @@ onMounted(() => {
   <div class="data-analyse-right">
     <header class="data-analyse-right__header">
       <PanelTitle title="数据占有率" />
-      <div ref="bodyChartRef" class="data-analyse-right-chart" />
+      <div ref="topChartRef" class="data-analyse-right__header-chart" />
     </header>
 
     <main class="data-analyse-right__body">
@@ -50,6 +67,11 @@ onMounted(() => {
     margin: 10px 0 0 0;
     width: 100%;
     height: 305px;
+
+    &-chart {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &__body {

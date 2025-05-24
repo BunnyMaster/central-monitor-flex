@@ -1,3 +1,4 @@
+import type { EChartsOption } from 'echarts';
 import type { Ref } from 'vue';
 
 import echarts from '@/plugins/echarts';
@@ -5,7 +6,7 @@ import { debounceChart } from '@/utils/chart';
 
 let myChart = null;
 
-const option = {
+const option: EChartsOption = {
   grid: {
     left: '4%',
     right: '4%',
@@ -21,9 +22,9 @@ const option = {
   },
   tooltip: { trigger: 'axis' },
   legend: {
+    show: false,
     data: ['增加值'],
     icon: 'rich',
-    show: true,
     itemWidth: 18,
     itemHeight: 2,
     textStyle: { color: '#AFBDD1', fontSize: '12px' },
