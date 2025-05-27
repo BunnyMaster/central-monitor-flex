@@ -29,3 +29,13 @@ export const getRegionSalesRatio = () => {
 export const getDataRatio = () => {
   return request.get('data-analyse/data-ratio');
 };
+
+/* 数据分析展示 */
+export const getDataAnalyse = () => {
+  return request.get('data-analyse/data-analyse');
+};
+
+/* 数据展示统计 */
+export const getDataShowStatistics = () => {
+  return request.get('data-analyse/data-show-statistics');
+};

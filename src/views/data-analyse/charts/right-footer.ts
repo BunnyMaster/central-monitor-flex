@@ -4,26 +4,16 @@ import echarts from '@/plugins/echarts';
 import { debounceChart } from '@/utils/chart';
 
 let myChart = null;
-const data = [
-  { name: '张三', value: 88 },
-  { name: '李四', value: 250 },
-  { name: '王五', value: 5438 },
-  { name: '赵六', value: 8848 },
-  { name: '陈七', value: 9527 },
-  { name: '朱八', value: 10086 },
-];
 
 const option = {
   title: {
     text: '34467',
-    subtext: '历史预警数',
     left: 'center',
     top: 'center',
-    textStyle: { color: '#fff', fontSize: 34 },
-    subtextStyle: { color: '#fff', fontSize: 16 },
+    textStyle: { color: '#fff', fontSize: 19 },
   },
   grid: { containLabel: false },
-  polar: { radius: [60, '100%'] },
+  polar: { radius: [40, '90%'] },
   angleAxis: { show: false, startAngle: 90 },
   radiusAxis: { show: false, type: 'category' },
   tooltip: {},
@@ -31,9 +21,22 @@ const option = {
     type: 'bar',
     data: [],
     barWidth: 20,
-    barGap: 0,
+    barGap: 9,
     coordinateSystem: 'polar',
     label: { show: true, position: 'middle' },
+  },
+  visualMap: {
+    show: false,
+    showLabel: false,
+    type: 'piecewise',
+    pieces: [
+      { min: 0, max: 20, label: '低', color: '#FF6363' },
+      { min: 20, max: 30, label: '低中', color: '#FFCC00' },
+      { min: 30, max: 50, label: '中', color: '#00FFFF' },
+      { min: 50, max: 70, label: '中高', color: '#00CCFF' },
+      { min: 70, max: 100, label: '高', color: '#0096FF' },
+    ],
+    seriesIndex: 0,
   },
 };
 
@@ -50,9 +53,15 @@ export const renderFooterChart = (element: Ref<HTMLDivElement>) => {
 };
 
 /** 更新图表数据 */
-export const updateChart = (option: Array<Array<number>>) => {
+export const updateFooterChart = (data: any) => {
   const series = myChart.getOption().series;
-  // series[0].data = option[0];
-  // series[1].data = option[1];
-  myChart.setOption({ series });
+  series[0].data = data.map((item: any) => ({
+    name: item.name,
+    value: item.value,
+  }));
+
+  const total = data?.reduce((old, item) => old + item.value, 0);
+  const title = myChart?.getOption()?.title;
+  title[0].text = total;
+  myChart.setOption({ title, series });
 };

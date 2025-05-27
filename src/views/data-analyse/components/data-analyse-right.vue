@@ -4,8 +4,8 @@ import { storeToRefs } from 'pinia';
 import { onMounted, ref } from 'vue';
 
 import { useDataAnalyseHook } from '@/store/modules/dataAnalyse';
-import { renderBodyChart } from '@/views/data-analyse/charts/right-body';
-import { renderFooterChart } from '@/views/data-analyse/charts/right-footer';
+import { renderBodyChart, updateBodyChart } from '@/views/data-analyse/charts/right-body';
+import { renderFooterChart, updateFooterChart } from '@/views/data-analyse/charts/right-footer';
 import { renderTopChart, updateTopChart } from '@/views/data-analyse/charts/right-top';
 import PanelTitle from '@/views/data-analyse/components/PanelTitle.vue';
 
@@ -14,7 +14,7 @@ const bodyChartRef = ref();
 const footerChartRef = ref();
 
 const dataAnalyseHook = useDataAnalyseHook();
-const { dataRatio } = storeToRefs(dataAnalyseHook);
+const { dataRatio, dataAnalyse, dataShowStatistics } = storeToRefs(dataAnalyseHook);
 
 /* 渲染图表 */
 const renderChart = () => {
@@ -26,12 +26,23 @@ const renderChart = () => {
 const initAppData = async () => {
   await dataAnalyseHook.fetchDataRatio();
   updateTopChart(dataRatio.value);
+
+  // 更新中间图表
+  await dataAnalyseHook.fetchDataAnalyse();
+  updateBodyChart(dataAnalyse.value);
+
+  // 数据展示统计
+  await dataAnalyseHook.fetchDataShowStatistics();
+  updateFooterChart(dataShowStatistics.value);
 };
 
 onMounted(() => {
+  // 渲染图表
   renderChart();
+  // 获取图表的数据
   initAppData();
 
+  // 定时更新
   useIntervalFn(() => {
     initAppData();
   }, 10000);
@@ -91,6 +102,7 @@ onMounted(() => {
     height: 257px;
 
     &-chart {
+      margin: 19px 0 0 0;
       width: 100%;
       height: 100%;
     }

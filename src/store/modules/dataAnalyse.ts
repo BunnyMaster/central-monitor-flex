@@ -3,8 +3,10 @@ import { defineStore } from 'pinia';
 import {
   getBrandsDistribution,
   getCompanySalesDistribution,
+  getDataAnalyse,
   getDataRatio,
   getDataShow,
+  getDataShowStatistics,
   getDeviceSalesStats,
   getRegionSalesRatio,
 } from '@/api/dataAnalyse';
@@ -28,6 +30,10 @@ export const useDataAnalyseStore = defineStore('dataAnalyseStore', {
     regionSalesRatio: [],
     // 数据占有率
     dataRatio: [],
+    // 数据分析展示
+    dataAnalyse: [],
+    // 数据展示统计
+    dataShowStatistics: [],
   }),
   actions: {
     /* 销售设备总量 */
@@ -58,6 +64,16 @@ export const useDataAnalyseStore = defineStore('dataAnalyseStore', {
     /* 数据占有率 */
     async fetchDataRatio() {
       this.dataRatio = await getDataRatio();
+    },
+
+    /* 数据分析展示 */
+    async fetchDataAnalyse() {
+      this.dataAnalyse = await getDataAnalyse();
+    },
+
+    /* 数据展示统计 */
+    async fetchDataShowStatistics() {
+      this.dataShowStatistics = await getDataShowStatistics();
     },
   },
 });

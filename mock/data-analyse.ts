@@ -102,6 +102,7 @@ export default defineFakeRoute([
       message: '操作成功',
     }),
   },
+  // 数据占有率
   {
     url: `${BASE_URL}/data-ratio`,
     method: 'GET',
@@ -113,6 +114,33 @@ export default defineFakeRoute([
           name: `数据-${index + 1}`,
           value: randomNumber(),
         })),
+      message: '操作成功',
+    }),
+  },
+  // 数据分析展示
+  {
+    url: `${BASE_URL}/data-analyse`,
+    method: 'GET',
+    response: () => ({
+      code: 200,
+      data: Array(5)
+        .fill(0)
+        .map((_, index) => ({
+          name: `品牌${index + 1}`,
+          value: randomNumber(999),
+        })),
+      message: '操作成功',
+    }),
+  },
+  // 数据展示统计
+  {
+    url: `${BASE_URL}/data-show-statistics`,
+    method: 'GET',
+    response: () => ({
+      code: 200,
+      data: Array(6)
+        .fill(0)
+        .map((_, index) => ({ name: `数据展示${index + 1}`, value: randomNumber() })),
       message: '操作成功',
     }),
   },

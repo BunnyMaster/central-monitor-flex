@@ -4,102 +4,93 @@ import type { Ref } from 'vue';
 import echarts from '@/plugins/echarts';
 import { debounceChart } from '@/utils/chart';
 
+const getLinearGradient = (color1: string, color2: string): any => {
+  return new echarts.graphic.LinearGradient(
+    0,
+    0,
+    0,
+    1,
+    [
+      { offset: 0, color: color1 },
+      { offset: 0.8, color: color2 },
+    ],
+    false
+  );
+};
 let myChart = null;
 
 const option: EChartsOption = {
-  grid: {
-    left: '4%',
-    right: '4%',
-    bottom: '19%',
-    top: '20%',
-    containLabel: true,
-  },
+  tooltip: { trigger: 'axis' },
   title: {
     text: '单位：(万元)',
     textStyle: { color: '#83A2C0FF', fontSize: 12 },
     top: '4%',
     left: '2%',
   },
-  tooltip: { trigger: 'axis' },
-  legend: {
-    show: false,
-    data: ['增加值'],
-    icon: 'rich',
-    itemWidth: 18,
-    itemHeight: 2,
-    textStyle: { color: '#AFBDD1', fontSize: '12px' },
-    top: 8,
-    right: 10,
-    itemGap: 34,
+  grid: {
+    left: '9%',
+    right: '2%',
+    bottom: '9%',
+    top: '19%',
+    containLabel: false,
   },
-
   xAxis: {
-    data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    data: [],
     type: 'category',
-    boundaryGap: false,
-    axisLine: {
-      symbol: 'none',
-      lineStyle: {
-        color: '#50637A',
-      },
-    },
+    // boundaryGap: false,
+    axisLine: { symbol: 'none', lineStyle: { color: '#50637A' } },
     axisTick: { show: false },
-    axisLabel: {
-      interval: 0,
-      color: '#6071A9',
-      fontSize: 12,
-      padding: [10, 0, 0, 0],
-    },
+    axisLabel: { interval: 0, color: '#fff', fontSize: 12 },
   },
   yAxis: {
     type: 'value',
-    axisLabel: {
-      color: '#6071A9',
-      fontSize: 12,
-      padding: [0, 10, 0, 0],
-    },
-    splitLine: {
-      lineStyle: {
-        color: '#50637A',
-        type: 'dashed',
-      },
-    },
+    axisLabel: { color: '#fff', fontSize: 12 },
+    splitLine: { lineStyle: { color: '#50637A', type: 'dashed' } },
   },
   series: [
     {
-      name: '增加值',
+      name: '数据分析',
       data: [],
-      type: 'line',
-      // smooth: true,
+      type: 'pictorialBar',
       color: '#00F7FF',
-      lineStyle: {
-        width: 2,
-      },
-      areaStyle: {
-        color: new echarts.graphic.LinearGradient(
-          0,
-          0,
-          0,
-          1,
-          [
-            {
-              offset: 0,
-              color: 'rgba(0, 247, 255, .6)',
-            },
-            {
-              offset: 0.8,
-              color: 'rgba(0, 247, 255, .2)',
-            },
-          ],
-          false
-        ),
-        shadowColor: 'rgba(0, 0, 0, 0.1)',
-        shadowBlur: 10,
-      },
-      symbol: 'circle',
-      symbolSize: 6,
+      barWidth: 40,
+      symbol: 'triangle',
+      label: { show: true, position: 'top', color: '#fff' },
     },
   ],
+  visualMap: {
+    show: false,
+    showLabel: false,
+    type: 'piecewise',
+    pieces: [
+      { min: 0, max: 100, label: '低', color: getLinearGradient('#FF6363', 'rgba(255,99,99,0.2)') },
+      {
+        min: 100,
+        max: 300,
+        label: '低中',
+        color: getLinearGradient('#FFCC00', 'rgba(255,204,0,0.2)'),
+      },
+      {
+        min: 300,
+        max: 500,
+        label: '中',
+        color: getLinearGradient('#00FFFF', 'rgba(0,255,255,0.2)'),
+      },
+      {
+        min: 500,
+        max: 700,
+        label: '中高',
+        color: getLinearGradient('#00CCFF', 'rgba(0,204,255,0.2)'),
+      },
+      {
+        min: 700,
+        max: 1000,
+        label: '高',
+        color: getLinearGradient('#0096FF', 'rgba(0,150,255,0.2)'),
+      },
+    ],
+    seriesIndex: 0,
+  },
 };
 
 /** 渲染图表 */
@@ -108,16 +99,16 @@ export const renderBodyChart = (element: Ref<HTMLDivElement>) => {
     renderer: 'canvas',
     devicePixelRatio: window.devicePixelRatio,
   });
-
   debounceChart(myChart);
-
   myChart.setOption(option);
 };
 
 /** 更新图表数据 */
-export const updateChart = (option: Array<Array<number>>) => {
+export const updateBodyChart = (data: any) => {
+  const xAxis = myChart.getOption().xAxis;
+  xAxis[0].data = data.map((item: any) => item.name);
+
   const series = myChart.getOption().series;
-  // series[0].data = option[0];
-  // series[1].data = option[1];
-  myChart.setOption({ series });
+  series[0].data = data;
+  myChart.setOption({ xAxis, series });
 };

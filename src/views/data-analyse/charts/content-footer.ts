@@ -32,37 +32,19 @@ const option: EChartsOption = {
     right: 10,
     itemGap: 34,
   },
-
   xAxis: {
-    data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    data: [],
     type: 'category',
     boundaryGap: false,
-    axisLine: {
-      symbol: 'none',
-      lineStyle: {
-        color: '#50637A',
-      },
-    },
+    axisLine: { symbol: 'none', lineStyle: { color: '#50637A' } },
     axisTick: { show: false },
-    axisLabel: {
-      interval: 0,
-      color: '#6071A9',
-      fontSize: 12,
-      padding: [10, 0, 0, 0],
-    },
+    axisLabel: { interval: 0, color: '#fff', fontSize: 12, padding: [10, 0, 0, 0] },
   },
   yAxis: {
     type: 'value',
-    axisLabel: {
-      color: '#6071A9',
-      fontSize: 12,
-      padding: [0, 10, 0, 0],
-    },
+    axisLabel: { color: '#fff', fontSize: 12, padding: [0, 10, 0, 0] },
     splitLine: {
-      lineStyle: {
-        color: '#50637A',
-        type: 'dashed',
-      },
+      lineStyle: { color: '#50637A', type: 'dashed' },
     },
   },
   series: [
@@ -72,9 +54,7 @@ const option: EChartsOption = {
       type: 'line',
       // smooth: true,
       color: '#00F7FF',
-      lineStyle: {
-        width: 2,
-      },
+      lineStyle: { width: 2 },
       areaStyle: {
         color: new echarts.graphic.LinearGradient(
           0,
@@ -115,7 +95,10 @@ export const renderFooterChart = (element: Ref<HTMLDivElement>) => {
 
 /** 更新图表数据 */
 export const updateChart = (data: any) => {
+  const xAxis = myChart.getOption().xAxis;
+  xAxis[0].data = data.map((item: any) => item.name);
+
   const series = myChart.getOption().series;
   series[0].data = data;
-  myChart.setOption({ series });
+  myChart.setOption({ xAxis, series });
 };
