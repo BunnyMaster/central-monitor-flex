@@ -1,7 +1,7 @@
 {
-  "name": "central-monitor",
+  "name": "central-monitor-flex",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,6 +12,28 @@
     "lint:prettier": "prettier --write  \"src/**/*.{js,ts,json,tsx,css,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint --cache --fix \"**/*.{html,vue,css,scss}\" --cache-location node_modules/.cache/stylelint/",
     "lint": "pnpm lint:eslint && pnpm lint:prettier && pnpm lint:stylelint"
+  },
+  "keywords": [
+    "central-monitor-flex",
+    "uno.css",
+    "typescript",
+    "pinia",
+    "vue3",
+    "vite",
+    "esm"
+  ],
+  "homepage": "https://github.com/BunnyMaster",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BunnyMaster/central-monitor-flex.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BunnyMaster/central-monitor-flex/issues"
+  },
+  "author": {
+    "name": "BunnyMaster",
+    "email": "1319900154@qq.com",
+    "url": "https://github.com/BunnyMaster"
   },
   "dependencies": {
     "@eslint/js": "^9.21.0",
