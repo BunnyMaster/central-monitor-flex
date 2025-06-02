@@ -13,14 +13,14 @@ const option: EChartsOption = {
   tooltip: { position: 'right', trigger: 'item' },
   legend: {
     orient: 'horizontal', // 垂直排列
-    right: 0, // 距离右侧10px
+    right: 0,
     left: 240,
     top: 'center', // 垂直居中
     align: 'left', // 文本左对齐
     icon: 'circle', // 圆形图标
     itemGap: 50, // 图例项间隔
-    itemWidth: 10, // 图例标记宽度
-    itemHeight: 10, // 图例标记高度
+    itemWidth: 14, // 图例标记宽度
+    itemHeight: 14, // 图例标记高度
     textStyle: { color: '#fff', fontSize: 14 },
     formatter(name) {
       const series = myChart.getOption().series;
