@@ -1,6 +1,6 @@
 # Central-Monitor-Flex | 数据大屏解决方案  
 
-![Vue3](https://img.shields.io/badge/Vue3-4FC08D?logo=vue.js)  ![ECharts](https://img.shields.io/badge/ECharts-AA344D?logo=apache)  ![Mock数据](https://img.shields.io/badge/Mock数据-100%覆盖-green) ![轮询优化](https://img.shields.io/badge/轮询延迟-1s以内-blue)  
+![Vue3](https://img.shields.io/badge/Vue3-4FC08D?logo=vue.js)  ![ECharts](https://img.shields.io/badge/ECharts-AA344D?logo=apache)  ![Mock数据](https://img.shields.io/badge/MockData-100%Coverage-green) ![轮询优化](https://img.shields.io/badge/轮询延迟-1s以内-blue)  
 
 **企业级数据可视化大屏，支持动态轮询、自动适配、高保真UI还原**  
 
@@ -119,5 +119,3 @@ VITE_POST_CSS_PX_TO_VIEWPORT8_PLUGIN=true npm run build
 - **轮询防抖**：避免频繁请求导致内存泄漏  
 - **ECharts实例池**：复用图表DOM节点  
 
-## 📜 开源协议  
-MIT License 
